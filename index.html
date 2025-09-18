@@ -6,62 +6,73 @@
   <title>Prevention</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(160deg, #89f7fe, #66a6ff);
       margin: 0;
       padding: 0;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      color: #fff;
+      color: #333;
     }
     .card {
       background: #fff;
       color: #333;
-      padding: 2rem;
+      padding: 2.5rem;
       border-radius: 1.5rem;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-      max-width: 400px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      max-width: 420px;
       text-align: center;
       width: 90%;
     }
     h1 {
       margin-bottom: 0.5rem;
-      font-size: 1.8rem;
+      font-size: 2rem;
+      color: #222;
     }
     p {
       margin-bottom: 2rem;
-      color: #666;
+      font-size: 1.05rem;
+      color: #555;
     }
     .button {
       display: block;
       width: 100%;
-      margin: 0.5rem 0;
+      margin: 0.6rem 0;
       padding: 1rem;
       border: none;
       border-radius: 0.75rem;
       font-size: 1rem;
       font-weight: bold;
       cursor: pointer;
-      transition: all 0.3s;
+      transition: all 0.25s ease;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.1);
     }
     .family { background: #4cafef; color: #fff; }
     .hotline { background: #f44336; color: #fff; }
     .angel { background: #ddd; color: #666; cursor: not-allowed; }
     .button:hover:not(.angel) {
-      opacity: 0.9;
-      transform: scale(1.02);
+      opacity: 0.95;
+      transform: translateY(-2px);
+    }
+    footer {
+      margin-top: 1.5rem;
+      font-size: 0.8rem;
+      color: #888;
     }
   </style>
 </head>
 <body>
   <div class="card">
-    <h1>A Safe Place to Share</h1>
-    <p>Choose where to send your message of hope.</p>
+    <h1>You’re Not Alone</h1>
+    <p>Choose how you want to share your message safely.</p>
     <button class="button family" onclick="location.href='dashboard.html'">Send to Family</button>
     <button class="button hotline" onclick="location.href='dashboard.html'">Send to Crisis Hotline</button>
     <button class="button angel">Send to Angel (Coming Soon)</button>
+    <footer>If you are in immediate danger, please dial <strong>988</strong> (U.S.)</footer>
   </div>
 </body>
 </html>
+
+
