@@ -9,56 +9,23 @@ body {
   font-family: 'Segoe UI', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: repeating-linear-gradient(
-    45deg,
-    #f0f2f5,
-    #f0f2f5 10px,
-    #e6ebf2 10px,
-    #e6ebf2 20px
-  );
+  background: #f0f2f5;
   color: #333;
-}
-
-/* Flex container for 3 columns */
-.wrapper {
   display: flex;
   justify-content: center;
-  padding: 20px;
 }
 
-/* Left column */
-.left-col {
-  flex: 1;
-  max-width: 180px;
-  margin-right: 20px;
+/* Flex container for center + toolbar */
+.wrapper {
+  display: flex;
+  margin-top: 40px;
+  width: 90%;
+  max-width: 700px;
 }
 
-.resource-card {
-  display: block;
-  padding: 12px;
-  margin-bottom: 12px;
-  background: #f7f9fc;
-  border-left: 5px solid #4a90e2;
-  border-radius: 10px;
-  text-decoration: none;
-  color: #333;
-  transition: all 0.2s ease;
-}
-
-.resource-card:hover {
-  background: #e1e8f0;
-  transform: translateY(-2px);
-}
-
-.resource-card::before {
-  content: "💡";
-  margin-right: 8px;
-}
-
-/* Center column */
+/* Center column: main content */
 .center-col {
   flex: 2;
-  max-width: 500px;
   background: #fff;
   padding: 25px;
   border-radius: 15px;
@@ -66,17 +33,9 @@ body {
   text-align: center;
 }
 
-h1 {
-  font-size: 2rem;
-  color: #222;
-  margin-bottom: 10px;
-}
-
-p.tagline {
-  color: #555;
-  margin-bottom: 25px;
-  font-size: 1.05rem;
-}
+/* Headings */
+h1 { font-size: 2rem; margin-bottom: 10px; color: #222; }
+p.tagline { font-size: 1.05rem; margin-bottom: 25px; color: #555; }
 
 /* Buttons */
 .button {
@@ -88,37 +47,19 @@ p.tagline {
   border-radius: 12px;
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.2s ease;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
 }
 
 .family { background: #4a90e2; color: #fff; }
 .hotline { background: #e94f37; color: #fff; }
 .angel { background: #ccc; color: #666; cursor: not-allowed; }
 
-.button:hover:not(.angel) {
-  opacity: 0.95;
-  transform: translateY(-2px);
-}
+.button:hover:not(.angel) { opacity: 0.95; transform: translateY(-2px); }
 
-/* Right column */
-.right-col {
-  flex: 0.5;
-  max-width: 100px;
-  margin-left: 20px;
-  background: #f7f9fc;
-  border-radius: 10px;
-  padding: 15px;
-  text-align: center;
-}
-
-.right-col h3 {
-  font-size: 1rem;
-  color: #333;
+/* Resource cards */
+.resource-card {
+  display: block;
+  padding: 12px 15px;
   margin-bottom: 12px;
-}
-
-/* Footer */
-footer {
-  margin-top: 30px;
-  font-size:
+  backg
