@@ -2,11 +2,66 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Prevention Landing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prevention</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+    }
+    .card {
+      background: #fff;
+      color: #333;
+      padding: 2rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      max-width: 400px;
+      text-align: center;
+      width: 90%;
+    }
+    h1 {
+      margin-bottom: 0.5rem;
+      font-size: 1.8rem;
+    }
+    p {
+      margin-bottom: 2rem;
+      color: #666;
+    }
+    .button {
+      display: block;
+      width: 100%;
+      margin: 0.5rem 0;
+      padding: 1rem;
+      border: none;
+      border-radius: 0.75rem;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .family { background: #4cafef; color: #fff; }
+    .hotline { background: #f44336; color: #fff; }
+    .angel { background: #ddd; color: #666; cursor: not-allowed; }
+    .button:hover:not(.angel) {
+      opacity: 0.9;
+      transform: scale(1.02);
+    }
+  </style>
 </head>
 <body>
-  <h1>Welcome to Prevention</h1>
-  <p>This is the landing page.</p>
-  <script src="app.js"></script>
+  <div class="card">
+    <h1>A Safe Place to Share</h1>
+    <p>Choose where to send your message of hope.</p>
+    <button class="button family" onclick="location.href='dashboard.html'">Send to Family</button>
+    <button class="button hotline" onclick="location.href='dashboard.html'">Send to Crisis Hotline</button>
+    <button class="button angel">Send to Angel (Coming Soon)</button>
+  </div>
 </body>
 </html>
