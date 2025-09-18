@@ -5,12 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prevention</title>
 <style>
-/* Body with textured gradient background */
+/* Body background with subtle texture */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(to bottom, #f0f2f5, #e6ebf2);
+  background: repeating-linear-gradient(
+    45deg,
+    #f0f2f5,
+    #f0f2f5 10px,
+    #e6ebf2 10px,
+    #e6ebf2 20px
+  );
   color: #333;
   display: flex;
   justify-content: center;
@@ -23,7 +29,7 @@ body {
   background: #fff;
   padding: 30px;
   border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.12);
   text-align: center;
   margin-top: 40px;
 }
@@ -38,6 +44,7 @@ h1 {
 p.tagline {
   color: #555;
   margin-bottom: 25px;
+  font-size: 1.05rem;
 }
 
 /* Buttons */
@@ -51,7 +58,7 @@ p.tagline {
   font-weight: bold;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .family { background: #4a90e2; color: #fff; }
@@ -76,12 +83,13 @@ p.tagline {
 }
 
 .resource-card {
-  display: block;
+  display: flex;
+  align-items: center;
   padding: 12px 15px;
   margin-bottom: 12px;
   background: #f7f9fc;
   border-left: 5px solid #4a90e2;
-  border-radius: 8px;
+  border-radius: 10px;
   text-decoration: none;
   color: #333;
   transition: all 0.2s ease;
@@ -90,6 +98,13 @@ p.tagline {
 .resource-card:hover {
   background: #e1e8f0;
   transform: translateY(-2px);
+}
+
+/* CSS icons for resource cards */
+.resource-card::before {
+  content: "💡";
+  margin-right: 12px;
+  font-size: 1.2rem;
 }
 
 /* Footer */
@@ -113,4 +128,8 @@ footer {
 <div class="resources">
 <h3>Helpful Resources</h3>
 
-<a class="resourc
+<a class="resource-card" href="https://www.nih.gov/health-information/mental-health" target="_blank">
+  NIH: Benefits of Social Support
+</a>
+
+<a class="resource-card" href="https://www.apa.org/topics/men
