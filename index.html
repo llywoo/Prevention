@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prevention</title>
 <style>
-/* Body and background */
+/* Body with textured gradient background */
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(to bottom, #f0f2f5, #e6ebf2);
   margin: 0;
-  padding: 20px;
+  padding: 0;
+  background: linear-gradient(to bottom, #f0f2f5, #e6ebf2);
   color: #333;
   display: flex;
   justify-content: center;
@@ -25,18 +25,19 @@ body {
   border-radius: 15px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   text-align: center;
+  margin-top: 40px;
 }
 
 /* Headings */
 h1 {
-  font-size: 2.2rem;
+  font-size: 2rem;
   color: #222;
   margin-bottom: 10px;
 }
+
 p.tagline {
   color: #555;
   margin-bottom: 25px;
-  font-size: 1rem;
 }
 
 /* Buttons */
@@ -44,4 +45,72 @@ p.tagline {
   display: block;
   width: 100%;
   padding: 15px;
-  margin: 12px 0
+  margin: 12px 0;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.family { background: #4a90e2; color: #fff; }
+.hotline { background: #e94f37; color: #fff; }
+.angel { background: #ccc; color: #666; cursor: not-allowed; }
+
+.button:hover:not(.angel) {
+  opacity: 0.95;
+  transform: translateY(-2px);
+}
+
+/* Resource cards */
+.resources {
+  margin-top: 30px;
+  text-align: left;
+}
+
+.resources h3 {
+  font-size: 1.3rem;
+  color: #222;
+  margin-bottom: 15px;
+}
+
+.resource-card {
+  display: block;
+  padding: 12px 15px;
+  margin-bottom: 12px;
+  background: #f7f9fc;
+  border-left: 5px solid #4a90e2;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.2s ease;
+}
+
+.resource-card:hover {
+  background: #e1e8f0;
+  transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+  margin-top: 30px;
+  font-size: 0.85rem;
+  color: #888;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>You’re Not Alone</h1>
+<p class="tagline">A safe space to share, listen, and support loved ones.</p>
+
+<button class="button family" onclick="location.href='dashboard.html'">Send to Family</button>
+<button class="button hotline" onclick="location.href='dashboard.html'">Send to Crisis Hotline</button>
+<button class="button angel">Send to Angel (Coming Soon)</button>
+
+<div class="resources">
+<h3>Helpful Resources</h3>
+
+<a class="resourc
