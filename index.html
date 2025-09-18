@@ -1,51 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prevention</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f0f2f5;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      min-height: 100vh;
-      color: #333;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prevention</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f2f5;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  color: #333;
+}
 
-    .container {
-      margin-top: 60px;
-      max-width: 650px;
-      width: 90%;
-      background: #ffffff;
-      border-radius: 1.2rem;
-      padding: 2.5rem 2rem;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-      text-align: center;
-    }
+.container {
+  margin-top: 50px;
+  max-width: 600px;
+  width: 90%;
+  background: #fff;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  text-align: center;
+}
 
-    h1 {
-      margin-bottom: 0.5rem;
-      font-size: 2rem;
-      color: #222;
-    }
+h1 {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  color: #222;
+}
 
-    p.tagline {
-      margin-bottom: 2rem;
-      font-size: 1.05rem;
-      color: #555;
-    }
+p {
+  margin-bottom: 2rem;
+  color: #555;
+}
 
-    .button {
-      display: block;
-      width: 100%;
-      margin: 0.6rem 0;
-      padding: 1rem;
-      border: none;
-      border-radius: 0.75rem;
+.button {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.family { background: #4a90e2; color: #fff; }
+.hotline { background: #e94f37; color: #fff; }
+.angel { background: #ccc; color: #666; cursor: not-allowed; }
+
+.button:hover:not(.angel) {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.resources {
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.resources a {
+  color: #4a90e2;
+  text-decoration: none;
+}
+
+.resources a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  color: #888;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>You’re Not Alone</h1>
+<p>A safe space to share, listen, and support loved ones.</p>
+
+<button class="button family" onclick="location.href='dashboard.html'">Send to Family</button>
+<button class="button hotline" onclick="location.href='dashboard.html'">Send to Crisis Hotline</button>
+<button class="button angel">Send to Angel (Coming Soon)</button>
+
+<div class="resources">
+  <h3>Helpful Resources</h3>
+  <ul>
+    <li><a href="https://www.nih.gov/health-information/mental-health" target="_blank">NIH: Benefits of Social Support</a></li>
+    <li><a href="https://www.apa.org/topics/mental-health" target="_blank">APA: Talking About Mental Health</a></li>
+    <li><a href="https://www.who.int/news-room/fact-sheets/detail/mental-health-strengthening-our-response" target="_blank">WHO: Mental Health & Wellbeing</a></li>
+    <li><a href="https://www.nimh.nih.gov/health/topics/suicide-prevention" target="_blank">NIMH: Suicide Prevention</a></li>
+  </ul>
+</div>
+
+<footer>If you are in immediate danger, please dial <strong>988</strong> (U.S.)</footer>
+</div>
+</body>
+</html>
