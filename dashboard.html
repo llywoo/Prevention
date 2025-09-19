@@ -33,7 +33,7 @@ body {
   z-index: 1000;
 }
 
-/* NAV COLUMN – KEEP POSITION */
+/* NAV COLUMN – KEEP POSITION, MOVE DOWN */
 .nav-column {
   width: 220px;
   background: #fff;
@@ -44,6 +44,7 @@ body {
   box-sizing: border-box;
   position: relative;
   left: -2in;
+  top: 1in; /* move down about an inch */
 }
 .nav-column h3 {
   margin-bottom: 25px;
@@ -82,7 +83,7 @@ body {
   height: 220px;
   border-radius: 25px;
   background: url('https://i.imgur.com/rIeNOFe.png') no-repeat center center;
-  background-size: contain;
+  background-size: cover; /* better fill */
   margin-bottom: 50px;
   box-shadow: 0 15px 30px rgba(0,0,0,0.2);
 }
@@ -97,6 +98,8 @@ p.tagline {
   font-size: 1.2rem;
   line-height: 1.5;
 }
+
+/* BUTTONS MATCH LOGO COLORS */
 .button {
   display: block;
   width: 100%;
@@ -109,13 +112,14 @@ p.tagline {
   font-size: 1.15rem;
   transition: all 0.25s ease;
 }
-.family { background: #4a90e2; color: #fff; }
-.hotline { background: #e94f37; color: #fff; }
+.family { background: #3b6cb9; color: #fff; } /* darker logo blue */
+.hotline { background: #50a0e2; color: #fff; } /* lighter logo blue */
 .angel { background: #ccc; color: #666; cursor: not-allowed; }
 .button:hover:not(.angel) {
   transform: translateY(-3px);
   opacity: 0.95;
 }
+
 .resources {
   margin-top: 40px;
   text-align: left;
@@ -147,6 +151,7 @@ p.tagline {
   margin-right: 12px;
   font-size: 1.3rem;
 }
+
 footer {
   margin-top: 40px;
   font-size: 0.9rem;
@@ -179,6 +184,7 @@ footer {
     border-bottom: 1px solid #ddd;
     margin-bottom: 20px;
     left: 0;
+    top: 0;
   }
   .container {
     width: 95%;
