@@ -13,7 +13,7 @@ body {
   color: #333;
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* align to top */
+  flex-wrap: wrap; /* allow stacking on mobile */
 }
 
 /* Left column navigation */
@@ -23,8 +23,8 @@ body {
   padding: 50px 25px;
   border-right: 1px solid #ddd;
   box-shadow: 2px 0 5px rgba(0,0,0,0.05);
-  margin-right: 30px; /* space between nav and main content */
   flex-shrink: 0;
+  box-sizing: border-box;
 }
 
 .nav-column h3 {
@@ -40,7 +40,7 @@ body {
   text-decoration: none;
   color: #4a90e2;
   font-weight: 600;
-  font-size: 1.2rem; /* bigger text for readability */
+  font-size: 1.15rem;
   transition: all 0.2s ease;
   text-align: center;
 }
@@ -53,11 +53,13 @@ body {
 /* Main container */
 .container {
   max-width: 900px;
+  margin: 60px 20px;
   padding: 50px 40px;
   background: #fff;
   border-radius: 20px;
   box-shadow: 0 15px 35px rgba(0,0,0,0.12);
   text-align: center;
+  box-sizing: border-box;
 }
 
 /* Headings */
@@ -155,6 +157,32 @@ footer {
   object-fit: cover;
   border-radius: 15px;
   margin-bottom: 30px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-column {
+    width: 100%;
+    padding: 30px 15px;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+  }
+
+  .container {
+    width: 90%;
+    margin: 20px 0;
+    padding: 30px 20px;
+  }
+
+  .resources {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 </head>
