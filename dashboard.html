@@ -3,51 +3,75 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prevention</title>
+<title>Prevention – Dashboard</title>
 <style>
-/* Body background with subtle texture */
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: repeating-linear-gradient(
-    45deg,
-    #f0f2f5,
-    #f0f2f5 10px,
-    #e6ebf2 10px,
-    #e6ebf2 20px
-  );
+  background: #f0f2f5;
   color: #333;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
-
-/* Main container */
+.logo {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 100px;
+  cursor: pointer;
+  z-index: 1000;
+}
+.nav-column {
+  width: 220px;
+  background: #fff;
+  padding: 50px 25px;
+  border-right: 1px solid #ddd;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+.nav-column h3 {
+  margin-bottom: 25px;
+  font-size: 1.3rem;
+  color: #222;
+  text-align: center;
+}
+.nav-column a {
+  display: block;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: #4a90e2;
+  font-weight: 600;
+  font-size: 1.15rem;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+.nav-column a:hover {
+  text-decoration: underline;
+  opacity: 0.85;
+}
 .container {
   max-width: 700px;
-  width: 90%;
+  margin: 60px 20px 60px 0;
+  padding: 40px;
   background: #fff;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
   text-align: center;
-  margin-top: 40px;
+  box-sizing: border-box;
 }
-
-/* Headings */
 h1 {
   font-size: 2rem;
   color: #222;
   margin-bottom: 10px;
 }
-
 p.tagline {
   color: #555;
   margin-bottom: 25px;
   font-size: 1.05rem;
 }
-
-/* Buttons */
 .button {
   display: block;
   width: 100%;
@@ -57,31 +81,24 @@ p.tagline {
   border-radius: 12px;
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: all 0.25s ease;
 }
-
 .family { background: #4a90e2; color: #fff; }
 .hotline { background: #e94f37; color: #fff; }
 .angel { background: #ccc; color: #666; cursor: not-allowed; }
-
 .button:hover:not(.angel) {
-  opacity: 0.95;
   transform: translateY(-2px);
+  opacity: 0.95;
 }
-
-/* Resource cards */
 .resources {
   margin-top: 30px;
   text-align: left;
 }
-
 .resources h3 {
   font-size: 1.3rem;
   color: #222;
   margin-bottom: 15px;
 }
-
 .resource-card {
   display: flex;
   align-items: center;
@@ -94,56 +111,68 @@ p.tagline {
   color: #333;
   transition: all 0.2s ease;
 }
-
 .resource-card:hover {
   background: #e1e8f0;
   transform: translateY(-2px);
 }
-
-/* CSS icons for resource cards */
 .resource-card::before {
   content: "💡";
   margin-right: 12px;
   font-size: 1.2rem;
 }
-
-/* Footer */
 footer {
   margin-top: 30px;
   font-size: 0.85rem;
   color: #888;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    align-items: center;
+  }
+  .nav-column {
+    width: 100%;
+    padding: 30px 15px;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+  }
+  .container {
+    width: 90%;
+    margin: 20px 0;
+    padding: 30px 20px;
+  }
 }
 </style>
 </head>
 <body>
-<div class="container">
 
+<img class="logo" src="https://i.imgur.com/QDKQ6Fp.png" alt="Prevention Logo" onclick="window.location.href='index.html'">
+
+<div class="nav-column">
+  <h3>Quick Links</h3>
+  <a href="index.html">Home</a>
+  <a href="#">Apply to be an Angel</a>
+  <a href="self-help.html">Self-Help Videos</a>
+  <a href="#">Recent Success Stories</a>
+  <a href="#">Call to Action</a>
+</div>
+
+<div class="container">
 <h1>You’re Not Alone</h1>
 <p class="tagline">A safe space to share, listen, and support loved ones.</p>
 
-<button class="button family" onclick="location.href='dashboard.html'">Send to Family</button>
-<button class="button hotline" onclick="location.href='dashboard.html'">Send to Crisis Hotline</button>
+<button class="button family" onclick="alert('Send to Family feature coming soon')">Send to Family</button>
+<button class="button hotline" onclick="alert('Send to Crisis Hotline feature coming soon')">Send to Crisis Hotline</button>
 <button class="button angel">Send to Angel (Coming Soon)</button>
 
 <div class="resources">
 <h3>Helpful Resources</h3>
-
-<a class="resource-card" href="https://www.nih.gov/health-information/mental-health" target="_blank">
-  NIH: Benefits of Social Support
-</a>
-
-<a class="resource-card" href="https://www.apa.org/topics/mental-health" target="_blank">
-  APA: Talking About Mental Health
-</a>
-
-<a class="resource-card" href="https://www.who.int/news-room/fact-sheets/detail/mental-health-strengthening-our-response" target="_blank">
-  WHO: Mental Health & Wellbeing
-</a>
-
-<a class="resource-card" href="https://www.nimh.nih.gov/health/topics/suicide-prevention" target="_blank">
-  NIMH: Suicide Prevention
-</a>
-
+<a class="resource-card" href="https://www.nih.gov/health-information/mental-health" target="_blank">NIH: Benefits of Social Support</a>
+<a class="resource-card" href="https://www.apa.org/topics/mental-health" target="_blank">APA: Talking About Mental Health</a>
+<a class="resource-card" href="https://www.who.int/news-room/fact-sheets/detail/mental-health-strengthening-our-response" target="_blank">WHO: Mental Health & Wellbeing</a>
+<a class="resource-card" href="https://www.nimh.nih.gov/health/topics/suicide-prevention" target="_blank">NIMH: Suicide Prevention</a>
 </div>
 
 <footer>If you are in immediate danger, please dial <strong>988</strong> (U.S.)</footer>
