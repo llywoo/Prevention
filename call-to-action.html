@@ -4,22 +4,82 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prevention Pulse – Take Action</title>
-<link rel="stylesheet" href="style.css">
 <style>
-/* Page-specific styles */
-.hero-banner {
-  width: 100%;
-  height: 180px;
-  border-radius: 20px;
-  background: linear-gradient(120deg, #4a90e2, #50e3c2);
-  margin-bottom: 40px;
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f0f2f5;
+  color: #333;
   display: flex;
   justify-content: center;
-  align-items: center;
-  color: #fff;
-  font-size: 2rem;
-  font-weight: bold;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  flex-wrap: wrap;
+}
+.logo {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 100px;
+  cursor: pointer;
+  z-index: 1000;
+}
+.nav-column {
+  width: 220px;
+  background: #fff;
+  padding: 50px 25px;
+  border-right: 1px solid #ddd;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+.nav-column h3 {
+  margin-bottom: 25px;
+  font-size: 1.3rem;
+  color: #222;
+  text-align: center;
+}
+.nav-column a {
+  display: block;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: #4a90e2;
+  font-weight: 600;
+  font-size: 1.15rem;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+.nav-column a:hover {
+  text-decoration: underline;
+  opacity: 0.85;
+}
+.container {
+  max-width: 900px;
+  margin: 60px 20px 60px 0;
+  padding: 50px 40px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+  box-sizing: border-box;
+  text-align: center;
+}
+.hero-banner {
+  width: 100%;
+  margin-bottom: 40px;
+}
+.hero-banner img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+h1 {
+  font-size: 2.5rem;
+  color: #222;
+  margin-bottom: 15px;
+}
+p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 25px;
 }
 .section-card {
   background: #f7f9fc;
@@ -56,7 +116,7 @@
   font-size: 1.1rem;
   font-weight: bold;
   color: #fff;
-  background: linear-gradient(90deg, #4a90e2, #50e3c2);
+  background-color: #4a90e2;
   border: none;
   border-radius: 12px;
   cursor: pointer;
@@ -88,10 +148,23 @@ footer {
   color: #888;
   text-align: center;
 }
-footer a {
-  color: #4a90e2;
-  text-decoration: none;
-  font-weight: 600;
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    align-items: center;
+  }
+  .nav-column {
+    width: 100%;
+    padding: 30px 15px;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+  }
+  .container {
+    width: 90%;
+    margin: 20px 0;
+    padding: 30px 20px;
+  }
 }
 </style>
 </head>
@@ -110,24 +183,24 @@ footer a {
 
 <div class="container">
   <div class="hero-banner">
-    Take Action – Make a Difference
+    <img src="https://i.imgur.com/rIeNOFe.png" alt="Prevention Banner">
   </div>
 
   <div class="section-card">
     <h2>Donate to Support</h2>
-    <p>Your contributions directly fund resources, guidance, and intervention services to help those in need. Every donation, big or small, helps us save lives.</p>
+    <p>Your contributions help us provide resources, guidance, and intervention services to those in need.</p>
     <button class="button" onclick="alert('Donation feature coming soon!')">Donate Now (Coming Soon)</button>
   </div>
 
   <div class="section-card">
     <h2>Become an Angel</h2>
-    <p>Apply to become a trained volunteer who offers support, guidance, and encouragement to those reaching out anonymously. Approved volunteers will receive detailed training materials and are responsible for completing them before engaging with users.</p>
+    <p>Sign up to be a trained volunteer and provide guidance, encouragement, and support to those reaching out anonymously.</p>
     <button class="button" onclick="alert('Volunteer signup coming soon!')">Sign Up (Coming Soon)</button>
   </div>
 
   <div class="section-card">
     <h2>Spread Awareness</h2>
-    <p>Share our mission and resources. Help friends, family, and your community recognize signs of distress and act early.</p>
+    <p>Share our resources and pledge to help friends and family recognize signs of distress before harm occurs.</p>
     <div class="social-share">
       <a href="#" title="Share on Facebook">📘</a>
       <a href="#" title="Share on Twitter">🐦</a>
@@ -137,14 +210,13 @@ footer a {
 
   <div class="section-card">
     <h2>Take the Pledge</h2>
-    <p>Commit to listening, helping, and intervening safely whenever someone may be at risk. By taking this pledge, you become a proactive supporter in preventing harm.</p>
+    <p>Commit to listening, helping, and intervening safely whenever someone may be at risk.</p>
     <button class="button" onclick="alert('Pledge feature coming soon!')">Take the Pledge</button>
   </div>
 </div>
 
 <footer>
-  © 2025 Prevention Pulse. All Rights Reserved. <br>
-  <a href="terms.html">Terms of Use & Privacy Policy</a>
+  © 2025 Prevention Pulse. All Rights Reserved. | <a href="terms.html">Terms of Use & Privacy Policy</a>
 </footer>
 
 </body>
