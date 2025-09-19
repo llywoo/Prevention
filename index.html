@@ -13,18 +13,18 @@ body {
   color: #333;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap; /* allow stacking on mobile */
 }
 
 /* Left column navigation */
 .nav-column {
   width: 220px;
   background: #fff;
-  padding: 50px 25px;
+  padding: 25px; /* Reduced top/bottom padding to make space for the logo */
   border-right: 1px solid #ddd;
   box-shadow: 2px 0 5px rgba(0,0,0,0.05);
   flex-shrink: 0;
   box-sizing: border-box;
+  transition: transform 0.3s ease-in-out;
 }
 
 .nav-column h3 {
@@ -48,6 +48,25 @@ body {
 .nav-column a:hover {
   text-decoration: underline;
   opacity: 0.85;
+}
+
+/* Added styles for the logo */
+.nav-logo {
+  display: block;
+  width: 100%;
+  max-width: 150px; /* Constrain the logo width */
+  margin: 0 auto 30px; /* Center and add bottom margin */
+}
+
+/* Hamburger menu button */
+.hamburger-menu {
+    display: none; /* Hidden on desktop */
+    font-size: 2rem;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
 }
 
 /* Main container */
@@ -153,33 +172,40 @@ footer {
   border-top: 1px solid #ddd;
 }
 
-/* Hero image */
-.hero {
+/* This is the new banner section */
+.banner {
   width: 100%;
-  max-height: 250px;
-  object-fit: cover;
+  height: 250px;
+  background-image: url('https://i.imgur.com/G5g237T.png'); /* Using a new hosted banner image */
+  background-size: cover;
+  background-position: center;
   border-radius: 15px;
   margin-bottom: 30px;
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for mobile */
 @media (max-width: 768px) {
-  body {
-    flex-direction: column;
-    align-items: center;
+  .hamburger-menu {
+    display: block; /* Show the hamburger menu button */
   }
 
   .nav-column {
-    width: 100%;
-    padding: 30px 15px;
-    border-right: none;
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh; /* Full viewport height */
+    transform: translateX(-100%); /* Hide off-screen */
+    box-shadow: 2px 0 5px rgba(0,0,0,0.25);
+    z-index: 999;
+  }
+
+  .nav-column.active {
+    transform: translateX(0); /* Slide in */
   }
 
   .container {
     width: 90%;
-    margin: 20px 0;
+    margin: 20px auto;
     padding: 30px 20px;
   }
 
@@ -191,7 +217,9 @@ footer {
 </head>
 <body>
 
-<div class="nav-column">
+<div class="nav-column" id="nav-column">
+  <!-- New Logo added here -->
+  <img class="nav-logo" src="https://i.imgur.com/8Q0N6T8.png" alt="Prevention Pulse Logo">
   <h3>Quick Links</h3>
   <a href="dashboard.html">Go to Dashboard</a>
   <a href="#">Apply to be an Angel</a>
@@ -200,8 +228,12 @@ footer {
   <a href="#">Call to Action</a>
 </div>
 
+<!-- Hamburger menu button added here -->
+<div class="hamburger-menu" id="hamburger-menu">☰</div>
+
 <div class="container">
-<img class="hero" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Path through forest symbolizing guidance">
+<!-- New Banner added here, replacing the old hero image -->
+<div class="banner"></div>
 
 <h1>Prevention – Guidance Before Harm</h1>
 <p>Our mission is to provide a safe, anonymous space for individuals who may be considering harmful actions — toward themselves or others — to reach out and connect with trusted family, mentors, professionals, or trained volunteers (“Angels”). Early communication can prevent tragedies and help people make better choices.</p>
@@ -263,5 +295,12 @@ Crisis Text Line
 </footer>
 
 </div>
+
+<script>
+  document.getElementById('hamburger-menu').addEventListener('click', function() {
+    document.getElementById('nav-column').classList.toggle('active');
+  });
+</script>
+
 </body>
 </html>
