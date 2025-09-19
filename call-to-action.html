@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prevention Pulse – Take Action</title>
+<style>
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f0f2f5;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.logo {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 100px;
+  cursor: pointer;
+  z-index: 1000;
+}
+.nav-column {
+  width: 220px;
+  background: #fff;
+  padding: 50px 25px;
+  border-right: 1px solid #ddd;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+.nav-column h3 {
+  margin-bottom: 25px;
+  font-size: 1.3rem;
+  color: #222;
+  text-align: center;
+}
+.nav-column a {
+  display: block;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: #4a90e2;
+  font-weight: 600;
+  font-size: 1.15rem;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+.nav-column a:hover {
+  text-decoration: underline;
+  opacity: 0.85;
+}
+.container {
+  max-width: 900px;
+  margin: 60px 20px 60px 0;
+  padding: 50px 40px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+  box-sizing: border-box;
+  text-align: center;
+}
+.hero-banner {
+  width: 100%;
+  height: 180px;
+  border-radius: 20px;
+  background: linear-gradient(120deg, #4a90e2, #50e3c2);
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+h1 {
+  font-size: 2.5rem;
+  color: #222;
+  margin-bottom: 15px;
+}
+p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 25px;
+}
+.section-card {
+  background: #f7f9fc;
+  border-left: 6px solid #4a90e2;
+  border-radius: 15px;
+  padding: 25px 20px;
+  margin-bottom: 25px;
+  text-align: left;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.section-card:hover {
+  background: #e1e8f0;
+  transform: translateY(-3px);
+}
+.section-card h2 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  color: #222;
+  display: flex;
+  align-items: center;
+}
+.section-card h2::before {
+  content: "⭐";
+  margin-right: 10px;
+}
+.section-card p {
+  font-size: 1.05rem;
+  color: #555;
+}
+.button {
+  display: inline-block;
+  padding: 18px 35px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #4a90e2;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  margin-top: 10px;
+}
+.button:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
+.social-share {
+  margin-top: 15px;
+}
+.social-share a {
+  margin: 0 8px;
+  font-size: 1.8rem;
+  color: #4a90e2;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.social-share a:hover {
+  color: #222;
+  transform: scale(1.2);
+}
+footer {
+  margin-top: 40px;
+  font-size: 0.85rem;
+  color: #888;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    align-items: center;
+  }
+  .nav-column {
+    width: 100%;
+    padding: 30px 15px;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+  }
+  .container {
+    width: 90%;
+    margin: 20px 0;
+    padding: 30px 20px;
+  }
+}
+</style>
+</head>
+<body>
+
+<img class="logo" src="https://i.imgur.com/QDKQ6Fp.png" alt="Prevention Logo" onclick="window.location.href='index.html'">
+
+<div class="nav-column">
+  <h3>Quick Links</h3>
+  <a href="index.html">Home</a>
+  <a href="dashboard.html">Dashboard</a>
+  <a href="self-help.html">Self-Help Videos</a>
+  <a href="success-stories.html">Recent Success Stories</a>
+  <a href="#">Call to Action</a>
+</div>
+
+<div class="container">
+  <div class="hero-banner">
+    Take Action – Make a Difference
+  </div>
+
+  <div class="section-card">
+    <h2>Donate to Support</h2>
+    <p>Your contributions help us provide resources, guidance, and intervention services to those in need.</p>
+    <button class="button" onclick="alert('Donation feature coming soon!')">Donate Now (Coming Soon)</button>
+  </div>
+
+  <div class="section-card">
+    <h2>Become an Angel</h2>
+    <p>Sign up to be a trained volunteer and provide guidance, encouragement, and support to those reaching out anonymously.</p>
+    <button class="button" onclick="alert('Volunteer signup coming soon!')">Sign Up (Coming Soon)</button>
+  </div>
+
+  <div class="section-card">
+    <h2>Spread Awareness</h2>
+    <p>Share our resources and pledge to help friends and family recognize signs of distress before harm occurs.</p>
+    <div class="social-share">
+      <a href="#" title="Share on Facebook">📘</a>
+      <a href="#" title="Share on Twitter">🐦</a>
+      <a href="#" title="Share on LinkedIn">💼</a>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <h2>Take the Pledge</h2>
+    <p>Commit to listening, helping, and intervening safely whenever someone may be at risk.</p>
+    <button class="button" onclick="alert('Pledge feature coming soon!')">Take the Pledge</button>
+  </div>
+</div>
+
+<footer>
+  © 2025 Prevention Pulse. All Rights Reserved.
+</footer>
+
+</body>
+</html>
