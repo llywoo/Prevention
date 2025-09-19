@@ -12,16 +12,18 @@ body {
   background: #f0f2f5;
   color: #333;
   display: flex;
-  justify-content: center; /* Centers content horizontally */
+  justify-content: center;
+  align-items: flex-start; /* align to top */
 }
 
 /* Left column navigation */
 .nav-column {
-  width: 220px; /* slightly wider */
+  width: 220px;
   background: #fff;
-  padding: 50px 25px; /* more padding top/bottom */
+  padding: 50px 25px;
   border-right: 1px solid #ddd;
   box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+  margin-right: 30px; /* space between nav and main content */
   flex-shrink: 0;
 }
 
@@ -34,11 +36,11 @@ body {
 
 .nav-column a {
   display: block;
-  margin-bottom: 20px; /* more spacing */
+  margin-bottom: 20px;
   text-decoration: none;
   color: #4a90e2;
   font-weight: 600;
-  font-size: 1.15rem;
+  font-size: 1.2rem; /* bigger text for readability */
   transition: all 0.2s ease;
   text-align: center;
 }
@@ -51,7 +53,6 @@ body {
 /* Main container */
 .container {
   max-width: 900px;
-  margin: 60px 20px;
   padding: 50px 40px;
   background: #fff;
   border-radius: 20px;
