@@ -11,10 +11,41 @@ body {
   padding: 0;
   background: #f0f2f5;
   color: #333;
+  display: flex;
 }
 
-/* Container */
+/* Left column navigation */
+.nav-column {
+  width: 200px;
+  background: #fff;
+  padding: 40px 20px;
+  border-right: 1px solid #ddd;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+}
+
+.nav-column h3 {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  color: #222;
+}
+
+.nav-column a {
+  display: block;
+  margin-bottom: 12px;
+  text-decoration: none;
+  color: #4a90e2;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.nav-column a:hover {
+  text-decoration: underline;
+  opacity: 0.85;
+}
+
+/* Main container */
 .container {
+  flex: 1;
   max-width: 900px;
   margin: 60px auto;
   padding: 50px 40px;
@@ -123,8 +154,17 @@ footer {
 </style>
 </head>
 <body>
-<div class="container">
 
+<div class="nav-column">
+  <h3>Quick Links</h3>
+  <a href="dashboard.html">Go to Dashboard</a>
+  <a href="#">Apply to be an Angel</a>
+  <a href="#">Self-Help Videos</a>
+  <a href="#">Recent Success Stories</a>
+  <a href="#">Call to Action</a>
+</div>
+
+<div class="container">
 <img class="hero" src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Supportive hands">
 
 <h1>Prevention – Guidance Before Harm</h1>
