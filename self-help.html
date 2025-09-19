@@ -4,17 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Self-Help Videos – Prevention Pulse</title>
-
-<!-- Favicon -->
-<link rel="icon" href="https://i.imgur.com/QDKQ6Fp.png" type="image/png">
-
-<!-- SEO Meta Tags -->
-<meta name="description" content="Explore curated, copyright-free self-help videos to support mental health, personal growth, and well-being.">
-<meta name="keywords" content="self help, mental health, stress relief, meditation, motivation, prevention pulse, well-being, mindfulness, positive thinking">
-<meta name="author" content="Prevention Pulse">
-
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <style>
-/* your styles remain unchanged */
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
   margin: 0;
@@ -25,6 +20,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
 }
+
 /* Logo top-left */
 .logo {
   position: fixed;
@@ -34,6 +30,7 @@ body {
   cursor: pointer;
   z-index: 1000;
 }
+
 /* Left column navigation */
 .nav-column {
   width: 220px;
@@ -64,30 +61,32 @@ body {
   text-decoration: underline;
   opacity: 0.85;
 }
+
 /* Main container */
 .container {
   max-width: 900px;
-  margin: 60px 20px 60px 0;
+  margin: 60px 20px 60px 10px;
   padding: 50px 40px;
   background: #fff;
   border-radius: 20px;
   box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+  text-align: center;
   box-sizing: border-box;
 }
-/* Header */
-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-header h1 {
+
+/* Page Header */
+h1 {
   font-size: 2.5rem;
   color: #222;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
-header p {
+p {
   font-size: 1.1rem;
+  line-height: 1.7;
   color: #555;
+  margin-bottom: 30px;
 }
+
 /* Video Grid */
 .video-grid {
   display: grid;
@@ -99,12 +98,13 @@ header p {
   border-left: 5px solid #4a90e2;
   border-radius: 12px;
   overflow: hidden;
-  transition: transform 0.2s ease, background 0.2s ease;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
   text-align: left;
 }
 .video-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-5px);
   background: #e1e8f0;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 .video-card img {
   width: 100%;
@@ -121,6 +121,7 @@ header p {
   margin: 0 10px 10px;
   color: #555;
 }
+
 /* Footer */
 footer {
   margin-top: 50px;
@@ -136,16 +137,11 @@ footer a {
   text-decoration: none;
   font-weight: 600;
 }
-/* Desktop adjustment for spacing */
-@media (min-width: 1025px) {
-  .nav-column {
-    margin-left: -30px;
-  }
-  .container {
-    margin-left: 10px;
-  }
+footer a:hover {
+  text-decoration: underline;
 }
-/* Mobile */
+
+/* Responsive */
 @media (max-width: 768px) {
   body {
     flex-direction: column;
@@ -172,77 +168,67 @@ footer a {
 
 <div class="nav-column">
   <h3>Quick Links</h3>
-  <a href="dashboard.html">Go to Dashboard</a>
-  <a href="apply-to-be-an-angel.html">Apply to be an Angel</a>
+  <a href="index.html">Home</a>
+  <a href="#">Apply to be an Angel</a>
   <a href="self-help.html">Self-Help Videos</a>
-  <a href="success-stories.html">Recent Success Stories</a>
-  <a href="call-to-action.html">Call to Action</a>
+  <a href="#">Recent Success Stories</a>
+  <a href="#">Call to Action</a>
 </div>
 
 <div class="container">
-<header>
   <h1>Self-Help Videos</h1>
   <p>Curated, copyright-free videos to support mental health, personal growth, and well-being.</p>
-</header>
 
-<section class="video-grid">
-  <article class="video-card">
-    <a href="https://www.youtube.com/watch?v=Z1RJmh_OqeA" target="_blank">
-      <img src="https://img.youtube.com/vi/Z1RJmh_OqeA/0.jpg" alt="Mindfulness Meditation for Beginners">
-      <h2>Mindfulness Meditation for Beginners</h2>
-      <p>Learn how to meditate effectively and reduce stress in everyday life.</p>
-    </a>
-  </article>
+  <section class="video-grid">
+    <article class="video-card">
+      <a href="https://www.youtube.com/watch?v=Z1RJmh_OqeA" target="_blank">
+        <img src="https://img.youtube.com/vi/Z1RJmh_OqeA/0.jpg" alt="Mindfulness Meditation for Beginners">
+        <h2>Mindfulness Meditation for Beginners</h2>
+        <p>Learn how to meditate effectively and reduce stress in everyday life.</p>
+      </a>
+    </article>
+    <article class="video-card">
+      <a href="https://www.youtube.com/watch?v=inpok4MKVLM" target="_blank">
+        <img src="https://img.youtube.com/vi/inpok4MKVLM/0.jpg" alt="Guided Relaxation for Stress Relief">
+        <h2>Guided Relaxation for Stress Relief</h2>
+        <p>Step-by-step relaxation techniques to calm the mind and body.</p>
+      </a>
+    </article>
+    <article class="video-card">
+      <a href="https://www.youtube.com/watch?v=MIr3RsUWrdo" target="_blank">
+        <img src="https://img.youtube.com/vi/MIr3RsUWrdo/0.jpg" alt="10 Minute Daily Self-Care Routine">
+        <h2>10 Minute Daily Self-Care Routine</h2>
+        <p>Simple, actionable habits to boost mental health every day.</p>
+      </a>
+    </article>
+    <article class="video-card">
+      <a href="https://www.youtube.com/watch?v=1vx8iUvfyCY" target="_blank">
+        <img src="https://img.youtube.com/vi/1vx8iUvfyCY/0.jpg" alt="Positive Thinking and Affirmations">
+        <h2>Positive Thinking and Affirmations</h2>
+        <p>Learn how affirmations can change your mindset and reduce anxiety.</p>
+      </a>
+    </article>
+    <article class="video-card">
+      <a href="https://www.youtube.com/watch?v=ZToicYcHIOU" target="_blank">
+        <img src="https://img.youtube.com/vi/ZToicYcHIOU/0.jpg" alt="Stress Management Techniques">
+        <h2>Stress Management Techniques</h2>
+        <p>Proven methods to handle stress and improve emotional resilience.</p>
+      </a>
+    </article>
+    <article class="video-card">
+      <a href="https://www.youtube.com/watch?v=H14bBuluwB8" target="_blank">
+        <img src="https://img.youtube.com/vi/H14bBuluwB8/0.jpg" alt="Morning Motivation Routine">
+        <h2>Morning Motivation Routine</h2>
+        <p>Start your day with focus, energy, and positivity with this practical routine.</p>
+      </a>
+    </article>
+  </section>
 
-  <article class="video-card">
-    <a href="https://www.youtube.com/watch?v=inpok4MKVLM" target="_blank">
-      <img src="https://img.youtube.com/vi/inpok4MKVLM/0.jpg" alt="Guided Relaxation for Stress Relief">
-      <h2>Guided Relaxation for Stress Relief</h2>
-      <p>Step-by-step relaxation techniques to calm the mind and body.</p>
-    </a>
-  </article>
-
-  <article class="video-card">
-    <a href="https://www.youtube.com/watch?v=MIr3RsUWrdo" target="_blank">
-      <img src="https://img.youtube.com/vi/MIr3RsUWrdo/0.jpg" alt="10 Minute Daily Self-Care Routine">
-      <h2>10 Minute Daily Self-Care Routine</h2>
-      <p>Simple, actionable habits to boost mental health every day.</p>
-    </a>
-  </article>
-
-  <article class="video-card">
-    <a href="https://www.youtube.com/watch?v=1vx8iUvfyCY" target="_blank">
-      <img src="https://img.youtube.com/vi/1vx8iUvfyCY/0.jpg" alt="Positive Thinking and Affirmations">
-      <h2>Positive Thinking and Affirmations</h2>
-      <p>Learn how affirmations can change your mindset and reduce anxiety.</p>
-    </a>
-  </article>
-
-  <article class="video-card">
-    <a href="https://www.youtube.com/watch?v=ZToicYcHIOU" target="_blank">
-      <img src="https://img.youtube.com/vi/ZToicYcHIOU/0.jpg" alt="Stress Management Techniques">
-      <h2>Stress Management Techniques</h2>
-      <p>Proven methods to handle stress and improve emotional resilience.</p>
-    </a>
-  </article>
-
-  <article class="video-card">
-    <a href="https://www.youtube.com/watch?v=H14bBuluwB8" target="_blank">
-      <img src="https://img.youtube.com/vi/H14bBuluwB8/0.jpg" alt="Morning Motivation Routine">
-      <h2>Morning Motivation Routine</h2>
-      <p>Start your day with focus, energy, and positivity with this practical routine.</p>
-    </a>
-  </article>
-</section>
-
-<footer>
-  <p>If you are in crisis, please reach out to local emergency services. In the U.S., dial <strong>988</strong> for immediate help.</p>
-  <p><a href="terms.html">Terms of Use & Privacy Policy</a></p>
-</footer>
-
+  <footer>
+    <p>If you are in crisis, please reach out to local emergency services. In the U.S., dial <strong>988</strong>.</p>
+    <p><strong>Legal Disclaimer:</strong> This platform provides guidance and educational resources only and is not a substitute for professional medical, psychiatric, or emergency services. By using this site, you agree to our <a href="terms.html">Terms of Use & Privacy Policy</a>.</p>
+  </footer>
 </div>
+
 </body>
 </html>
-
-
-
