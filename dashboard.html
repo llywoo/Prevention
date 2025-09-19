@@ -19,10 +19,10 @@ body {
   margin: 0;
   padding: 0;
   background: #f0f2f5;
-  color: #333;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  color: #333;
 }
 .logo {
   position: fixed;
@@ -38,7 +38,6 @@ body {
   padding: 50px 25px;
   border-right: 1px solid #ddd;
   box-shadow: 2px 0 5px rgba(0,0,0,0.05);
-  flex-shrink: 0;
   box-sizing: border-box;
 }
 .nav-column h3 {
@@ -62,14 +61,14 @@ body {
   opacity: 0.85;
 }
 .container {
-  max-width: 700px;
+  max-width: 750px;
   margin: 60px 20px 60px 0;
   padding: 40px;
   background: #fff;
   border-radius: 20px;
   box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-  text-align: center;
   box-sizing: border-box;
+  text-align: center;
 }
 h1 {
   font-size: 2rem;
@@ -81,44 +80,48 @@ p.tagline {
   margin-bottom: 25px;
   font-size: 1.05rem;
 }
-.button {
-  display: block;
-  width: 100%;
-  padding: 15px;
-  margin: 12px 0;
-  border: none;
-  border-radius: 12px;
-  font-weight: bold;
+.button-card {
+  background: #4a90e2;
+  color: #fff;
+  border-radius: 15px;
+  padding: 25px 20px;
+  margin: 15px 0;
   cursor: pointer;
   transition: all 0.25s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  font-weight: bold;
+  font-size: 1.1rem;
 }
-.family { background: #4a90e2; color: #fff; }
-.hotline { background: #e94f37; color: #fff; }
-.angel { background: #ccc; color: #666; cursor: not-allowed; }
-.button:hover:not(.angel) {
-  transform: translateY(-2px);
-  opacity: 0.95;
+.button-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+.button-card.angel {
+  background: #ccc;
+  color: #666;
+  cursor: not-allowed;
 }
 .resources {
-  margin-top: 30px;
+  margin-top: 40px;
   text-align: left;
 }
 .resources h3 {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   color: #222;
   margin-bottom: 15px;
 }
 .resource-card {
   display: flex;
   align-items: center;
-  padding: 12px 15px;
+  padding: 15px 20px;
   margin-bottom: 12px;
   background: #f7f9fc;
-  border-left: 5px solid #4a90e2;
-  border-radius: 10px;
+  border-left: 6px solid #4a90e2;
+  border-radius: 12px;
   text-decoration: none;
   color: #333;
   transition: all 0.2s ease;
+  font-weight: 500;
 }
 .resource-card:hover {
   background: #e1e8f0;
@@ -127,13 +130,18 @@ p.tagline {
 .resource-card::before {
   content: "💡";
   margin-right: 12px;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 footer {
-  margin-top: 30px;
+  margin-top: 40px;
   font-size: 0.85rem;
   color: #888;
   text-align: center;
+}
+footer a {
+  color: #4a90e2;
+  font-weight: 600;
+  text-decoration: none;
 }
 @media (max-width: 768px) {
   body {
@@ -172,9 +180,9 @@ footer {
 <h1>You’re Not Alone</h1>
 <p class="tagline">A safe space to share, listen, and support loved ones.</p>
 
-<button class="button family" onclick="alert('Send to Family feature coming soon')">Send to Family</button>
-<button class="button hotline" onclick="alert('Send to Crisis Hotline feature coming soon')">Send to Crisis Hotline</button>
-<button class="button angel">Send to Angel (Coming Soon)</button>
+<div class="button-card family" onclick="alert('Send to Family feature coming soon')">Send to Family</div>
+<div class="button-card hotline" onclick="alert('Send to Crisis Hotline feature coming soon')">Send to Crisis Hotline</div>
+<div class="button-card angel" onclick="alert('Send to Angel (Coming Soon)')">Send to Angel (Coming Soon)</div>
 
 <div class="resources">
 <h3>Helpful Resources</h3>
@@ -184,10 +192,10 @@ footer {
 <a class="resource-card" href="https://www.nimh.nih.gov/health/topics/suicide-prevention" target="_blank">NIMH: Suicide Prevention</a>
 </div>
 
-<footer>If you are in immediate danger, please dial <strong>988</strong> (U.S.)</footer>
+<footer>
+© 2025 Prevention Pulse. All Rights Reserved. | <a href="terms.html">Terms of Use & Privacy Policy</a>
+</footer>
 </div>
+
 </body>
 </html>
-
-
-
