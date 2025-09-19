@@ -3,173 +3,121 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prevention – Support & Early Intervention</title>
+<title>Prevention</title>
 <style>
 body {
-  font-family: 'Segoe UI', Arial, sans-serif;
   margin: 0;
-  padding: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
   background: #f0f2f5;
-  color: #333;
+  display: flex;
+  justify-content: center;
 }
 
-/* Container */
 .container {
-  max-width: 900px;
-  margin: 60px auto;
-  padding: 50px 40px;
-  background: #fff;
-  border-radius: 20px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-  text-align: center;
-}
-
-/* Headings */
-h1 {
-  font-size: 2.5rem;
-  color: #222;
-  margin-bottom: 20px;
-}
-
-p {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #555;
-  margin-bottom: 30px;
-}
-
-/* Button */
-.button {
-  display: inline-block;
-  padding: 18px 35px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: #fff;
-  background-color: #4a90e2;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.25s ease;
-  margin-top: 10px;
-}
-
-.button:hover {
-  transform: translateY(-2px);
-  opacity: 0.95;
-}
-
-/* Sections */
-.section {
-  margin-top: 50px;
-  text-align: left;
-}
-
-.section h2 {
-  font-size: 1.5rem;
-  color: #222;
-  margin-bottom: 12px;
-}
-
-.section p {
-  margin-bottom: 12px;
-}
-
-/* Resource cards */
-.resources {
+  display: flex;
+  max-width: 1000px;
+  width: 95%;
   margin-top: 40px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+  overflow: hidden;
+}
+
+/* Left Column */
+.left-column {
+  width: 220px;
+  background: #e6ebf2;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
   gap: 15px;
 }
 
-.resource-card {
-  display: block;
-  padding: 15px 20px;
-  background: #f7f9fc;
-  border-left: 5px solid #4a90e2;
-  border-radius: 12px;
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  transition: all 0.2s ease;
+.tab {
+  background: #4a90e2;
+  color: #fff;
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
-.resource-card:hover {
-  background: #e1e8f0;
-  transform: translateY(-2px);
+.tab:hover {
+  opacity: 0.9;
 }
 
-.resource-card::before {
-  content: "💡";
-  margin-right: 10px;
-}
-
-footer {
-  margin-top: 50px;
-  font-size: 0.85rem;
-  color: #888;
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 30px;
   text-align: center;
 }
 
-/* Hero image */
-.hero {
-  width: 100%;
-  max-height: 250px;
-  object-fit: cover;
-  border-radius: 15px;
-  margin-bottom: 30px;
+h1 {
+  font-size: 2rem;
+  color: #222;
+}
+
+p.tagline {
+  color: #555;
+  font-size: 1.05rem;
+  margin: 15px 0 25px;
+}
+
+.button {
+  display: block;
+  width: 70%;
+  margin: 12px auto;
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  opacity: 0.95;
+  transform: translateY(-2px);
+}
+
+.family { background: #4a90e2; color: #fff; }
+.hotline { background: #e94f37; color: #fff; }
+.angel { background: #ccc; color: #666; cursor: not-allowed; }
+
+footer {
+  margin-top: 30px;
+  font-size: 0.85rem;
+  color: #888;
 }
 </style>
 </head>
 <body>
+
 <div class="container">
 
-<img class="hero" src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Supportive hands">
+  <div class="left-column">
+    <div class="tab">Apply to be an Angel</div>
+    <div class="tab">Video Library</div>
+    <div class="tab">Recent Success Stories</div>
+    <div class="tab">Call to Action</div>
+  </div>
 
-<h1>Prevention – Guidance Before Harm</h1>
-<p>Our mission is to provide a safe, anonymous space for individuals who may be considering harmful actions — toward themselves or others — to reach out and connect with trusted family, mentors, professionals, or trained volunteers (“Angels”). Early communication can prevent tragedies and help people make better choices.</p>
+  <div class="main-content">
+    <h1>Prevention</h1>
+    <p class="tagline">A safe space to prevent harm and connect with loved ones before it’s too late.</p>
 
-<a class="button" href="dashboard.html">Go to Dashboard</a>
+    <button class="button family">Send to Family</button>
+    <button class="button hotline">Send to Crisis Hotline</button>
+    <button class="button angel">Send to Angel (Coming Soon)</button>
 
-<div class="section">
-<h2>How It Works</h2>
-<p>Users can send messages anonymously to family, crisis hotlines, or trusted volunteers. Each message creates an opportunity for intervention, guidance, and support before harm occurs.</p>
-<p>The platform prioritizes privacy and safety: identities are revealed only if the sender chooses.</p>
-</div>
-
-<div class="section">
-<h2>Why It Matters</h2>
-<p>Early intervention saves lives and prevents harm. By encouraging communication and providing structured support, we reduce the likelihood of crises escalating.</p>
-<p>We also provide educational resources, tips for family and friends, and guidance on how to support someone in distress or at risk of taking harmful actions.</p>
-</div>
-
-<div class="resources">
-<a class="resource-card" href="https://www.nih.gov/health-information/mental-health" target="_blank">
-NIH: Benefits of Social Support
-</a>
-<a class="resource-card" href="https://www.apa.org/topics/mental-health" target="_blank">
-APA: Talking About Mental Health
-</a>
-<a class="resource-card" href="https://www.who.int/news-room/fact-sheets/detail/mental-health-strengthening-our-response" target="_blank">
-WHO: Mental Health & Wellbeing
-</a>
-<a class="resource-card" href="https://www.nimh.nih.gov/health/topics/suicide-prevention" target="_blank">
-NIMH: Suicide Prevention
-</a>
-<a class="resource-card" href="https://www.mentalhealth.gov/" target="_blank">
-MentalHealth.gov
-</a>
-<a class="resource-card" href="https://suicidepreventionlifeline.org/" target="_blank">
-Suicide Prevention Lifeline
-</a>
-<a class="resource-card" href="https://www.crisistextline.org/" target="_blank">
-Crisis Text Line
-</a>
-</div>
-
-<footer>If you or someone else is in immediate danger, please contact local emergency services or a crisis line. In the U.S., dial <strong>988</strong>.</footer>
+    <footer>If you are in immediate danger, please dial <strong>988</strong> (U.S.)</footer>
+  </div>
 
 </div>
+
 </body>
 </html>
