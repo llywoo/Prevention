@@ -13,10 +13,8 @@ body {
   color: #333;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap; /* allow stacking on mobile */
+  flex-wrap: wrap;
 }
-
-/* Left column navigation */
 .nav-column {
   width: 220px;
   background: #fff;
@@ -26,14 +24,12 @@ body {
   flex-shrink: 0;
   box-sizing: border-box;
 }
-
 .nav-column h3 {
   margin-bottom: 25px;
   font-size: 1.3rem;
   color: #222;
   text-align: center;
 }
-
 .nav-column a {
   display: block;
   margin-bottom: 20px;
@@ -44,13 +40,10 @@ body {
   transition: all 0.2s ease;
   text-align: center;
 }
-
 .nav-column a:hover {
   text-decoration: underline;
   opacity: 0.85;
 }
-
-/* Main container */
 .container {
   max-width: 900px;
   margin: 60px 20px;
@@ -61,22 +54,17 @@ body {
   text-align: center;
   box-sizing: border-box;
 }
-
-/* Headings */
 h1 {
   font-size: 2.5rem;
   color: #222;
   margin-bottom: 20px;
 }
-
 p {
   font-size: 1.1rem;
   line-height: 1.7;
   color: #555;
   margin-bottom: 30px;
 }
-
-/* Button */
 .button {
   display: inline-block;
   padding: 18px 35px;
@@ -91,36 +79,28 @@ p {
   transition: all 0.25s ease;
   margin-top: 10px;
 }
-
 .button:hover {
   transform: translateY(-2px);
   opacity: 0.95;
 }
-
-/* Sections */
 .section {
   margin-top: 50px;
   text-align: left;
 }
-
 .section h2 {
   font-size: 1.5rem;
   color: #222;
   margin-bottom: 12px;
 }
-
 .section p {
   margin-bottom: 12px;
 }
-
-/* Resource cards */
 .resources {
   margin-top: 40px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15px;
 }
-
 .resource-card {
   display: block;
   padding: 15px 20px;
@@ -132,17 +112,14 @@ p {
   font-weight: 500;
   transition: all 0.2s ease;
 }
-
 .resource-card:hover {
   background: #e1e8f0;
   transform: translateY(-2px);
 }
-
 .resource-card::before {
   content: "💡";
   margin-right: 10px;
 }
-
 footer {
   margin-top: 50px;
   font-size: 0.85rem;
@@ -152,8 +129,6 @@ footer {
   background: #fafafa;
   border-top: 1px solid #ddd;
 }
-
-/* Hero image */
 .hero {
   width: 100%;
   max-height: 250px;
@@ -161,14 +136,11 @@ footer {
   border-radius: 15px;
   margin-bottom: 30px;
 }
-
-/* Responsive adjustments */
 @media (max-width: 768px) {
   body {
     flex-direction: column;
     align-items: center;
   }
-
   .nav-column {
     width: 100%;
     padding: 30px 15px;
@@ -176,13 +148,11 @@ footer {
     border-bottom: 1px solid #ddd;
     margin-bottom: 20px;
   }
-
   .container {
     width: 90%;
     margin: 20px 0;
     padding: 30px 20px;
   }
-
   .resources {
     grid-template-columns: 1fr;
   }
@@ -195,7 +165,7 @@ footer {
   <h3>Quick Links</h3>
   <a href="dashboard.html">Go to Dashboard</a>
   <a href="#">Apply to be an Angel</a>
-  <a href="#">Self-Help Videos</a>
+  <a href="self-help.html">Self-Help Videos</a>
   <a href="#">Recent Success Stories</a>
   <a href="#">Call to Action</a>
 </div>
