@@ -21,84 +21,96 @@ body {
   background: #f0f2f5;
   color: #333;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  justify-content: flex-start;
 }
+
+/* Logo */
 .logo {
   position: fixed;
   top: 10px;
   left: 10px;
-  width: 100px;
+  width: 120px;
   cursor: pointer;
   z-index: 1000;
 }
+
+/* Navigation Column */
 .nav-column {
-  width: 220px;
+  width: 250px;
   background: #fff;
-  padding: 50px 20px;
+  padding: 60px 20px;
   border-right: 1px solid #ddd;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
-  flex-shrink: 0;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
   box-sizing: border-box;
-  margin-left: 0;
 }
 .nav-column h3 {
-  margin-bottom: 25px;
-  font-size: 1.3rem;
+  margin-bottom: 35px;
+  font-size: 1.5rem;
   color: #222;
   text-align: center;
 }
 .nav-column a {
   display: block;
-  margin-bottom: 20px;
-  text-decoration: none;
-  color: #4a90e2;
+  margin-bottom: 25px;
+  font-size: 1.2rem;
   font-weight: 600;
-  font-size: 1.15rem;
+  color: #4a90e2;
   text-align: center;
+  text-decoration: none;
   transition: all 0.2s ease;
 }
 .nav-column a:hover {
   text-decoration: underline;
   opacity: 0.85;
 }
+
+/* Main Container */
 .container {
-  max-width: 700px;
-  margin: 60px 20px 60px 0;
-  padding: 40px;
+  max-width: 900px;
+  margin: 100px 0 60px 280px;
+  padding: 50px;
   background: #fff;
-  border-radius: 20px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+  border-radius: 25px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
   text-align: center;
   box-sizing: border-box;
 }
+
+/* Hero Banner */
 .hero-banner {
   width: 100%;
-  height: 180px;
-  border-radius: 20px;
-  background: url('https://i.imgur.com/rIeNOFe.png') no-repeat center center;
-  background-size: contain;
-  margin-bottom: 40px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  height: 250px;
+  border-radius: 25px;
+  background: url('YOUR_OFFICIAL_BANNER_URL') center center/cover no-repeat;
+  margin-bottom: 50px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
 }
+
+/* Headings & tagline */
 h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: #222;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 p.tagline {
+  font-size: 1.2rem;
   color: #555;
-  margin-bottom: 25px;
-  font-size: 1.05rem;
+  margin-bottom: 35px;
 }
+
+/* Action Buttons */
 .button {
   display: block;
   width: 100%;
-  padding: 15px;
-  margin: 12px 0;
-  border: none;
-  border-radius: 12px;
+  padding: 22px;
+  font-size: 1.3rem;
   font-weight: bold;
+  border-radius: 15px;
+  margin: 20px 0;
   cursor: pointer;
   transition: all 0.25s ease;
 }
@@ -106,62 +118,68 @@ p.tagline {
 .hotline { background: #e94f37; color: #fff; }
 .angel { background: #ccc; color: #666; cursor: not-allowed; }
 .button:hover:not(.angel) {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   opacity: 0.95;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
+
+/* Resources Section */
 .resources {
-  margin-top: 30px;
+  margin-top: 60px;
   text-align: left;
 }
 .resources h3 {
-  font-size: 1.3rem;
-  color: #222;
-  margin-bottom: 15px;
+  font-size: 1.6rem;
+  margin-bottom: 25px;
 }
 .resource-card {
   display: flex;
   align-items: center;
-  padding: 12px 15px;
-  margin-bottom: 12px;
+  padding: 20px 25px;
+  margin-bottom: 20px;
   background: #f7f9fc;
-  border-left: 5px solid #4a90e2;
-  border-radius: 10px;
-  text-decoration: none;
+  border-left: 6px solid #4a90e2;
+  border-radius: 15px;
+  font-size: 1.2rem;
   color: #333;
-  transition: all 0.2s ease;
+  text-decoration: none;
+  transition: all 0.25s ease;
 }
 .resource-card:hover {
+  transform: translateY(-3px);
   background: #e1e8f0;
-  transform: translateY(-2px);
 }
 .resource-card::before {
   content: "💡";
-  margin-right: 12px;
-  font-size: 1.2rem;
+  margin-right: 15px;
+  font-size: 1.5rem;
 }
+
+/* Footer */
 footer {
-  margin-top: 30px;
-  font-size: 0.85rem;
+  margin-top: 60px;
+  font-size: 0.9rem;
   color: #888;
   text-align: center;
 }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .container { margin-left: 260px; max-width: 650px; }
+}
 @media (max-width: 768px) {
-  body {
-    flex-direction: column;
-    align-items: center;
-  }
+  body { flex-direction: column; align-items: center; }
   .nav-column {
     width: 100%;
+    height: auto;
     padding: 30px 15px;
     border-right: none;
     border-bottom: 1px solid #ddd;
     margin-bottom: 20px;
+    position: relative;
   }
-  .container {
-    width: 90%;
-    margin: 20px 0;
-    padding: 30px 20px;
-  }
+  .container { width: 90%; margin: 20px; padding: 40px; }
+  .hero-banner { height: 200px; }
 }
 </style>
 </head>
@@ -180,7 +198,6 @@ footer {
 
 <div class="container">
   <div class="hero-banner"></div>
-
   <h1>You’re Not Alone</h1>
   <p class="tagline">A safe space to share, listen, and support loved ones.</p>
 
@@ -195,8 +212,10 @@ footer {
     <a class="resource-card" href="https://www.who.int/news-room/fact-sheets/detail/mental-health-strengthening-our-response" target="_blank">WHO: Mental Health & Wellbeing</a>
     <a class="resource-card" href="https://www.nimh.nih.gov/health/topics/suicide-prevention" target="_blank">NIMH: Suicide Prevention</a>
   </div>
-
-  <footer>If you are in immediate danger, please dial <strong>988</strong> (U.S.)</footer>
 </div>
+
+<footer>
+  If you are in immediate danger, please dial <strong>988</strong> (U.S.)
+</footer>
 </body>
 </html>
