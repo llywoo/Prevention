@@ -21,29 +21,43 @@
     display: flex;
     width: 95%;
     max-width: 1100px;
-    margin-top: 60px; /* extra spacing for fixed top logo */
+    margin-top: 60px;
     gap: 20px;
   }
+
+  /* Nav Column (updated to match other pages) */
   .nav-column {
-    flex: 0 0 200px;
+    flex: 0 0 220px;
     background: #fff;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    font-size: 1rem;
     height: fit-content;
   }
   .nav-column h3 {
-    margin-top: 0;
-    margin-bottom: 15px;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
     color: #222;
   }
+  .nav-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .nav-column li {
+    margin-bottom: 12px;
+  }
   .nav-column a {
-    display: block;
-    margin-bottom: 10px;
     text-decoration: none;
     color: #4a90e2;
-    font-weight: bold;
+    font-weight: 600;
+    transition: color 0.2s;
   }
+  .nav-column a:hover {
+    color: #1e63b8;
+  }
+
   .reader-container {
     position: relative;
     flex: 1;
@@ -137,21 +151,24 @@
 </a>
 
 <div class="page-container">
-  <!-- Quick Links -->
-<div class="nav-column">
-  <h3>Quick Links</h3>
-  <a href="index.html">Home</a>
-  <a href="apply-to-be-an-angel.html">Apply to be an Angel</a>
-  <a href="self-help.html">Self-Help Videos</a>
-  <a href="success-stories.html">Recent Success Stories</a>
-  <a href="call-to-action.html">Call to Action</a>
-  <a href="prevention-pulse-flipbook.html">Read "The Prevention Pulse"</a>
-</div>
+  <!-- Quick Links Column -->
+  <div class="nav-column">
+    <h3>Quick Links</h3>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="apply-to-be-an-angel.html">Apply to be an Angel</a></li>
+      <li><a href="self-help.html">Self-Help Videos</a></li>
+      <li><a href="success-stories.html">Recent Success Stories</a></li>
+      <li><a href="call-to-action.html">Call to Action</a></li>
+      <li><a href="prevention-pulse-flipbook.html">Read "The Prevention Pulse"</a></li>
+    </ul>
+  </div>
 
   <div class="reader-container">
     <div class="hero-banner" aria-hidden="true"></div>
     <img src="https://i.imgur.com/QDKQ6Fp.png" alt="Prevention Pulse Logo" class="logo">
 
+    <!-- Chapters (1–6) remain exactly as before -->
     <!-- Chapter 1 -->
     <div class="chapter active" id="chapter1">
       <h1>Chapter 1. Finding Your Words When You Need Them Most</h1>
@@ -172,63 +189,45 @@
       <p>Ultimately, your dashboard becomes a record of growth. Using these tools helps you approach future conversations with more confidence, and the knowledge that support is always within reach. Prevention Pulse empowers by providing clarity, not instruction, giving you the confidence to handle life’s sensitive moments thoughtfully and responsibly.</p>
     </div>
 
-    <!-- Chapter 3 (expanded) -->
+    <!-- Chapter 3 -->
     <div class="chapter" id="chapter3">
       <h1>Chapter 3. The Philosophy of Connection</h1>
       <p>At its essence, Prevention Pulse is built on a simple but radical idea: silence is often the real crisis. Not every urgent headline signals the deepest need—many of the fractures that later become emergencies start as small, everyday disconnections. Parents who stop asking about their teen’s day. Siblings who let months slide by. Friends who stop returning texts. Those quiet distances can calcify into loneliness, despair, or misunderstanding.</p>
-
       <p>Connection isn’t always dramatic. It’s a slow, patient practice. Prevention Pulse meets people where they are—when a single sentence might be the difference between reaching out and retreating back into silence. Anonymous messages create a gentle first step, a low-risk way to reopen a door. That knock—soft, nonconfrontational, and caring—often lands where a direct confrontation would have pushed someone away.</p>
-
       <p>We intentionally designed the anonymity feature to be dignified and constructive. It removes the fear of immediate judgment while still communicating care. In many cases, the recipient hears concern for the first time without needing to defend or explain themselves. For the sender, anonymity reduces the paralysis that comes from “what if I make it worse?”</p>
-
       <p>Beyond anonymity, Prevention Pulse encourages deliberate language: short, specific, and compassionate. Instead of ascribing motives, messages focus on observations (“I noticed you haven’t been yourself lately”) and invitations (“I’m here if you want to talk”). This style lowers resistance and opens the door to curiosity rather than conflict.</p>
-
       <p>We also honor the reality that relationships are two-way streets. The platform provides resources and optional Angels for recipients, too—guides who can help a family member receive difficult news with grace, ask helpful questions, and avoid impulsive reactions. This isn’t about coaching or telling people what to do; it’s about creating a safer space for both sides to hear and be heard.</p>
-
       <p>Real-life examples show how small acts lead to real repair. A brief anonymous note—“I miss our Saturday breakfasts, are you doing okay?”—can restart a conversation that had been dormant for years. A carefully framed concern can prompt someone to seek help who otherwise never would have. Those are the quiet victories we track, celebrate, and learn from.</p>
     </div>
 
-    <!-- Chapter 4 (expanded) -->
+    <!-- Chapter 4 -->
     <div class="chapter" id="chapter4">
       <h1>Chapter 4. Small Steps, Big Ripples</h1>
       <p>Think of prevention as a series of small, intentional nudges rather than a single grand intervention. Each message, each check-in, each short resource viewed contributes to a culture that prizes connection. We call this micro-prevention: discrete, repeatable actions that together shift outcomes.</p>
-
       <p>Micro-prevention thrives on accessibility. A 30-second prompt to check in, a five-minute practice on active listening, or a one-paragraph anonymous message—all are low-effort actions with outsized effects. Prevention Pulse makes those acts easy to take: simple templates for sensitive messages, quick video lessons for immediate skill building, and an on-demand Angel to give calm feedback when the stakes feel high.</p>
-
       <p>Because small steps are repeatable, they create habit. Habit creates resilience. Over time, users report feeling more confident entering hard conversations; families report fewer escalations; community members report being more likely to reach out early rather than waiting. Those ripples accumulate.</p>
-
       <p>It’s also practical to think in terms of layers: the sender’s action, the anonymous bridge, the recipient’s reception, and optional Angel support. Each layer is a chance to de-escalate tension and replace suspicion with curiosity. When the platform succeeds, what looks like a small nudge often becomes the first chapter in a longer story of reconnection.</p>
-
       <p>Finally, the ripple metaphor reminds us that prevention is communal. One person’s willingness to reach out—quietly, carefully—can reduce risk for many. When communities normalize small, brave acts of care, they become safer for everyone.</p>
     </div>
 
-    <!-- Chapter 5 (expanded) -->
+    <!-- Chapter 5 -->
     <div class="chapter" id="chapter5">
       <h1>Chapter 5. A Safe, Trusted Space</h1>
       <p>Privacy and safety are not afterthoughts; they are the foundation. Prevention Pulse uses technical and human safeguards so people can trust a message will remain confidential unless there is an imminent risk of harm. We never use identity as a bargaining chip—Angels do not see identities unless explicitly shared by a user, and our systems are designed around the principle of minimal data collection.</p>
-
       <p>At the same time, responsible care requires clear boundaries. Users are informed, in plain language, about what anonymity does and does not cover. If there are signs of imminent danger, our safety protocol prioritizes life—this means following legal obligations and reaching out to emergency services when necessary. Those rare interventions are handled by trained staff and law enforcement only when critical thresholds are met.</p>
-
       <p>We also prioritize the well-being and training of Angels. These volunteers (or compensated staff as the program scales) receive structured training on communication best practices, privacy, ethical boundaries, and escalation procedures. They are supervised, have access to refresher materials, and operate under a strict code of conduct that centers respect and safety.</p>
-
       <p>Transparency builds trust. Users can review summaries of our safety policies, training curricula for Angels, and anonymized outcome data that demonstrate impact without exposing identities. That openness helps families and communities understand how the platform protects users while still fulfilling its prevention mission.</p>
-
       <p>Ultimately, a trusted platform is one that treats people with dignity, anticipates risk responsibly, and provides clear, humane pathways for support.</p>
     </div>
 
-    <!-- /not the/ Final Chapter (expanded) -->
+    <!-- Chapter 6 -->
     <div class="chapter" id="chapter6">
       <h1>/not the/ Final Chapter - The Pulse of Tomorrow</h1>
       <p>The work of Prevention Pulse is ongoing. Our aim is to scale thoughtfully: expanding reach while preserving intimacy. Tomorrow’s platform will include richer multilingual resources, partnerships with local support providers, and expanded training tracks for Angels so they can better support diverse communities and complex situations.</p>
-
       <p>We envision a world where checking in is routine, not extraordinary. Where small messages of care happen frequently and are met with skills and systems that can receive them well. The future we build is one where family members feel equipped to respond without escalating, where people in pain find a low-risk path to be heard, and where communities embrace micro-prevention as a cultural value.</p>
-
       <p>Technically, this means continuing to improve our dashboard, adding better triage tools for volunteers, refining anonymized analytics so we can learn what works, and maintaining the highest standards of security and privacy. Ethically, it means centering the voices of those we serve—listening to users, Angels, and community partners to evolve in ways that stay humane and effective.</p>
-
       <p>In practice, the next chapters will include real-world pilots in diverse communities, partnerships with nonprofits and health systems, and open-source resources so others can adopt micro-prevention techniques. Each pilot will teach us something new about how to tailor messages, where to place resources, and how to measure impact without compromising privacy.</p>
-
       <p>Every user who sends a message, every Angel who listens, and every family that chooses to stay connected contributes to this future. The platform is a tool; the movement is the people who use it. Together, we make the smaller acts of care more frequent—and those small acts will continue to ripple outward, changing the world one message at a time.</p>
-
       <p>We call this “/not the/ Final Chapter” because prevention is iterative: every success teaches us how to do better. As prevention evolves, so will the Pulse—sharpened by evidence, guided by compassion, and driven by the conviction that early connection saves lives and heals relationships.</p>
     </div>
 
@@ -247,7 +246,6 @@
     chapters.forEach((ch, i) => {
       ch.classList.toggle('active', i === index);
     });
-    // ensure focus is on the active chapter for accessibility
     const active = chapters[index];
     if (active) active.focus();
   }
@@ -262,7 +260,6 @@
     showChapter(current);
   });
 
-  // keyboard support
   document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowRight') {
       if(current < chapters.length - 1) current++;
@@ -273,7 +270,6 @@
     }
   });
 
-  // Mobile swipe support
   let touchstartX = 0;
   let touchendX = 0;
 
@@ -286,7 +282,6 @@
   document.addEventListener('touchstart', e => touchstartX = e.changedTouches[0].screenX);
   document.addEventListener('touchend', e => { touchendX = e.changedTouches[0].screenX; handleGesture(); });
 
-  // initial display
   showChapter(current);
 </script>
 
