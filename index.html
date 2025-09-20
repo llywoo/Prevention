@@ -4,79 +4,184 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prevention – Support & Early Intervention</title>
-
-<!-- Favicon -->
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-
-<link rel="stylesheet" href="style.css">
+<link rel="icon" href="https://i.imgur.com/QDKQ6Fp.png" type="image/png">
 
 <style>
-/* Sign Up / Login Button */
-.signup-login-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  padding: 10px 18px;
-  background-color: #0077cc;
+/* Reset & basic styles */
+body, html {
+  margin: 0; padding: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f4f6f8;
+  color: #333;
+}
+a { text-decoration: none; color: inherit; }
+
+/* Container */
+.page-wrapper { display: flex; max-width: 1200px; margin: 0 auto; gap: 20px; padding: 20px; }
+
+/* Navigation Column */
+.nav-column {
+  flex: 0 0 220px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  height: fit-content;
+}
+.nav-column h3 { margin-top: 0; color: #222; }
+.nav-column a {
+  display: block;
+  margin-bottom: 12px;
+  color: #0077cc;
+  font-weight: bold;
+}
+.nav-column a:hover { color: #005fa3; }
+
+/* Main Content */
+.main-content { flex: 1; display: flex; flex-direction: column; gap: 30px; }
+
+/* Hero Section */
+.hero {
+  width: 100%;
+  height: 350px;
+  background: url('https://via.placeholder.com/1200x350') center/cover no-repeat;
+  border-radius: 12px;
+  position: relative;
+  display: flex; justify-content: center; align-items: center;
   color: #fff;
-  border: none;
-  border-radius: 6px;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+.hero h1 {
+  font-size: 2.5rem;
+  background: rgba(0,0,0,0.4);
+  padding: 15px 30px;
+  border-radius: 8px;
+}
+
+/* Sections */
+.section {
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+.section h2 { color: #0077cc; margin-top: 0; }
+.section p { line-height: 1.7; }
+
+/* Call to Action Button */
+.button {
+  display: inline-block;
+  background: #0077cc;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+.button:hover { background: #005fa3; }
+
+/* Resource Cards */
+.resources {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+.resource-card {
+  background: #fff;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 5px 12px rgba(0,0,0,0.08);
+  font-weight: bold;
+  color: #0077cc;
+  transition: 0.2s;
+  text-align: center;
+}
+.resource-card:hover {
+  background: #0077cc;
+  color: #fff;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+  font-size: 0.9rem;
+  color: #666;
+}
+footer hr { border: none; border-top: 1px solid #ddd; margin: 15px 0; }
+.disclaimer a { color: #0077cc; }
+
+/* Logo */
+.logo {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 120px;
   cursor: pointer;
   z-index: 1000;
+  transition: transform 0.2s ease;
 }
-.signup-login-btn:hover { background-color: #005fa3; }
+.logo:hover { transform: scale(1.1); }
 
-/* Modal Background */
+/* Sign Up / Login Button */
+.signup-login-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: 0.2s;
+}
+.signup-login-btn:hover { background: #218838; }
+
+/* Modal */
 .modal-bg {
   display: none;
   position: fixed;
   z-index: 999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
   background-color: rgba(0,0,0,0.5);
 }
-
-/* Modal Content */
 .modal-content {
-  background-color: #fefefe;
+  background: #fff;
   margin: 8% auto;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 10px;
   width: 90%;
   max-width: 400px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
-
-/* Modal Inputs */
-.modal-content input[type="text"], .modal-content input[type="password"], .modal-content input[type="email"] {
+.modal-content input {
   width: 90%;
   padding: 10px;
   margin: 8px 0;
-  border-radius: 4px;
+  border-radius: 6px;
   border: 1px solid #ccc;
 }
-
-/* Modal Buttons */
-.modal-content .modal-btn {
+.modal-btn {
   padding: 10px 18px;
   margin: 8px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
 }
-.modal-content .login-btn { background-color: #0077cc; color: #fff; }
-.modal-content .login-btn:hover { background-color: #005fa3; }
-.modal-content .signup-btn { background-color: #28a745; color: #fff; }
-.modal-content .signup-btn:hover { background-color: #1e7e34; }
-.modal-content .close-btn { background-color: #ccc; color: #333; }
-.modal-content .close-btn:hover { background-color: #999; }
+.login-btn { background: #0077cc; color: #fff; }
+.login-btn:hover { background: #005fa3; }
+.signup-btn { background: #28a745; color: #fff; }
+.signup-btn:hover { background: #218838; }
+.close-btn { background: #ccc; color: #333; }
+.close-btn:hover { background: #999; }
+
+/* Responsive */
+@media(max-width:1024px) { .page-wrapper { flex-direction: column; } .nav-column { width: 100%; margin-bottom: 20px; } }
 </style>
 </head>
 <body>
@@ -92,88 +197,80 @@
   <div class="modal-content">
     <h2>Sign Up or Login</h2>
     <p style="color:#555; font-style:italic; margin-bottom:15px;">Coming Soon</p>
-    <input type="email" placeholder="Email" id="email"><br>
-    <input type="password" placeholder="Password" id="password"><br>
+    <input type="email" placeholder="Email"><br>
+    <input type="password" placeholder="Password"><br>
     <button class="modal-btn login-btn" onclick="alert('Login functionality goes here')">Login</button>
     <button class="modal-btn signup-btn" onclick="alert('Sign Up functionality goes here')">Sign Up</button>
     <button class="modal-btn close-btn" onclick="closeModal()">Cancel</button>
   </div>
 </div>
 
-<!-- Navigation Column -->
-<div class="nav-column">
-  <h3>Quick Links</h3>
-  <a href="index.html">Home</a>
-  <a href="apply-to-be-an-angel.html">Apply to be an Angel</a>
-  <a href="self-help.html">Self-Help Videos</a>
-  <a href="success-stories.html">Recent Success Stories</a>
-  <a href="call-to-action.html">Call to Action</a>
-  <a href="prevention-pulse-flipbook.html">Read "The Prevention Pulse"</a>
-</div>
-
-<!-- Main Container -->
-<div class="container">
-  <img class="hero" src="https://i.imgur.com/rIeNOFe.png" alt="Prevention Banner">
-  <h1>Prevention – Guidance Before Harm</h1>
-  <p>Our mission is to provide a safe, anonymous space for individuals who may be considering harmful actions — toward themselves or others — to reach out and connect with trusted family, mentors, professionals, or trained volunteers (“Angels”). Early communication can prevent tragedies and help people make better choices.</p>
-
-  <a class="button" href="dashboard.html">Go to Dashboard</a>
-
-  <div class="section">
-    <h2>How It Works</h2>
-    <p>Users can send messages anonymously to family, crisis hotlines, or trusted volunteers. Each message creates an opportunity for intervention, guidance, and support before harm occurs.</p>
-    <p>The platform prioritizes privacy and safety: identities are revealed only if the sender chooses.</p>
+<div class="page-wrapper">
+  <!-- Quick Links Column (unchanged) -->
+  <div class="nav-column">
+    <h3>Quick Links</h3>
+    <a href="index.html">Home</a>
+    <a href="apply-to-be-an-angel.html">Apply to be an Angel</a>
+    <a href="self-help.html">Self-Help Videos</a>
+    <a href="success-stories.html">Recent Success Stories</a>
+    <a href="call-to-action.html">Call to Action</a>
+    <a href="prevention-pulse-flipbook.html">Read "The Prevention Pulse"</a>
   </div>
 
-  <div class="section">
-    <h2>Why It Matters</h2>
-    <p>Early intervention saves lives and prevents harm. By encouraging communication and providing structured support, we reduce the likelihood of crises escalating.</p>
-    <p>We also provide educational resources, tips for family and friends, and guidance on how to support someone in distress or at risk of taking harmful actions.</p>
-  </div>
-
-  <div class="resources">
-    <a class="resource-card" href="https://www.nih.gov/health-information/mental-health" target="_blank">NIH: Benefits of Social Support</a>
-    <a class="resource-card" href="https://www.apa.org/topics/mental-health" target="_blank">APA: Talking About Mental Health</a>
-    <a class="resource-card" href="https://www.who.int/news-room/fact-sheets/detail/mental-health-strengthening-our-response" target="_blank">WHO: Mental Health & Wellbeing</a>
-    <a class="resource-card" href="https://www.nimh.nih.gov/health/topics/suicide-prevention" target="_blank">NIMH: Suicide Prevention</a>
-    <a class="resource-card" href="https://www.mentalhealth.gov/" target="_blank">MentalHealth.gov</a>
-    <a class="resource-card" href="https://suicidepreventionlifeline.org/" target="_blank">Suicide Prevention Lifeline</a>
-    <a class="resource-card" href="https://www.crisistextline.org/" target="_blank">Crisis Text Line</a>
-  </div>
-
-  <footer>
-    <p>If you or someone else is in immediate danger, please contact local emergency services or a crisis line. In the U.S., dial <strong>988</strong>.</p>
-    <hr>
-    <div class="disclaimer">
-      <strong>Legal Disclaimer</strong><br>
-      • This platform is intended for support, guidance, and prevention only.<br>
-      • It is <em>not</em> a substitute for professional medical, psychiatric, or emergency services.<br>
-      • By using this platform, you agree not to post threats, unlawful content, or misuse the service.<br>
-      • The organization and its volunteers are not responsible for actions taken by users based on the information shared here.<br>
-      • All communications are handled with respect for privacy, but anonymity cannot be guaranteed in cases of imminent risk of harm or as required by law.<br>
-      • Please reach out if you notice copyrighted content or any material that should not be shared.<br>
-      • Use of this site signifies acceptance of these terms.<br><br>
-      <a href="terms.html">Terms of Use & Privacy Policy</a>
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Hero Section -->
+    <div class="hero">
+      <h1>Guidance & Support Before Harm</h1>
     </div>
-  </footer>
 
+    <!-- About / CTA -->
+    <div class="section">
+      <h2>Our Mission</h2>
+      <p>We provide a safe, anonymous space for individuals at risk to connect with trusted volunteers (“Angels”), family, and professionals. Early communication can prevent crises and guide better decisions.</p>
+      <a class="button" href="dashboard.html">Go to Dashboard</a>
+    </div>
+
+    <!-- How It Works -->
+    <div class="section">
+      <h2>How It Works</h2>
+      <p>Send anonymous messages, access educational resources, or request guidance from trained Angels. Each step opens opportunities for support and early intervention.</p>
+    </div>
+
+    <!-- Why It Matters -->
+    <div class="section">
+      <h2>Why Early Intervention Matters</h2>
+      <p>Proactive communication and structured support can prevent crises from escalating. We empower individuals and communities with knowledge and compassionate guidance.</p>
+    </div>
+
+    <!-- Resources -->
+    <div class="resources">
+      <a class="resource-card" href="#" target="_blank">Resource Placeholder 1</a>
+      <a class="resource-card" href="#" target="_blank">Resource Placeholder 2</a>
+      <a class="resource-card" href="#" target="_blank">Resource Placeholder 3</a>
+      <a class="resource-card" href="#" target="_blank">Resource Placeholder 4</a>
+      <a class="resource-card" href="#" target="_blank">Resource Placeholder 5</a>
+      <a class="resource-card" href="#" target="_blank">Resource Placeholder 6</a>
+    </div>
+
+    <footer>
+      <p>If you or someone else is in immediate danger, contact local emergency services. In the U.S., dial <strong>988</strong>.</p>
+      <hr>
+      <div class="disclaimer">
+        <strong>Legal Disclaimer</strong><br>
+        • This platform is intended for support and prevention only.<br>
+        • Not a substitute for professional services.<br>
+        • By using this site, you agree to safe and legal usage.<br>
+        <a href="terms.html">Terms of Use & Privacy Policy</a>
+      </div>
+    </footer>
+  </div>
 </div>
 
 <script>
-function openModal() {
-  document.getElementById('authModal').style.display = 'block';
-}
-function closeModal() {
-  document.getElementById('authModal').style.display = 'none';
-}
-
-// Close modal when clicking outside of content
-window.onclick = function(event) {
-  const modal = document.getElementById('authModal');
-  if (event.target === modal) {
-    modal.style.display = "none";
-  }
-}
+function openModal() { document.getElementById('authModal').style.display='block'; }
+function closeModal() { document.getElementById('authModal').style.display='none'; }
+window.onclick = function(event) { if(event.target==document.getElementById('authModal')) closeModal(); }
 </script>
 
 </body>
