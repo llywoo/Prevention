@@ -1,4 +1,129 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Prevention – Support & Early Intervention</title> <!-- Favicon --> <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"> <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"> <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"> <link rel="manifest" href="/site.webmanifest"> <link rel="stylesheet" href="style.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prevention – Support & Early Intervention</title>
+<link rel="icon" href="https://i.imgur.com/QDKQ6Fp.png" type="image/png">
+
+<style>
+/* Reset & basic styles */
+body, html {
+  margin: 0; padding: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f4f6f8;
+  color: #333;
+}
+a { text-decoration: none; color: inherit; }
+
+/* Container */
+.page-wrapper { display: flex; max-width: 1200px; margin: 0 auto; gap: 20px; padding: 20px; }
+
+/* Navigation Column */
+.nav-column {
+  flex: 0 0 220px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  height: fit-content;
+}
+.nav-column h3 { margin-top: 0; color: #222; }
+.nav-column a {
+  display: block;
+  margin-bottom: 12px;
+  color: #0077cc;
+  font-weight: bold;
+}
+.nav-column a:hover { color: #005fa3; }
+
+/* Main Content */
+.main-content { flex: 1; display: flex; flex-direction: column; gap: 30px; }
+
+/* Hero Section */
+.hero {
+  width: 100%;
+  height: 350px;
+  background: url('https://via.placeholder.com/1200x350') center/cover no-repeat;
+  border-radius: 12px;
+  position: relative;
+  display: flex; justify-content: center; align-items: center;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+.hero h1 {
+  font-size: 2.5rem;
+  background: rgba(0,0,0,0.4);
+  padding: 15px 30px;
+  border-radius: 8px;
+}
+
+/* Sections */
+.section {
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+.section h2 { color: #0077cc; margin-top: 0; }
+.section p { line-height: 1.7; }
+
+/* Call to Action Button */
+.button {
+  display: inline-block;
+  background: #0077cc;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+.button:hover { background: #005fa3; }
+
+/* Resource Cards */
+.resources {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+.resource-card {
+  background: #fff;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 5px 12px rgba(0,0,0,0.08);
+  font-weight: bold;
+  color: #0077cc;
+  transition: 0.2s;
+  text-align: center;
+}
+.resource-card:hover {
+  background: #0077cc;
+  color: #fff;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+  font-size: 0.9rem;
+  color: #666;
+}
+footer hr { border: none; border-top: 1px solid #ddd; margin: 15px 0; }
+.disclaimer a { color: #0077cc; }
+
+/* Logo */
+.logo {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 120px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.2s ease;
+}
+.logo:hover { transform: scale(1.1); }
+
 /* Sign Up / Login Button */
 .signup-login-btn {
   position: fixed;
@@ -81,7 +206,7 @@
 </div>
 
 <div class="page-wrapper">
-  <!-- Quick Links Column -->
+  <!-- Quick Links Column (unchanged) -->
   <div class="nav-column">
     <h3>Quick Links</h3>
     <a href="index.html">Home</a>
@@ -99,7 +224,7 @@
       <h1>Guidance & Support Before Harm</h1>
     </div>
 
-    <!-- Our Mission -->
+    <!-- About / CTA -->
     <div class="section">
       <h2>Our Mission</h2>
       <p>We provide a safe, anonymous space for individuals at risk to connect with trusted volunteers (“Angels”), family, and professionals. Early communication can prevent crises and guide better decisions.</p>
@@ -109,28 +234,25 @@
     <!-- How It Works -->
     <div class="section">
       <h2>How It Works</h2>
-      <img src="https://via.placeholder.com/1000x200" alt="Workflow" style="width:100%; border-radius:8px; margin-bottom:15px;">
       <p>Send anonymous messages, access educational resources, or request guidance from trained Angels. Each step opens opportunities for support and early intervention.</p>
     </div>
 
     <!-- Why It Matters -->
     <div class="section">
       <h2>Why Early Intervention Matters</h2>
-      <img src="https://via.placeholder.com/1000x200" alt="Intervention" style="width:100%; border-radius:8px; margin-bottom:15px;">
       <p>Proactive communication and structured support can prevent crises from escalating. We empower individuals and communities with knowledge and compassionate guidance.</p>
     </div>
 
     <!-- Resources -->
     <div class="resources">
-      <a class="resource-card" href="#" target="_blank"><img src="https://via.placeholder.com/220x120" alt="Resource 1"><span>Resource Placeholder 1</span></a>
-      <a class="resource-card" href="#" target="_blank"><img src="https://via.placeholder.com/220x120" alt="Resource 2"><span>Resource Placeholder 2</span></a>
-      <a class="resource-card" href="#" target="_blank"><img src="https://via.placeholder.com/220x120" alt="Resource 3"><span>Resource Placeholder 3</span></a>
-      <a class="resource-card" href="#" target="_blank"><img src="https://via.placeholder.com/220x120" alt="Resource 4"><span>Resource Placeholder 4</span></a>
-      <a class="resource-card" href="#" target="_blank"><img src="https://via.placeholder.com/220x120" alt="Resource 5"><span>Resource Placeholder 5</span></a>
-      <a class="resource-card" href="#" target="_blank"><img src="https://via.placeholder.com/220x120" alt="Resource 6"><span>Resource Placeholder 6</span></a>
+      <a class="resource-card" href="#" target="_blank">Resource Placeholder 1</a>
+      <a class="resource-card" href="#" target="_blank">Resource Placeholder 2</a>
+      <a class="resource-card" href="#" target="_blank">Resource Placeholder 3</a>
+      <a class="resource-card" href="#" target="_blank">Resource Placeholder 4</a>
+      <a class="resource-card" href="#" target="_blank">Resource Placeholder 5</a>
+      <a class="resource-card" href="#" target="_blank">Resource Placeholder 6</a>
     </div>
 
-    <!-- Footer -->
     <footer>
       <p>If you or someone else is in immediate danger, contact local emergency services. In the U.S., dial <strong>988</strong>.</p>
       <hr>
@@ -153,4 +275,3 @@ window.onclick = function(event) { if(event.target==document.getElementById('aut
 
 </body>
 </html>
-
