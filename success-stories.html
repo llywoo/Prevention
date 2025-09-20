@@ -73,6 +73,40 @@ p {
   color: #555;
   line-height: 1.5;
 }
+.submission-form {
+  margin-top: 40px;
+  text-align: left;
+}
+.submission-form h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+.submission-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+.submission-form input,
+.submission-form textarea,
+.submission-form button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+.submission-form button {
+  background-color: #4a90e2;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.submission-form button:hover {
+  background-color: #357ab8;
+}
 .footer {
   margin-top: 50px;
   font-size: 0.85rem;
@@ -124,6 +158,23 @@ p {
 <div class="container">
 <h1>Coming Soon</h1>
 <p>We are currently preparing content for this section. Please check back later for inspiring stories and updates.</p>
+
+<!-- Submission Form -->
+<div class="submission-form">
+  <h2>Submit Your Story</h2>
+  <form action="#" method="post">
+    <label for="name">Name (optional)</label>
+    <input type="text" id="name" name="name" placeholder="Your name">
+
+    <label for="email">Email (optional)</label>
+    <input type="email" id="email" name="email" placeholder="Your email">
+
+    <label for="story">Your Story</label>
+    <textarea id="story" name="story" rows="6" placeholder="Share your experience..."></textarea>
+
+    <button type="submit">Submit Story</button>
+  </form>
+</div>
 
 <div class="footer">
   <p>If you or someone else is in immediate danger, please contact local emergency services. In the U.S., dial <strong>988</strong>.</p>
