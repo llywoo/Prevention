@@ -98,14 +98,10 @@ p {
   box-sizing: border-box;
 }
 .submission-form button {
-  background-color: #4a90e2;
-  color: #fff;
+  background-color: #ccc;
+  color: #666;
   border: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-.submission-form button:hover {
-  background-color: #357ab8;
+  cursor: not-allowed;
 }
 .footer {
   margin-top: 50px;
@@ -162,7 +158,7 @@ p {
 <!-- Submission Form -->
 <div class="submission-form">
   <h2>Submit Your Story</h2>
-  <form action="#" method="post">
+  <form>
     <label for="name">Name (optional)</label>
     <input type="text" id="name" name="name" placeholder="Your name">
 
@@ -172,7 +168,7 @@ p {
     <label for="story">Your Story</label>
     <textarea id="story" name="story" rows="6" placeholder="Share your experience..."></textarea>
 
-    <button type="submit">Submit Story</button>
+    <button type="submit" disabled>Coming Soon</button>
   </form>
 </div>
 
