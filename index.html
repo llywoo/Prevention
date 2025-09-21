@@ -4,42 +4,77 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prevention – Support & Early Intervention</title>
-<!-- Favicon -->
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="style.css">
 <style>
+/* Body adjustments */
+body { padding-top:60px; margin:0; font-family:'Segoe UI',Arial,sans-serif; background:#f5f7fa; }
+
+/* Top Toolbar */
+.top-toolbar { display:flex; justify-content:space-between; align-items:center; background-color: rgba(0,119,204,0.95); color:#fff; height:50px; width:100%; position:fixed; top:0; left:0; z-index:2000; box-shadow:0 2px 6px rgba(0,0,0,0.2); padding:0 20px; }
+.top-toolbar .menu-items { display:flex; gap:15px; }
+.top-toolbar a { color:#fff; text-decoration:none; font-weight:bold; padding:12px 10px; border-radius:4px; transition: background-color 0.3s, transform 0.2s; }
+.top-toolbar a:hover { background-color:#005fa3; transform:translateY(-2px); }
+
+/* Hamburger Menu */
+.hamburger { display:none; flex-direction:column; cursor:pointer; gap:4px; }
+.hamburger div { width:25px; height:3px; background:#fff; transition:0.3s; }
+@media (max-width:768px){
+  .top-toolbar .menu-items { display:none; flex-direction:column; position:absolute; top:50px; left:0; width:100%; background:rgba(0,119,204,0.95); }
+  .top-toolbar .menu-items.show { display:flex; }
+  .hamburger { display:flex; }
+}
+
 /* Sign Up / Login Button */
-.signup-login-btn { position: absolute; top: 20px; right: 20px; padding: 10px 18px; background-color: #0077cc; color: #fff; border: none; border-radius: 6px; cursor: pointer; z-index: 1000; }
-.signup-login-btn:hover { background-color: #005fa3; }
+.signup-login-btn { position:absolute; top:20px; right:20px; padding:10px 18px; background-color:#0077cc; color:#fff; border:none; border-radius:6px; cursor:pointer; z-index:1000; transition: background-color 0.2s; }
+.signup-login-btn:hover { background-color:#005fa3; }
 
-/* Modal Background */
-.modal-bg { display: none; position: fixed; z-index: 999; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5); }
-
-/* Modal Content */
-.modal-content { background-color: #fefefe; margin: 8% auto; padding: 20px; border-radius: 8px; width: 90%; max-width: 400px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); text-align: center; }
-
-/* Modal Inputs */
-.modal-content input[type="text"], .modal-content input[type="password"], .modal-content input[type="email"] { width: 90%; padding: 10px; margin: 8px 0; border-radius: 4px; border: 1px solid #ccc; }
-
-/* Modal Buttons */
-.modal-content .modal-btn { padding: 10px 18px; margin: 8px; border: none; border-radius: 6px; cursor: pointer; }
-.modal-content .login-btn { background-color: #0077cc; color: #fff; }
-.modal-content .login-btn:hover { background-color: #005fa3; }
-.modal-content .signup-btn { background-color: #28a745; color: #fff; }
-.modal-content .signup-btn:hover { background-color: #1e7e34; }
-.modal-content .close-btn { background-color: #ccc; color: #333; }
-.modal-content .close-btn:hover { background-color: #999; }
+/* Modal */
+.modal-bg { display:none; position:fixed; z-index:999; left:0; top:0; width:100%; height:100%; overflow:auto; background-color: rgba(0,0,0,0.5); }
+.modal-content { background:#fefefe; margin:8% auto; padding:20px; border-radius:8px; width:90%; max-width:400px; box-shadow:0 5px 15px rgba(0,0,0,0.3); text-align:center; }
+.modal-content input { width:90%; padding:10px; margin:8px 0; border-radius:4px; border:1px solid #ccc; }
+.modal-content .modal-btn { padding:10px 18px; margin:8px; border:none; border-radius:6px; cursor:pointer; transition:background-color 0.2s; }
+.modal-content .login-btn { background:#0077cc; color:#fff; } .modal-content .login-btn:hover { background:#005fa3; }
+.modal-content .signup-btn { background:#28a745; color:#fff; } .modal-content .signup-btn:hover { background:#1e7e34; }
+.modal-content .close-btn { background:#ccc; color:#333; } .modal-content .close-btn:hover { background:#999; }
 
 /* Hero Section */
-.hero-banner { width: 100%; height: auto; display: block; margin-top: 20px; border-radius: 8px; }
-.hero-video { width: 100%; height: auto; max-height: 500px; object-fit: cover; display: block; border-radius: 8px; margin-bottom: 10px; }
-#muteBtn { padding: 8px 12px; background:#0077cc; color:#fff; border:none; border-radius:6px; cursor:pointer; position: relative; margin-bottom: 20px; }
+.hero-banner { width:100%; height:auto; display:block; margin:20px 0; border-radius:8px; }
+.hero-video { width:100%; height:auto; max-height:500px; object-fit:cover; display:block; border-radius:8px; position:relative; }
+#muteBtn { padding:10px 16px; background:#0077cc; color:#fff; border:none; border-radius:6px; cursor:pointer; position:absolute; bottom:20px; right:20px; z-index:1001; box-shadow:0 2px 6px rgba(0,0,0,0.3); transition:background-color 0.2s; }
+#muteBtn:hover { background:#005fa3; }
+
+/* Container & Sections */
+.container { width:90%; max-width:1100px; margin:0 auto; }
+.section { margin:30px 0; padding:20px; background:#fff; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+.resources { display:flex; flex-wrap:wrap; gap:15px; margin-bottom:30px; }
+.resource-card { flex:1 1 calc(33% - 10px); padding:15px; background:#e9f0f8; border-radius:8px; text-decoration:none; color:#0077cc; font-weight:bold; transition:transform 0.2s, background 0.2s; }
+.resource-card:hover { background:#d0e3f5; transform:translateY(-3px); }
+
+/* Footer */
+footer { text-align:center; margin:50px 0 20px 0; font-size:0.9em; color:#555; }
+.disclaimer { font-size:0.8em; color:#777; margin-top:15px; }
 </style>
 </head>
 <body>
+
+<!-- Top Toolbar -->
+<div class="top-toolbar">
+  <div class="hamburger" onclick="toggleMenu()">
+    <div></div><div></div><div></div>
+  </div>
+  <div class="menu-items" id="menuItems">
+    <a href="messages.html">Messages</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="resources.html">Resources</a>
+    <a href="notifications.html">Notifications</a>
+    <a href="profile.html">Profile / Settings</a>
+    <a href="faq.html">Help / FAQ</a>
+  </div>
+</div>
 
 <!-- Logo -->
 <img class="logo" src="https://i.imgur.com/QDKQ6Fp.png" alt="Prevention Logo" onclick="window.location.href='index.html'">
@@ -60,26 +95,16 @@
   </div>
 </div>
 
-<!-- Navigation Column -->
-<div class="nav-column">
-  <h3>Quick Links</h3>
-  <a href="index.html">Home</a>
-  <a href="apply-to-be-an-angel.html">Apply to be an Angel</a>
-  <a href="self-help.html">Self-Help Videos</a>
-  <a href="success-stories.html">Recent Success Stories</a>
-  <a href="call-to-action.html">Call to Action</a>
-  <a href="prevention-pulse-flipbook.html">Read "The Prevention Pulse"</a>
-</div>
-
 <!-- Main Container -->
 <div class="container">
-
   <!-- Video Hero Section -->
-  <video id="heroVideo" class="hero-video" autoplay loop muted playsinline>
-    <source src="https://www.dropbox.com/scl/fi/ofovwffzedm0cjisohna8/Untitled-design-2.mp4?rlkey=5sv58aq03ow4jbltq4ti6ytxz&st=nfgp01uo&raw=1" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-  <button id="muteBtn">Unmute</button>
+  <div style="position:relative;">
+    <video id="heroVideo" class="hero-video" autoplay loop muted playsinline>
+      <source src="https://www.dropbox.com/scl/fi/ofovwffzedm0cjisohna8/Untitled-design-2.mp4?rlkey=5sv58aq03ow4jbltq4ti6ytxz&st=nfgp01uo&raw=1" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <button id="muteBtn">Unmute</button>
+  </div>
 
   <!-- Original Banner Below Video -->
   <img class="hero-banner" src="https://i.imgur.com/rIeNOFe.png" alt="Prevention Banner">
@@ -88,18 +113,21 @@
   <p>Our mission is to provide a safe, anonymous space for individuals who may be considering harmful actions — toward themselves or others — to reach out and connect with trusted family, mentors, professionals, or trained volunteers (“Angels”). Early communication can prevent tragedies and help people make better choices.</p>
   <a class="button" href="dashboard.html">Go to Dashboard</a>
 
+  <!-- How It Works -->
   <div class="section">
     <h2>How It Works</h2>
     <p>Users can send messages anonymously to family, crisis hotlines, or trusted volunteers. Each message creates an opportunity for intervention, guidance, and support before harm occurs.</p>
     <p>The platform prioritizes privacy and safety: identities are revealed only if the sender chooses.</p>
   </div>
 
+  <!-- Why It Matters -->
   <div class="section">
     <h2>Why It Matters</h2>
     <p>Early intervention saves lives and prevents harm. By encouraging communication and providing structured support, we reduce the likelihood of crises escalating.</p>
     <p>We also provide educational resources, tips for family and friends, and guidance on how to support someone in distress or at risk of taking harmful actions.</p>
   </div>
 
+  <!-- Resources -->
   <div class="resources">
     <a class="resource-card" href="https://www.nih.gov/health-information/mental-health" target="_blank">NIH: Benefits of Social Support</a>
     <a class="resource-card" href="https://www.apa.org/topics/mental-health" target="_blank">APA: Talking About Mental Health</a>
@@ -110,6 +138,7 @@
     <a class="resource-card" href="https://www.crisistextline.org/" target="_blank">Crisis Text Line</a>
   </div>
 
+  <!-- Footer -->
   <footer>
     <p>If you or someone else is in immediate danger, please contact local emergency services or a crisis line. In the U.S., dial <strong>988</strong>.</p>
     <hr>
@@ -128,17 +157,18 @@
 </div>
 
 <script>
-function openModal() { document.getElementById('authModal').style.display = 'block'; }
-function closeModal() { document.getElementById('authModal').style.display = 'none'; }
-window.onclick = function(event) { const modal = document.getElementById('authModal'); if (event.target === modal) { modal.style.display = "none"; } }
+// Modal
+function openModal(){ document.getElementById('authModal').style.display='block'; }
+function closeModal(){ document.getElementById('authModal').style.display='none'; }
+window.onclick=function(event){ const modal=document.getElementById('authModal'); if(event.target===modal){ modal.style.display='none'; } }
 
-// Mute / Unmute Button Logic
-const video = document.getElementById('heroVideo');
-const muteBtn = document.getElementById('muteBtn');
-muteBtn.addEventListener('click', () => {
-  if (video.muted) { video.muted = false; muteBtn.textContent = 'Mute'; }
-  else { video.muted = true; muteBtn.textContent = 'Unmute'; }
-});
+// Mute / Unmute Video
+const video=document.getElementById('heroVideo');
+const muteBtn=document.getElementById('muteBtn');
+muteBtn.addEventListener('click',()=>{ if(video.muted){ video.muted=false; muteBtn.textContent='Mute'; } else{ video.muted=true; muteBtn.textContent='Unmute'; } });
+
+// Hamburger Menu Toggle
+function toggleMenu(){ document.getElementById('menuItems').classList.toggle('show'); }
 </script>
 
 </body>
