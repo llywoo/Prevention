@@ -32,6 +32,16 @@
 .modal-content .signup-btn:hover { background-color: #1e7e34; }
 .modal-content .close-btn { background-color: #ccc; color: #333; }
 .modal-content .close-btn:hover { background-color: #999; }
+
+/* Hero Video */
+.hero-video {
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
 </style>
 </head>
 <body>
@@ -68,7 +78,12 @@
 
 <!-- Main Container -->
 <div class="container">
-  <img class="hero" src="https://i.imgur.com/rIeNOFe.png" alt="Prevention Banner">
+  <!-- Replaced Banner with Video -->
+  <video class="hero-video" autoplay loop muted playsinline>
+    <source src="https://www.dropbox.com/scl/fi/ofovwffzedm0cjisohna8/Untitled-design-2.mp4?rlkey=5sv58aq03ow4jbltq4ti6ytxz&st=nfgp01uo&raw=1" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
   <h1>Prevention – Guidance Before Harm</h1>
   <p>Our mission is to provide a safe, anonymous space for individuals who may be considering harmful actions — toward themselves or others — to reach out and connect with trusted family, mentors, professionals, or trained volunteers (“Angels”). Early communication can prevent tragedies and help people make better choices.</p>
   <a class="button" href="dashboard.html">Go to Dashboard</a>
