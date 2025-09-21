@@ -77,13 +77,13 @@ body {
   top:50px; /* Below the toolbar */
   left:20px;
   z-index:2001;
-  height:40px; 
+  height:40px; /* HALVED */
   width:auto;
   cursor:pointer;
 }
 .signup-login-btn {
   position: fixed;
-  top:50px;
+  top:10px; /* Moved back to toolbar position */
   right:20px;
   padding: 10px 18px;
   background-color: #0077cc;
@@ -148,23 +148,8 @@ body {
 .modal-content .close-btn:hover { background-color: #999; }
 
 /* Hero Section */
-.hero-banner { 
-  width: 100%; 
-  height: auto; 
-  display: block; 
-  margin-top: 0; /* moved flush with top toolbar */
-  border-radius: 8px; 
-}
-.hero-video { 
-  width: 100%; 
-  height: auto; 
-  max-height: 500px; 
-  object-fit: cover; 
-  display: block; 
-  border-radius: 8px; 
-  position: relative; 
-  margin-top: 0; /* moved flush with top toolbar */
-}
+.hero-banner { width: 100%; height: auto; display: block; margin-top: 0; border-radius: 8px; }
+.hero-video { width: 100%; height: auto; max-height: 500px; object-fit: cover; display: block; border-radius: 8px; position: relative; margin-top:20px; }
 
 /* Mute Button */
 #muteBtn {
@@ -212,7 +197,6 @@ footer { text-align:center; margin:50px 0 20px 0; font-size:0.9em; color:#555; }
   .hamburger { display: flex; }
   .top-toolbar a { padding: 8px 0; margin:0; }
   .container-wrapper { justify-content: center; }
-  /* leave hero section alone for mobile */
 }
 </style>
 </head>
