@@ -74,10 +74,10 @@ body {
 /* Logo & Sign Up / Login Button */
 .logo { 
   display: block;
-  width: 250px;       /* default desktop size */
+  width: 180px;       /* desktop size */
   max-width: 90%;
-  height: auto;       /* maintain aspect ratio */
-  margin: 0 auto 20px auto; /* centered under toolbar with spacing */
+  height: auto;
+  margin: 0 auto 20px auto;
   cursor: pointer;
 }
 .signup-login-btn { 
@@ -112,7 +112,7 @@ body {
   width: 100%;
   display: block;
   margin: 0; 
-  border-radius: 0; /* flush with toolbar */
+  border-radius: 0; 
 }
 .hero-video { max-height: 500px; object-fit: cover; position: relative; }
 
@@ -132,7 +132,7 @@ body {
 footer { text-align:center; margin:50px 0 20px 0; font-size:0.9em; color:#555; }
 .disclaimer { font-size:0.8em; color:#777; margin-top:15px; }
 
-/* Responsive Toolbar */
+/* Responsive Toolbar & Logo */
 @media (max-width: 768px) {
   .top-toolbar { flex-wrap: wrap; justify-content: space-between; height:auto; }
   .top-toolbar .toolbar-links { display: none; flex-direction: column; width: 100%; text-align: center; }
@@ -140,7 +140,7 @@ footer { text-align:center; margin:50px 0 20px 0; font-size:0.9em; color:#555; }
   .hamburger { display: flex; }
   .top-toolbar a { padding: 8px 0; margin:0; }
   .container-wrapper { justify-content: center; } 
-  .logo { width: 70%; margin-bottom: 15px; } /* shrink logo on mobile */
+  .logo { width: 120px; margin-bottom: 15px; } /* mobile size */
 }
 </style>
 </head>
