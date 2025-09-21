@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prevention – Support & Early Intervention</title>
-<!-- Favicon -->
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -64,9 +63,9 @@
   transition: all 0.3s ease;
 }
 
-/* Adjust body padding to align main content with bottom of logo */
+/* Body Padding */
 body { 
-  padding-top: 130px; /* toolbar height + logo height */
+  padding-top: 130px;
   margin:0; 
   font-family:'Segoe UI', Arial, sans-serif; 
   background:#f5f7fa; 
@@ -75,7 +74,7 @@ body {
 /* Logo & Sign Up / Login Button */
 .logo { 
   position: fixed; 
-  top:50px; /* flush below toolbar */
+  top:50px; 
   left:20px; 
   z-index:2001; 
   height:80px; 
@@ -84,7 +83,7 @@ body {
 }
 .signup-login-btn { 
   position: fixed; 
-  top:130px !important; /* aligned with bottom of logo */
+  top:130px !important; 
   right:20px; 
   padding: 10px 18px; 
   background-color: #0077cc; 
@@ -122,7 +121,15 @@ body {
 #muteBtn:hover { background:#005fa3; }
 
 /* Container & Sections */
-.container { width: 90%; max-width: 1100px; margin: 0 auto; }
+.container-wrapper {
+  display: flex;
+  justify-content: flex-end; /* aligns container's right edge with login button */
+}
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin-right: 20px; /* matches login button right offset */
+}
 .section { margin: 30px 0; padding: 20px; background:#fff; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
 .resources { display:flex; flex-wrap: wrap; gap:15px; margin-bottom:30px; }
 .resource-card { flex:1 1 calc(33% - 10px); padding:15px; background:#e9f0f8; border-radius:8px; text-decoration:none; color:#0077cc; font-weight:bold; transition: transform 0.2s, background 0.2s; }
@@ -132,13 +139,14 @@ body {
 footer { text-align:center; margin:50px 0 20px 0; font-size:0.9em; color:#555; }
 .disclaimer { font-size:0.8em; color:#777; margin-top:15px; }
 
-/* Responsive Toolbar: Collapsible Hamburger */
+/* Responsive Toolbar */
 @media (max-width: 768px) {
   .top-toolbar { flex-wrap: wrap; justify-content: space-between; height:auto; }
   .top-toolbar .toolbar-links { display: none; flex-direction: column; width: 100%; text-align: center; }
   .top-toolbar .toolbar-links.active { display: flex; }
   .hamburger { display: flex; }
   .top-toolbar a { padding: 8px 0; margin:0; }
+  .container-wrapper { justify-content: center; } /* center container on small screens */
 }
 </style>
 </head>
@@ -191,62 +199,61 @@ footer { text-align:center; margin:50px 0 20px 0; font-size:0.9em; color:#555; }
   <a href="prevention-pulse-flipbook.html">Read "The Prevention Pulse"</a>
 </div>
 
-<!-- Main Container -->
-<div class="container">
+<!-- Main Container Wrapper -->
+<div class="container-wrapper">
+  <div class="container">
+    <img class="hero-banner" src="https://i.imgur.com/rIeNOFe.png" alt="Prevention Banner">
 
-  <!-- Banner Flush with Logo -->
-  <img class="hero-banner" src="https://i.imgur.com/rIeNOFe.png" alt="Prevention Banner">
-
-  <!-- Video Hero Section -->
-  <div style="position:relative;">
-    <video id="heroVideo" class="hero-video" autoplay loop muted playsinline>
-      <source src="https://www.dropbox.com/scl/fi/ofovwffzedm0cjisohna8/Untitled-design-2.mp4?rlkey=5sv58aq03ow4jbltq4ti6ytxz&st=nfgp01uo&raw=1" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <button id="muteBtn">Unmute</button>
-  </div>
-
-  <h1>Prevention – Guidance Before Harm</h1>
-  <p>Our mission is to provide a safe, anonymous space for individuals who may be considering harmful actions — toward themselves or others — to reach out and connect with trusted family, mentors, professionals, or trained volunteers (“Angels”). Early communication can prevent tragedies and help people make better choices.</p>
-  <a class="button" href="dashboard.html">Go to Dashboard</a>
-
-  <div class="section">
-    <h2>How It Works</h2>
-    <p>Users can send messages anonymously to family, crisis hotlines, or trusted volunteers. Each message creates an opportunity for intervention, guidance, and support before harm occurs.</p>
-    <p>The platform prioritizes privacy and safety: identities are revealed only if the sender chooses.</p>
-  </div>
-
-  <div class="section">
-    <h2>Why It Matters</h2>
-    <p>Early intervention saves lives and prevents harm. By encouraging communication and providing structured support, we reduce the likelihood of crises escalating.</p>
-    <p>We also provide educational resources, tips for family and friends, and guidance on how to support someone in distress or at risk of taking harmful actions.</p>
-  </div>
-
-  <div class="resources">
-    <a class="resource-card" href="https://www.nih.gov/health-information/mental-health" target="_blank">NIH: Benefits of Social Support</a>
-    <a class="resource-card" href="https://www.apa.org/topics/mental-health" target="_blank">APA: Talking About Mental Health</a>
-    <a class="resource-card" href="https://www.who.int/news-room/fact-sheets/detail/mental-health-strengthening-our-response" target="_blank">WHO: Mental Health & Wellbeing</a>
-    <a class="resource-card" href="https://www.nimh.nih.gov/health/topics/suicide-prevention" target="_blank">NIMH: Suicide Prevention</a>
-    <a class="resource-card" href="https://www.mentalhealth.gov/" target="_blank">MentalHealth.gov</a>
-    <a class="resource-card" href="https://suicidepreventionlifeline.org/" target="_blank">Suicide Prevention Lifeline</a>
-    <a class="resource-card" href="https://www.crisistextline.org/" target="_blank">Crisis Text Line</a>
-  </div>
-
-  <footer>
-    <p>If you or someone else is in immediate danger, please contact local emergency services or a crisis line. In the U.S., dial <strong>988</strong>.</p>
-    <hr>
-    <div class="disclaimer">
-      <strong>Legal Disclaimer</strong><br>
-      • This platform is intended for support, guidance, and prevention only.<br>
-      • It is <em>not</em> a substitute for professional medical, psychiatric, or emergency services.<br>
-      • By using this platform, you agree not to post threats, unlawful content, or misuse the service.<br>
-      • The organization and its volunteers are not responsible for actions taken by users based on the information shared here.<br>
-      • All communications are handled with respect for privacy, but anonymity cannot be guaranteed in cases of imminent risk of harm or as required by law.<br>
-      • Please reach out if you notice copyrighted content or any material that should not be shared.<br>
-      • Use of this site signifies acceptance of these terms.<br><br>
-      <a href="terms.html">Terms of Use & Privacy Policy</a>
+    <div style="position:relative;">
+      <video id="heroVideo" class="hero-video" autoplay loop muted playsinline>
+        <source src="https://www.dropbox.com/scl/fi/ofovwffzedm0cjisohna8/Untitled-design-2.mp4?rlkey=5sv58aq03ow4jbltq4ti6ytxz&st=nfgp01uo&raw=1" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <button id="muteBtn">Unmute</button>
     </div>
-  </footer>
+
+    <h1>Prevention – Guidance Before Harm</h1>
+    <p>Our mission is to provide a safe, anonymous space for individuals who may be considering harmful actions — toward themselves or others — to reach out and connect with trusted family, mentors, professionals, or trained volunteers (“Angels”). Early communication can prevent tragedies and help people make better choices.</p>
+    <a class="button" href="dashboard.html">Go to Dashboard</a>
+
+    <div class="section">
+      <h2>How It Works</h2>
+      <p>Users can send messages anonymously to family, crisis hotlines, or trusted volunteers. Each message creates an opportunity for intervention, guidance, and support before harm occurs.</p>
+      <p>The platform prioritizes privacy and safety: identities are revealed only if the sender chooses.</p>
+    </div>
+
+    <div class="section">
+      <h2>Why It Matters</h2>
+      <p>Early intervention saves lives and prevents harm. By encouraging communication and providing structured support, we reduce the likelihood of crises escalating.</p>
+      <p>We also provide educational resources, tips for family and friends, and guidance on how to support someone in distress or at risk of taking harmful actions.</p>
+    </div>
+
+    <div class="resources">
+      <a class="resource-card" href="https://www.nih.gov/health-information/mental-health" target="_blank">NIH: Benefits of Social Support</a>
+      <a class="resource-card" href="https://www.apa.org/topics/mental-health" target="_blank">APA: Talking About Mental Health</a>
+      <a class="resource-card" href="https://www.who.int/news-room/fact-sheets/detail/mental-health-strengthening-our-response" target="_blank">WHO: Mental Health & Wellbeing</a>
+      <a class="resource-card" href="https://www.nimh.nih.gov/health/topics/suicide-prevention" target="_blank">NIMH: Suicide Prevention</a>
+      <a class="resource-card" href="https://www.mentalhealth.gov/" target="_blank">MentalHealth.gov</a>
+      <a class="resource-card" href="https://suicidepreventionlifeline.org/" target="_blank">Suicide Prevention Lifeline</a>
+      <a class="resource-card" href="https://www.crisistextline.org/" target="_blank">Crisis Text Line</a>
+    </div>
+
+    <footer>
+      <p>If you or someone else is in immediate danger, please contact local emergency services or a crisis line. In the U.S., dial <strong>988</strong>.</p>
+      <hr>
+      <div class="disclaimer">
+        <strong>Legal Disclaimer</strong><br>
+        • This platform is intended for support, guidance, and prevention only.<br>
+        • It is <em>not</em> a substitute for professional medical, psychiatric, or emergency services.<br>
+        • By using this platform, you agree not to post threats, unlawful content, or misuse the service.<br>
+        • The organization and its volunteers are not responsible for actions taken by users based on the information shared here.<br>
+        • All communications are handled with respect for privacy, but anonymity cannot be guaranteed in cases of imminent risk of harm or as required by law.<br>
+        • Please reach out if you notice copyrighted content or any material that should not be shared.<br>
+        • Use of this site signifies acceptance of these terms.<br><br>
+        <a href="terms.html">Terms of Use & Privacy Policy</a>
+      </div>
+    </footer>
+  </div>
 </div>
 
 <script>
