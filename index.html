@@ -73,13 +73,14 @@ body {
 
 /* Logo & Sign Up / Login Button */
 .logo { 
-  position: fixed; 
-  top: 10px; 
-  left: 20px; 
-  z-index:2001; 
-  height:40px; 
-  width:auto; 
-  cursor:pointer; 
+  display: block;
+  position: relative;       /* part of page flow */
+  margin-top: 60px;         /* sits immediately below 60px toolbar */
+  left: 20px;
+  height: 100px;            /* stretch as needed */
+  width: auto;
+  cursor: pointer; 
+  z-index: 1000; 
 }
 .signup-login-btn { 
   position: fixed; 
