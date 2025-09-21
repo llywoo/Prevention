@@ -74,13 +74,11 @@ body {
 /* Logo & Sign Up / Login Button */
 .logo { 
   display: block;
-  position: relative;       /* part of page flow */
-  margin-top: 60px;         /* sits immediately below 60px toolbar */
-  left: 20px;
-  height: 100px;            /* stretch as needed */
-  width: auto;
-  cursor: pointer; 
-  z-index: 1000; 
+  width: 250px;       /* default desktop size */
+  max-width: 90%;
+  height: auto;       /* maintain aspect ratio */
+  margin: 0 auto 20px auto; /* centered under toolbar with spacing */
+  cursor: pointer;
 }
 .signup-login-btn { 
   position: fixed; 
@@ -142,6 +140,7 @@ footer { text-align:center; margin:50px 0 20px 0; font-size:0.9em; color:#555; }
   .hamburger { display: flex; }
   .top-toolbar a { padding: 8px 0; margin:0; }
   .container-wrapper { justify-content: center; } 
+  .logo { width: 70%; margin-bottom: 15px; } /* shrink logo on mobile */
 }
 </style>
 </head>
