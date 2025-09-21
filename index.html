@@ -64,13 +64,18 @@
   transition: all 0.3s ease;
 }
 
-/* Adjust body padding to avoid overlap with toolbar */
-body { padding-top: 180px; margin:0; font-family:'Segoe UI', Arial, sans-serif; background:#f5f7fa; }
+/* Adjust body padding to align main content with bottom of logo */
+body { 
+  padding-top: 130px; /* toolbar height + logo height */
+  margin:0; 
+  font-family:'Segoe UI', Arial, sans-serif; 
+  background:#f5f7fa; 
+}
 
 /* Logo & Sign Up / Login Button */
 .logo { 
   position: fixed; 
-  top: 50px; /* top of logo flush below toolbar */
+  top:50px; /* flush below toolbar */
   left:20px; 
   z-index:2001; 
   height:80px; /* doubled height */
