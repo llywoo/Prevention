@@ -28,12 +28,6 @@
   padding: 0 10px;
   height: 60px;
 }
-.top-toolbar .toolbar-logo {
-  width: 125px;  /* half of main logo width 250px */
-  height: auto;
-  cursor: pointer;
-  margin-right: 10px;
-}
 .top-toolbar .toolbar-links {
   display: flex;
   gap: 10px;
@@ -77,13 +71,13 @@ body {
   padding-top: 60px; /* keeps content below fixed toolbar */
 }
 
-/* Main Logo & Sign Up / Login Button */
+/* Logo & Sign Up / Login Button */
 .logo { 
   display: block;
-  width: 250px;       /* default desktop size */
+  width: 125px;       /* halved width */
   max-width: 90%;
-  height: auto;       /* maintain aspect ratio */
-  margin: 0 auto 20px auto; /* centered under toolbar with spacing */
+  height: auto;       
+  margin: 0 auto 20px auto; 
   cursor: pointer;
 }
 .signup-login-btn { 
@@ -115,15 +109,18 @@ body {
 
 /* Hero Section */
 .hero-banner, .hero-video {
-  width: 100%;
+  width: 50%; /* halved width */
   display: block;
-  margin: 0; 
-  border-radius: 0; /* flush with toolbar */
+  margin: 0 auto; 
+  border-radius: 0; 
 }
-.hero-video { max-height: 500px; object-fit: cover; position: relative; }
+.hero-video { max-height: 250px; /* halved from 500px */
+  object-fit: cover; 
+  position: relative; 
+}
 
 /* Mute Button */
-#muteBtn { padding: 10px 16px; background:#0077cc; color:#fff; border:none; border-radius:6px; cursor:pointer; position: absolute; bottom: 20px; right: 20px; z-index: 1001; box-shadow: 0 2px 6px rgba(0,0,0,0.3); transition: background-color 0.2s; }
+#muteBtn { padding: 10px 16px; background:#0077cc; color:#fff; border:none; border-radius:6px; cursor:pointer; position: absolute; bottom: 10px; right: 10px; z-index: 1001; box-shadow: 0 2px 6px rgba(0,0,0,0.3); transition: background-color 0.2s; }
 #muteBtn:hover { background:#005fa3; }
 
 /* Container & Sections */
@@ -146,8 +143,7 @@ footer { text-align:center; margin:50px 0 20px 0; font-size:0.9em; color:#555; }
   .hamburger { display: flex; }
   .top-toolbar a { padding: 8px 0; margin:0; }
   .container-wrapper { justify-content: center; } 
-  .logo { width: 70%; margin-bottom: 15px; } /* shrink logo on mobile */
-  .top-toolbar .toolbar-logo { width: 50%; } /* shrink toolbar logo on mobile */
+  .logo { width: 35%; margin-bottom: 15px; } /* halved on mobile */
 }
 </style>
 </head>
@@ -155,7 +151,6 @@ footer { text-align:center; margin:50px 0 20px 0; font-size:0.9em; color:#555; }
 
 <!-- Top Toolbar -->
 <div class="top-toolbar">
-  <img src="https://i.imgur.com/QDKQ6Fp.png" alt="Toolbar Logo" class="toolbar-logo" onclick="window.location.href='index.html'">
   <div class="hamburger" onclick="toggleMenu()">
     <div></div>
     <div></div>
