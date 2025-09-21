@@ -14,11 +14,11 @@
 /* Top Toolbar */
 .top-toolbar {
   display: flex;
-  justify-content: space-evenly;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   background-color: rgba(0, 119, 204, 0.95);
   color: #fff;
-  height: 50px;
   width: 100%;
   position: fixed;
   top: 0;
@@ -27,14 +27,17 @@
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   font-family: 'Segoe UI', Arial, sans-serif;
   backdrop-filter: blur(6px);
+  padding: 5px 0;
 }
 .top-toolbar a {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
-  padding: 12px 18px;
+  padding: 8px 12px;
   border-radius: 4px;
   transition: background-color 0.3s, transform 0.2s;
+  white-space: nowrap;
+  margin: 2px;
 }
 .top-toolbar a:hover { 
   background-color: #005fa3;
@@ -51,7 +54,7 @@ body { padding-top: 120px; margin:0; font-family:'Segoe UI', Arial, sans-serif; 
   left:20px; 
   z-index:2001; 
   height:40px; 
-  width:auto; /* Maintain aspect ratio */
+  width:auto; 
   cursor:pointer; 
 }
 .signup-login-btn { 
@@ -103,6 +106,15 @@ body { padding-top: 120px; margin:0; font-family:'Segoe UI', Arial, sans-serif; 
 /* Footer */
 footer { text-align:center; margin:50px 0 20px 0; font-size:0.9em; color:#555; }
 .disclaimer { font-size:0.8em; color:#777; margin-top:15px; }
+
+/* Responsive Toolbar */
+@media (max-width: 768px) {
+  .top-toolbar { flex-direction: column; height:auto; }
+  .top-toolbar a { padding: 6px 10px; font-size: 0.9em; }
+}
+@media (max-width: 480px) {
+  .top-toolbar a { font-size:0.85em; padding:5px 8px; }
+}
 </style>
 </head>
 <body>
