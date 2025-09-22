@@ -14,61 +14,266 @@
 <meta name="author" content="Prevention Pulse">
 
 <style>
-body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #e6f0f8;
-  color: #333;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Nunito:wght@400;700&display=swap');
+:root {
+  --brand-primary: #0066FF;
+  --brand-primary-dark: #0438A3;
+  --brand-accent: #28C9B4;
+  --brand-accent-soft: #e8f7f4;
+  --brand-bg: #F8FAFD;
+  --brand-bg-dark: #e3eaf5;
+  --brand-bg-gradient: linear-gradient(135deg, #f8fafd 0%, #e3eaf5 100%);
+  --text-main: #132049;
+  --text-secondary: #425075;
+  --text-faded: #6b7498;
+  --radius: 16px;
+  --radius-sm: 8px;
+  --shadow: 0 6px 24px 0 rgba(0,40,120,0.08), 0 1.5px 4px 0 rgba(0,0,0,0.04);
+  --transition: .2s cubic-bezier(.47,1.64,.41,.8);
+  --header-height: 62px;
+  --nav-width: 270px;
+  --max-content: 1200px;
+}
+html, body {
+  font-family: 'Inter', 'Nunito', Arial, sans-serif;
+  background: var(--brand-bg-gradient);
+  color: var(--text-main);
+  margin: 0; padding: 0; min-height: 100vh;
+  scroll-behavior: smooth;
+}
+body { padding-top: var(--header-height); }
+/* Toolbar */
+.top-toolbar {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.logo {
+  justify-content: flex-start;
+  align-items: center;
+  background: rgba(0,102,255,0.92);
+  color: #fff;
+  width: 100vw;
   position: fixed;
-  top: 10px;
-  left: 10px;
-  width: 110px;
-  cursor: pointer;
-  z-index: 1000;
+  top: 0; left: 0;
+  z-index: 3000;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
+  padding: 0 28px;
+  height: var(--header-height);
+  font-family: 'Inter', Arial, sans-serif;
+  gap: 0;
 }
-
-/* NAV COLUMN – KEEP POSITION, MOVE DOWN */
-.nav-column {
-  width: 220px;
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 28px; height: 22px;
+  cursor: pointer;
+  margin-right: 12px;
+}
+.hamburger div {
+  width: 100%; height: 4px;
   background: #fff;
-  padding: 50px 20px;
-  border-right: 1px solid #ddd;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
-  flex-shrink: 0;
-  box-sizing: border-box;
+  border-radius: 2px;
+  transition: all var(--transition);
+}
+.toolbar-links {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin-right: auto;
+  transition: max-height var(--transition) ease;
+}
+.toolbar-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 9px 18px 10px 18px;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition), transform var(--transition), color var(--transition);
+  font-size: 1.04em;
+  opacity: 0.95;
+  letter-spacing: 0.01em;
   position: relative;
-  left: -2in;
-  top: 1in; /* move down about an inch */
+}
+.toolbar-links a.active, .toolbar-links a:hover {
+  background: var(--brand-accent);
+  color: #fff;
+  transform: translateY(-2px) scale(1.06);
+  text-shadow: 0 1px 10px #046c6a0d;
+  box-shadow: 0 3px 12px var(--brand-accent-soft);
+}
+@media (max-width: 900px) {
+  .hamburger { display: flex; }
+  .toolbar-links {
+    flex-direction: column;
+    max-height: 0;
+    overflow: hidden;
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    width: 100vw;
+    background: rgba(0,102,255,0.97);
+    z-index: 2000;
+    border-bottom-left-radius: var(--radius-sm);
+    border-bottom-right-radius: var(--radius-sm);
+    box-shadow: 0 6px 24px #0002;
+    margin-right: 0;
+    transition: max-height 0.3s cubic-bezier(.47,1.64,.41,.8);
+  }
+  .toolbar-links a {
+    width: 100vw;
+    text-align: left;
+    font-size: 1.12em;
+    padding: 14px 25px 14px 25px;
+    border-radius: 0;
+    border-bottom: 1px solid #2563eb22;
+    color: #fff !important;
+    background: none;
+    box-shadow: none;
+  }
+  .toolbar-links.active {
+    max-height: 500px;
+    transition: max-height 0.3s cubic-bezier(.47,1.64,.41,.8);
+  }
+}
+@media (min-width: 901px) {
+  .toolbar-links { position: static; max-height: none !important; background: none; box-shadow: none;}
+  .hamburger { display: none !important; }
+}
+.signup-login-btn {
+  position: fixed; top:13px; right:32px;
+  padding: 10px 27px;
+  background: var(--brand-accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  z-index: 3100;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  font-size: 1em;
+  box-shadow: 0 3px 12px var(--brand-accent-soft);
+  transition: background var(--transition), box-shadow var(--transition);
+}
+.signup-login-btn:hover {
+  background: var(--brand-primary-dark);
+  color: #fff;
+  box-shadow: 0 6px 22px #28c9b455;
+}
+.modal-bg {
+  display: none;
+  position: fixed;
+  z-index: 4000;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.52);
+}
+.modal-content {
+  background: var(--brand-bg);
+  margin: 7% auto;
+  padding: 38px 28px 23px 28px;
+  border-radius: 22px;
+  width: 97vw; max-width: 410px;
+  box-shadow: 0 8px 40px rgba(20,80,180,0.18);
+  text-align: center;
+  border: 1.5px solid #e0e7ef;
+  animation: modalin .26s cubic-bezier(.41,2.04,.51,.82);
+}
+@keyframes modalin {
+  from { opacity:0; transform: scale(.95);}
+  to { opacity:1; transform: scale(1);}
+}
+.modal-content h2 {
+  margin-bottom: 11px;
+  font-size: 1.3em;
+  font-weight: 800;
+  color: var(--brand-primary-dark);
+}
+.modal-content input {
+  width: 92%;
+  padding: 13px;
+  margin: 12px 0 17px 0;
+  border-radius: 8px;
+  border: 1.5px solid #e5e7eb;
+  font-size: 1em;
+  background: #f6f8fa;
+  transition: border var(--transition), box-shadow var(--transition);
+}
+.modal-content input:focus { border-color: var(--brand-accent); box-shadow: 0 2px 8px #28c9b428; }
+.modal-btn {
+  padding: 11px 21px;
+  margin: 10px 7px 0 7px;
+  border: none;
+  border-radius: 11px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1em;
+  background: #e8eafc;
+  color: var(--brand-primary-dark);
+  transition: background .18s;
+}
+.login-btn { background: var(--brand-primary); color: #fff; }
+.login-btn:hover{background: var(--brand-accent);}
+.signup-btn { background: #22c55e; color: #fff;}
+.signup-btn:hover{background: #15803d;}
+.close-btn { background: #e5e7eb; color: #333;}
+.close-btn:hover{background: #b7b7b7;}
+/* Layout */
+.main-wrapper {
+  display: flex;
+  width: 100%;
+  max-width: var(--max-content);
+  margin: 48px auto 0 auto;
+  gap: 32px;
+  position: relative;
+  z-index: 1;
+  align-items: flex-start;
+}
+.nav-column {
+  flex: 0 0 var(--nav-width);
+  background: var(--brand-bg-dark);
+  padding: 27px 19px 15px 19px;
+  border-radius: var(--radius);
+  min-height: 180px;
+  height: fit-content;
+  position: sticky;
+  top: 72px;
+  font-size: 1.07em;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  animation: navfade .8s;
+  left: 0;
+}
+@keyframes navfade {
+  0%{ opacity:.3; transform:translateY(18px);}
+  100%{ opacity:1; transform:translateY(0);}
 }
 .nav-column h3 {
-  margin-bottom: 25px;
-  font-size: 1.4rem;
-  color: #222;
-  text-align: center;
+  margin-bottom: 12px;
+  color: var(--brand-primary-dark);
+  font-size: 1.17em;
+  letter-spacing: 0.01em;
+  font-weight: 800;
+  text-align: left;
 }
 .nav-column a {
   display: block;
-  margin-bottom: 20px;
+  margin: 6px 0;
+  color: var(--brand-primary-dark);
   text-decoration: none;
-  color: #4a90e2;
-  font-weight: 600;
-  font-size: 1.2rem;
-  text-align: center;
-  transition: all 0.2s ease;
+  font-weight: 700;
+  padding: 9px 11px;
+  border-radius: 8px;
+  transition: background .16s, color .16s;
+  font-size: 1em;
+  text-align: left;
 }
-.nav-column a:hover {
-  text-decoration: underline;
-  opacity: 0.85;
+.nav-column a:hover, .nav-column a.active {
+  background: var(--brand-accent);
+  color: #fff;
+  text-decoration: none;
 }
-
-/* CONTAINER ENLARGED AND SPACED */
 .container {
+  flex: 1;
   max-width: 800px;
   margin: 80px 30px 80px 0;
   padding: 50px;
@@ -77,13 +282,18 @@ body {
   box-shadow: 0 20px 40px rgba(0,0,0,0.15);
   text-align: center;
   box-sizing: border-box;
+  animation: fadein .6s;
+}
+@keyframes fadein {
+  from { opacity: .2; filter: blur(4px);}
+  to { opacity:1; filter:none;}
 }
 .hero-banner {
   width: 100%;
   height: 220px;
   border-radius: 25px;
   background: url('https://i.imgur.com/rIeNOFe.png') no-repeat center center;
-  background-size: cover; /* better fill */
+  background-size: cover;
   margin-bottom: 50px;
   box-shadow: 0 15px 30px rgba(0,0,0,0.2);
 }
@@ -91,6 +301,7 @@ h1 {
   font-size: 2.5rem;
   color: #1a1a1a;
   margin-bottom: 15px;
+  font-weight: 900;
 }
 p.tagline {
   color: #555;
@@ -98,7 +309,6 @@ p.tagline {
   font-size: 1.2rem;
   line-height: 1.5;
 }
-
 /* BUTTONS MATCH LOGO COLORS */
 .button {
   display: block;
@@ -112,14 +322,13 @@ p.tagline {
   font-size: 1.15rem;
   transition: all 0.25s ease;
 }
-.family { background: #3b6cb9; color: #fff; } /* darker logo blue */
-.hotline { background: #50a0e2; color: #fff; } /* lighter logo blue */
+.family { background: #3b6cb9; color: #fff; }
+.hotline { background: #50a0e2; color: #fff; }
 .angel { background: #ccc; color: #666; cursor: not-allowed; }
 .button:hover:not(.angel) {
   transform: translateY(-3px);
   opacity: 0.95;
 }
-
 .resources {
   margin-top: 40px;
   text-align: left;
@@ -151,7 +360,6 @@ p.tagline {
   margin-right: 12px;
   font-size: 1.3rem;
 }
-
 footer {
   margin-top: 40px;
   font-size: 0.9rem;
@@ -171,11 +379,25 @@ footer {
 .legal a:hover {
   text-decoration: underline;
 }
-
+@media (max-width: 1100px) {
+  .main-wrapper{gap: 10px; max-width: 96vw;}
+  .nav-column{padding: 14px 6px;}
+  .container{padding: 35px 25px;}
+}
+@media (max-width: 900px) {
+  .main-wrapper{gap: 0;}
+  .nav-column{min-width: 90vw;}
+  .container{padding: 20px 3vw;}
+}
 @media (max-width: 768px) {
   body {
     flex-direction: column;
     align-items: center;
+  }
+  .main-wrapper {
+    flex-direction: column;
+    margin-top: 14px;
+    max-width: 100vw;
   }
   .nav-column {
     width: 100%;
@@ -185,54 +407,98 @@ footer {
     margin-bottom: 20px;
     left: 0;
     top: 0;
+    position: static;
   }
   .container {
     width: 95%;
     margin: 20px 0;
-    padding: 35px 25px;
+    padding: 20px 2vw;
   }
 }
+@media (max-width: 540px) {
+  .main-wrapper{margin: 7px 0 0 0;}
+  .container {padding: 10px 1vw;}
+  .nav-column{padding: 12px 4px;}
+  .top-toolbar{padding: 0 7px;}
+}
+::-webkit-scrollbar {width: 8px; background: #e5e7eb;}
+::-webkit-scrollbar-thumb {background: #cbd5e1; border-radius: 8px;}
+::selection {background: #bae6fd;}
 </style>
 </head>
 <body>
 
-<img class="logo" src="https://i.imgur.com/QDKQ6Fp.png" alt="Prevention Logo" onclick="window.location.href='index.html'">
-
-<div class="nav-column">
-  <h3>Quick Links</h3>
-  <a href="index.html">Home</a>
-  <a href="apply-to-be-an-angel.html">Apply to be an Angel</a>
-  <a href="self-help.html">Self-Help Videos</a>
-  <a href="success-stories.html">Recent Success Stories</a>
-  <a href="call-to-action.html">Call to Action</a>
-  <a href="prevention-pulse-flipbook.html">Read "The Prevention Pulse"</a>
-</div>
-
-<div class="container">
-  <div class="hero-banner"></div>
-
-  <h1>You’re Not Alone</h1>
-  <p class="tagline">A safe space to share, listen, and support loved ones. Connect with family, crisis hotlines, or trained volunteers anonymously to ensure timely intervention and guidance before harm occurs.</p>
-
-  <button class="button family" onclick="alert('Send to Family feature coming soon')">Send to Family</button>
-  <button class="button hotline" onclick="alert('Send to Crisis Hotline feature coming soon')">Send to Crisis Hotline</button>
-  <button class="button angel">Send to Angel (Coming Soon)</button>
-
-  <div class="resources">
-    <h3>Helpful Resources</h3>
-    <a class="resource-card" href="https://www.nih.gov/health-information/mental-health" target="_blank">NIH: Benefits of Social Support</a>
-    <a class="resource-card" href="https://www.apa.org/topics/mental-health" target="_blank">APA: Talking About Mental Health</a>
-    <a class="resource-card" href="https://www.who.int/news-room/fact-sheets/detail/mental-health-strengthening-our-response" target="_blank">WHO: Mental Health & Wellbeing</a>
-    <a class="resource-card" href="https://www.nimh.nih.gov/health/topics/suicide-prevention" target="_blank">NIMH: Suicide Prevention</a>
+<!-- Toolbar -->
+<div class="top-toolbar">
+  <div class="hamburger" onclick="toggleMenu()"><div></div><div></div><div></div></div>
+  <div class="toolbar-links">
+    <a href="messages.html">Messages</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="resources.html">Resources</a>
+    <a href="notifications.html">Notifications</a>
+    <a href="profile.html">Profile / Settings</a>
+    <a href="faq.html">Help / FAQ</a>
   </div>
-
-  <footer>
-    If you are in immediate danger, please dial <strong>988</strong> (U.S.)
-    <div class="legal">
-      © 2025 Prevention Pulse. All Rights Reserved. | <a href="tos.html" target="_blank">Terms of Service</a> | <a href="privacy.html" target="_blank">Privacy Policy</a>
-    </div>
-  </footer>
 </div>
+
+<!-- Sign Up/Login -->
+<button class="signup-login-btn" onclick="openModal()">Sign Up / Login</button>
+
+<!-- Modal -->
+<div class="modal-bg" id="authModal">
+  <div class="modal-content">
+    <h2>Sign Up or Login</h2>
+    <p style="color:#425075; font-style:italic; margin-bottom:15px;">Coming Soon</p>
+    <input type="email" placeholder="Email" id="email"><br>
+    <input type="password" placeholder="Password" id="password"><br>
+    <button class="modal-btn login-btn" onclick="alert('Login functionality goes here')">Login</button>
+    <button class="modal-btn signup-btn" onclick="alert('Sign Up functionality goes here')">Sign Up</button>
+    <button class="modal-btn close-btn" onclick="closeModal()">Cancel</button>
+  </div>
+</div>
+
+<div class="main-wrapper">
+  <div class="nav-column">
+    <h3>Quick Links</h3>
+    <a href="index.html">Home</a>
+    <a href="apply-to-be-an-angel.html">Apply to be an Angel</a>
+    <a href="self-help.html">Self-Help Videos</a>
+    <a href="success-stories.html">Recent Success Stories</a>
+    <a href="call-to-action.html">Call to Action</a>
+    <a href="prevention-pulse-flipbook.html">Read "The Prevention Pulse"</a>
+    <a href="faq.html">FAQ / Help</a>
+  </div>
+  <div class="container">
+    <div class="hero-banner"></div>
+    <h1>You’re Not Alone</h1>
+    <p class="tagline">A safe space to share, listen, and support loved ones. Connect with family, crisis hotlines, or trained volunteers anonymously to ensure timely intervention and guidance before harm occurs.</p>
+    <button class="button family" onclick="alert('Send to Family feature coming soon')">Send to Family</button>
+    <button class="button hotline" onclick="alert('Send to Crisis Hotline feature coming soon')">Send to Crisis Hotline</button>
+    <button class="button angel">Send to Angel (Coming Soon)</button>
+    <div class="resources">
+      <h3>Helpful Resources</h3>
+      <a class="resource-card" href="https://www.nih.gov/health-information/mental-health" target="_blank">NIH: Benefits of Social Support</a>
+      <a class="resource-card" href="https://www.apa.org/topics/mental-health" target="_blank">APA: Talking About Mental Health</a>
+      <a class="resource-card" href="https://www.who.int/news-room/fact-sheets/detail/mental-health-strengthening-our-response" target="_blank">WHO: Mental Health & Wellbeing</a>
+      <a class="resource-card" href="https://www.nimh.nih.gov/health/topics/suicide-prevention" target="_blank">NIMH: Suicide Prevention</a>
+    </div>
+    <footer>
+      If you are in immediate danger, please dial <strong>988</strong> (U.S.)
+      <div class="legal">
+        © 2025 Prevention Pulse. All Rights Reserved. | <a href="tos.html" target="_blank">Terms of Service</a> | <a href="privacy.html" target="_blank">Privacy Policy</a>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<script>
+function openModal() { document.getElementById('authModal').style.display='block'; }
+function closeModal() { document.getElementById('authModal').style.display='none'; }
+window.onclick=function(event){if(event.target===document.getElementById('authModal')){closeModal();}}
+
+function toggleMenu(){
+  document.querySelector('.top-toolbar .toolbar-links').classList.toggle('active');
+}
+</script>
 </body>
 </html>
-
