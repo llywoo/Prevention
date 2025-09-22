@@ -28,10 +28,7 @@
   padding: 0 10px;
   height: 50px;
 }
-.top-toolbar .toolbar-links {
-  display: flex;
-  gap: 10px;
-}
+.top-toolbar .toolbar-links { display: flex; gap: 10px; }
 .top-toolbar a {
   color: #fff;
   text-decoration: none;
@@ -41,205 +38,91 @@
   transition: background-color 0.3s, transform 0.2s;
   white-space: nowrap;
 }
-.top-toolbar a:hover {
-  background-color: #005fa3;
-  transform: translateY(-2px);
-}
+.top-toolbar a:hover { background-color: #005fa3; transform: translateY(-2px); }
 
-/* Hamburger Button */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 25px;
-  height: 20px;
-  cursor: pointer;
-}
-.hamburger div {
-  width: 100%;
-  height: 3px;
-  background-color: #fff;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
+/* Hamburger */
+.hamburger { display: none; flex-direction: column; justify-content: space-around; width: 25px; height: 20px; cursor: pointer; }
+.hamburger div { width: 100%; height: 3px; background-color: #fff; border-radius: 2px; transition: all 0.3s ease; }
 
-/* Body Padding */
+/* Body */
 body {
-  padding-top: 130px;
+  padding-top: 50px;
   margin:0;
   font-family:'Segoe UI', Arial, sans-serif;
   background:#f5f7fa;
 }
 
-/* Logo & Sign Up / Login Button */
-.logo {
-  position: fixed;
-  top:50px;
-  left:20px;
-  z-index:2001;
-  height:40px;
-  width:auto;
-  cursor:pointer;
-}
-.signup-login-btn {
-  position: fixed;
-  top:10px;
-  right:20px;
-  padding: 10px 18px;
-  background-color: #0077cc;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  z-index: 2001;
-  transition: background-color 0.2s;
-}
-.signup-login-btn:hover {
-  background-color: #005fa3;
-}
+/* Logo & Sign Up/Login */
+.logo { position: fixed; top:60px; left:20px; z-index:2001; height:40px; width:auto; cursor:pointer; }
+.signup-login-btn { position: fixed; top:10px; right:20px; padding:10px 18px; background-color:#0077cc; color:#fff; border:none; border-radius:6px; cursor:pointer; z-index:2001; transition: background-color 0.2s; }
+.signup-login-btn:hover { background-color:#005fa3; }
 
-/* Modal Background */
-.modal-bg {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.5);
-}
+/* Modal */
+.modal-bg { display:none; position: fixed; z-index:999; left:0; top:0; width:100%; height:100%; background-color: rgba(0,0,0,0.5); }
+.modal-content { background-color:#fefefe; margin:8% auto; padding:20px; border-radius:8px; width:90%; max-width:400px; box-shadow:0 5px 15px rgba(0,0,0,0.3); text-align:center; }
+.modal-content input { width:90%; padding:10px; margin:8px 0; border-radius:4px; border:1px solid #ccc; }
+.modal-btn { padding:10px 18px; margin:8px; border:none; border-radius:6px; cursor:pointer; transition:background-color 0.2s; }
+.login-btn { background-color:#0077cc; color:#fff; } .login-btn:hover{background-color:#005fa3;}
+.signup-btn { background-color:#28a745; color:#fff; } .signup-btn:hover{background-color:#1e7e34;}
+.close-btn { background-color:#ccc; color:#333; } .close-btn:hover{background-color:#999;}
 
-/* Modal Content */
-.modal-content {
-  background-color: #fefefe;
-  margin: 8% auto;
-  padding: 20px;
-  border-radius: 8px;
-  width: 90%;
-  max-width: 400px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  text-align: center;
+/* Layout: Navigation + Content */
+.main-wrapper { display:flex; width:100%; max-width:1200px; margin:20px auto; gap:20px; }
+.nav-column {
+  flex: 0 0 200px;
+  background:#e9f0f8;
+  padding:15px;
+  border-radius:8px;
+  height:fit-content;
+  position:sticky;
+  top:60px;
 }
-.modal-content input[type="text"], .modal-content input[type="password"], .modal-content input[type="email"] {
-  width: 90%;
-  padding: 10px;
-  margin: 8px 0;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-}
-.modal-content .modal-btn {
-  padding: 10px 18px;
-  margin: 8px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-.modal-content .login-btn {
-  background-color: #0077cc;
-  color: #fff;
-}
-.modal-content .login-btn:hover { background-color: #005fa3; }
-.modal-content .signup-btn { background-color: #28a745; color: #fff; }
-.modal-content .signup-btn:hover { background-color: #1e7e34; }
-.modal-content .close-btn { background-color: #ccc; color: #333; }
-.modal-content .close-btn:hover { background-color: #999; }
+.nav-column h3 { margin-bottom:10px; }
+.nav-column a { display:block; margin:6px 0; color:#0077cc; text-decoration:none; font-weight:bold; }
+.nav-column a:hover { text-decoration:underline; }
 
-/* Hero Section */
-.hero-banner { width: 100%; height: auto; display: block; margin-top: 0; border-radius: 8px; }
-.hero-video { width: 100%; height: auto; max-height: 500px; object-fit: cover; display: block; border-radius: 8px; position: relative; margin-top:20px; }
+/* Content Column */
+.content-column { flex:1; display:flex; flex-direction:column; gap:20px; }
 
-/* Mute Button */
+/* Hero Video */
+.hero-container { position: relative; width:100%; height:60vh; overflow:hidden; border-radius:8px; }
+.hero-video { width:100%; height:100%; object-fit:cover; border-radius:8px; }
 #muteBtn {
-  padding: 10px 16px;
+  padding:10px 16px;
   background:#0077cc;
   color:#fff;
   border:none;
   border-radius:6px;
   cursor:pointer;
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  z-index: 1001;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  transition: background-color 0.2s;
+  position:absolute;
+  bottom:15px;
+  right:15px;
+  z-index:1001;
 }
 #muteBtn:hover { background:#005fa3; }
 
-/* Container & Sections */
-.main-layout {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 20px;
-  max-width: 1200px;
-  margin: 50px auto 0 auto;
-  padding: 0 20px;
-}
-.nav-column {
-  flex: 0 0 220px;
-  background:#fff;
-  padding: 20px;
-  border-radius:8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  height: fit-content;
-}
-.nav-column h3 { margin-top:0; margin-bottom:15px; }
-.nav-column a {
-  display:block;
-  margin-bottom:10px;
-  text-decoration:none;
-  color:#0077cc;
-  font-weight:bold;
-  transition: color 0.2s;
-}
-.nav-column a:hover { color:#005fa3; }
-
-.container-wrapper { flex:1; }
-.container { width: 100%; }
-.section { margin: 30px 0; padding: 20px; background:#fff; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
-.resources { display:flex; flex-wrap: wrap; gap:15px; margin-bottom:30px; }
-.resource-card {
-  flex:1 1 calc(33% - 10px);
-  padding:15px;
-  background:#e9f0f8;
-  border-radius:8px;
-  text-decoration:none;
-  color:#0077cc;
-  font-weight:bold;
-  transition: transform 0.2s, background 0.2s;
-}
-.resource-card:hover { background:#d0e3f5; transform: translateY(-3px); }
+/* Sections */
+.section { padding:20px; background:#fff; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+.resources { display:flex; flex-wrap:wrap; gap:15px; margin-bottom:30px; }
+.resource-card { flex:1 1 calc(33% - 10px); padding:15px; background:#e9f0f8; border-radius:8px; color:#0077cc; font-weight:bold; text-decoration:none; transition: transform 0.2s, background 0.2s; }
+.resource-card:hover { background:#d0e3f5; transform:translateY(-3px); }
 
 /* Footer */
 footer { text-align:center; margin:50px 0 20px 0; font-size:0.9em; color:#555; }
 .disclaimer { font-size:0.8em; color:#777; margin-top:15px; }
 
-/* Responsive Toolbar & Layout */
-@media (max-width: 1024px) {
-  .main-layout { flex-direction: column; align-items: center; }
-  .nav-column { margin-bottom:20px; width:90%; }
-  .container-wrapper { width:100%; }
-}
-@media (max-width: 768px) {
-  .top-toolbar { flex-wrap: wrap; justify-content: space-between; height:auto; }
-  .top-toolbar .toolbar-links { display: none; flex-direction: column; width: 100%; text-align: center; }
-  .top-toolbar .toolbar-links.active { display: flex; }
-  .hamburger { display: flex; }
-  .top-toolbar a { padding: 8px 0; margin:0; }
+/* Responsive */
+@media(max-width:768px){
+  .main-wrapper{flex-direction:column;}
+  .nav-column{flex:none; width:100%; position:static;}
 }
 </style>
 </head>
 <body>
-<!-- Top Toolbar -->
+
+<!-- Toolbar -->
 <div class="top-toolbar">
-  <div class="hamburger" onclick="toggleMenu()">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
+  <div class="hamburger" onclick="toggleMenu()"><div></div><div></div><div></div></div>
   <div class="toolbar-links">
     <a href="messages.html">Messages</a>
     <a href="dashboard.html">Dashboard</a>
@@ -253,7 +136,7 @@ footer { text-align:center; margin:50px 0 20px 0; font-size:0.9em; color:#555; }
 <!-- Logo -->
 <img class="logo" src="https://i.imgur.com/QDKQ6Fp.png" alt="Prevention Logo" onclick="window.location.href='index.html'">
 
-<!-- Sign Up / Login Button -->
+<!-- Sign Up/Login -->
 <button class="signup-login-btn" onclick="openModal()">Sign Up / Login</button>
 
 <!-- Modal -->
@@ -269,9 +152,9 @@ footer { text-align:center; margin:50px 0 20px 0; font-size:0.9em; color:#555; }
   </div>
 </div>
 
-<!-- Main Layout -->
-<div class="main-layout">
-  <!-- Navigation Column -->
+<!-- Main Wrapper -->
+<div class="main-wrapper">
+  <!-- Quick Links -->
   <div class="nav-column">
     <h3>Quick Links</h3>
     <a href="index.html">Home</a>
@@ -282,83 +165,72 @@ footer { text-align:center; margin:50px 0 20px 0; font-size:0.9em; color:#555; }
     <a href="prevention-pulse-flipbook.html">Read "The Prevention Pulse"</a>
   </div>
 
-  <!-- Container Wrapper -->
-  <div class="container-wrapper">
-    <div class="container">
-      <img class="hero-banner" src="https://i.imgur.com/rIeNOFe.png" alt="Prevention Banner">
-      <div style="position:relative;">
-        <video id="heroVideo" class="hero-video" autoplay loop muted playsinline webkit-playsinline>
-          <source src="https://www.dropbox.com/scl/fi/ofovwffzedm0cjisohna8/Untitled-design-2.mp4?rlkey=5sv58aq03ow4jbltq4ti6ytxz&st=nfgp01uo&raw=1" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <button id="muteBtn">Unmute</button>
-      </div>
-      <h1>Prevention – Guidance Before Harm</h1>
-      <p>Our mission is to provide a safe, anonymous space for individuals who may be considering harmful actions — toward themselves or others — to reach out and connect with trusted family, mentors, professionals, or trained volunteers (“Angels”). Early communication can prevent tragedies and help people make better choices.</p>
-      <a class="button" href="dashboard.html">Go to Dashboard</a>
-
-      <div class="section">
-        <h2>How It Works</h2>
-        <p>Users can send messages anonymously to family, crisis hotlines, or trusted volunteers. Each message creates an opportunity for intervention, guidance, and support before harm occurs.</p>
-        <p>The platform prioritizes privacy and safety: identities are revealed only if the sender chooses.</p>
-      </div>
-
-      <div class="section">
-        <h2>Why It Matters</h2>
-        <p>Early intervention saves lives and prevents harm. By encouraging communication and providing structured support, we reduce the likelihood of crises escalating.</p>
-        <p>We also provide educational resources, tips for family and friends, and guidance on how to support someone in distress or at risk of taking harmful actions.</p>
-      </div>
-
-      <div class="resources">
-        <a class="resource-card" href="https://www.nih.gov/health-information/mental-health" target="_blank">NIH: Benefits of Social Support</a>
-        <a class="resource-card" href="https://www.apa.org/topics/mental-health" target="_blank">APA: Talking About Mental Health</a>
-        <a class="resource-card" href="https://www.who.int/news-room/fact-sheets/detail/mental-health-strengthening-our-response" target="_blank">WHO: Mental Health & Wellbeing</a>
-        <a class="resource-card" href="https://www.nimh.nih.gov/health/topics/suicide-prevention" target="_blank">NIMH: Suicide Prevention</a>
-        <a class="resource-card" href="https://www.mentalhealth.gov/" target="_blank">MentalHealth.gov</a>
-        <a class="resource-card" href="https://suicidepreventionlifeline.org/" target="_blank">Suicide Prevention Lifeline</a>
-        <a class="resource-card" href="https://www.crisistextline.org/" target="_blank">Crisis Text Line</a>
-      </div>
-
-      <footer>
-        <p>If you or someone else is in immediate danger, please contact local emergency services or a crisis line. In the U.S., dial <strong>988</strong>.</p>
-        <hr>
-        <div class="disclaimer">
-          <strong>Legal Disclaimer</strong><br>
-          • This platform is intended for support, guidance, and prevention only.<br>
-          • It is <em>not</em> a substitute for professional medical, psychiatric, or emergency services.<br>
-          • By using this platform, you agree not to post threats, unlawful content, or misuse the service.<br>
-          • The organization and its volunteers are not responsible for actions taken by users based on the information shared here.<br>
-          • All communications are handled with respect for privacy, but anonymity cannot be guaranteed in cases of imminent risk of harm or as required by law.<br>
-          • Please reach out if you notice copyrighted content or any material that should not be shared.<br>
-          • Use of this site signifies acceptance of these terms.<br><br>
-          <a href="terms.html">Terms of Use & Privacy Policy</a>
-        </div>
-      </footer>
+  <!-- Content Column -->
+  <div class="content-column">
+    <div class="hero-container">
+      <video id="heroVideo" class="hero-video" autoplay loop muted playsinline webkit-playsinline>
+        <source src="https://www.dropbox.com/scl/fi/ofovwffzedm0cjisohna8/Untitled-design-2.mp4?rlkey=5sv58aq03ow4jbltq4ti6ytxz&st=nfgp01uo&raw=1" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <button id="muteBtn">Unmute</button>
     </div>
+
+    <h1>Prevention – Guidance Before Harm</h1>
+    <p>Our mission is to provide a safe, anonymous space for individuals who may be considering harmful actions — toward themselves or others — to reach out and connect with trusted family, mentors, professionals, or trained volunteers (“Angels”). Early communication can prevent tragedies and help people make better choices.</p>
+    <a class="button" href="dashboard.html">Go to Dashboard</a>
+
+    <div class="section">
+      <h2>How It Works</h2>
+      <p>Users can send messages anonymously to family, crisis hotlines, or trusted volunteers. Each message creates an opportunity for intervention, guidance, and support before harm occurs.</p>
+      <p>The platform prioritizes privacy and safety: identities are revealed only if the sender chooses.</p>
+    </div>
+
+    <div class="section">
+      <h2>Why It Matters</h2>
+      <p>Early intervention saves lives and prevents harm. By encouraging communication and providing structured support, we reduce the likelihood of crises escalating.</p>
+      <p>We also provide educational resources, tips for family and friends, and guidance on how to support someone in distress or at risk of taking harmful actions.</p>
+    </div>
+
+    <div class="resources">
+      <a class="resource-card" href="https://www.nih.gov/health-information/mental-health" target="_blank">NIH: Benefits of Social Support</a>
+      <a class="resource-card" href="https://www.apa.org/topics/mental-health" target="_blank">APA: Talking About Mental Health</a>
+      <a class="resource-card" href="https://www.who.int/news-room/fact-sheets/detail/mental-health-strengthening-our-response" target="_blank">WHO: Mental Health & Wellbeing</a>
+      <a class="resource-card" href="https://www.nimh.nih.gov/health/topics/suicide-prevention" target="_blank">NIMH: Suicide Prevention</a>
+      <a class="resource-card" href="https://www.mentalhealth.gov/" target="_blank">MentalHealth.gov</a>
+      <a class="resource-card" href="https://suicidepreventionlifeline.org/" target="_blank">Suicide Prevention Lifeline</a>
+      <a class="resource-card" href="https://www.crisistextline.org/" target="_blank">Crisis Text Line</a>
+    </div>
+
+    <footer>
+      <p>If you or someone else is in immediate danger, please contact local emergency services or a crisis line. In the U.S., dial <strong>988</strong>.</p>
+      <hr>
+      <div class="disclaimer">
+        <strong>Legal Disclaimer</strong><br>
+        • This platform is intended for support, guidance, and prevention only.<br>
+        • It is <em>not</em> a substitute for professional medical, psychiatric, or emergency services.<br>
+        • By using this platform, you agree not to post threats, unlawful content, or misuse the service.<br>
+        • The organization and its volunteers are not responsible for actions taken by users based on the information shared here.<br>
+        • All communications are handled with respect for privacy, but anonymity cannot be guaranteed in cases of imminent risk of harm or as required by law.<br>
+        • Please reach out if you notice copyrighted content or any material that should not be shared.<br>
+        • Use of this site signifies acceptance of these terms.<br><br>
+        <a href="terms.html">Terms of Use & Privacy Policy</a>
+      </div>
+    </footer>
   </div>
 </div>
 
 <script>
-function openModal() { document.getElementById('authModal').style.display = 'block'; }
-function closeModal() { document.getElementById('authModal').style.display = 'none'; }
-window.onclick = function(event) {
-  const modal = document.getElementById('authModal');
-  if (event.target === modal) { modal.style.display = "none"; }
-}
+function openModal() { document.getElementById('authModal').style.display='block'; }
+function closeModal() { document.getElementById('authModal').style.display='none'; }
+window.onclick=function(event){if(event.target===document.getElementById('authModal')){closeModal();}}
 
-// Mute / Unmute Button Logic
-const video = document.getElementById('heroVideo');
-const muteBtn = document.getElementById('muteBtn');
-muteBtn.addEventListener('click', () => {
-  if (video.muted) { video.muted = false; muteBtn.textContent = 'Mute'; }
-  else { video.muted = true; muteBtn.textContent = 'Unmute'; }
-});
+// Mute toggle
+const video=document.getElementById('heroVideo');
+const muteBtn=document.getElementById('muteBtn');
+muteBtn.addEventListener('click',()=>{if(video.muted){video.muted=false; muteBtn.textContent='Mute';}else{video.muted=true; muteBtn.textContent='Unmute';}});
 
-// Hamburger Toggle
-function toggleMenu() {
-  const links = document.querySelector('.top-toolbar .toolbar-links');
-  links.classList.toggle('active');
-}
+// Hamburger toggle
+function toggleMenu(){document.querySelector('.top-toolbar .toolbar-links').classList.toggle('active');}
 </script>
 </body>
 </html>
