@@ -4,41 +4,253 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Prevention Pulse – Read Online</title>
-<link rel="icon" href="https://i.imgur.com/QDKQ6Fp.png" type="image/png">
+<meta name="description" content="Read 'The Prevention Pulse' flipbook online for guidance, connection, and prevention insights.">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
 <style>
-  body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f0f2f5;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Nunito:wght@400;700&display=swap');
+  :root {
+    --brand-primary: #0066FF;
+    --brand-primary-dark: #0438A3;
+    --brand-accent: #28C9B4;
+    --brand-accent-soft: #e8f7f4;
+    --brand-bg: #F8FAFD;
+    --brand-bg-dark: #e3eaf5;
+    --brand-bg-gradient: linear-gradient(135deg, #f8fafd 0%, #e3eaf5 100%);
+    --text-main: #132049;
+    --text-secondary: #425075;
+    --text-faded: #6b7498;
+    --radius: 16px;
+    --radius-sm: 8px;
+    --shadow: 0 6px 24px 0 rgba(0,40,120,0.08), 0 1.5px 4px 0 rgba(0,0,0,0.04);
+    --transition: .2s cubic-bezier(.47,1.64,.41,.8);
+    --header-height: 62px;
+    --nav-width: 270px;
+    --max-content: 1200px;
   }
-  .page-container {
-    display: flex;
-    width: 95%;
-    max-width: 1100px;
-    margin-top: 60px;
-    gap: 20px;
+  html, body {
+    font-family: 'Inter', 'Nunito', Arial, sans-serif;
+    background: var(--brand-bg-gradient);
+    color: var(--text-main);
+    margin: 0; padding: 0; min-height: 100vh;
+    scroll-behavior: smooth;
   }
+  body { padding-top: var(--header-height); }
 
-  /* Nav Column (updated to match other pages) */
-  .nav-column {
-    flex: 0 0 220px;
+  /* Toolbar */
+  .top-toolbar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: rgba(0,102,255,0.92);
+    color: #fff;
+    width: 100vw;
+    position: fixed;
+    top: 0; left: 0;
+    z-index: 3000;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(6px);
+    padding: 0 28px;
+    height: var(--header-height);
+    font-family: 'Inter', Arial, sans-serif;
+    gap: 0;
+  }
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 28px; height: 22px;
+    cursor: pointer;
+    margin-right: 12px;
+  }
+  .hamburger div {
+    width: 100%; height: 4px;
     background: #fff;
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    font-size: 1rem;
+    border-radius: 2px;
+    transition: all var(--transition);
+  }
+  .toolbar-links {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin-right: auto;
+    transition: max-height var(--transition) ease;
+  }
+  .toolbar-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 9px 18px 10px 18px;
+    border-radius: var(--radius-sm);
+    transition: background var(--transition), transform var(--transition), color var(--transition);
+    font-size: 1.04em;
+    opacity: 0.95;
+    letter-spacing: 0.01em;
+    position: relative;
+  }
+  .toolbar-links a.active, .toolbar-links a:hover {
+    background: var(--brand-accent);
+    color: #fff;
+    transform: translateY(-2px) scale(1.06);
+    text-shadow: 0 1px 10px #046c6a0d;
+    box-shadow: 0 3px 12px var(--brand-accent-soft);
+  }
+  @media (max-width: 900px) {
+    .hamburger { display: flex; }
+    .toolbar-links {
+      flex-direction: column;
+      max-height: 0;
+      overflow: hidden;
+      position: absolute;
+      top: var(--header-height);
+      left: 0;
+      width: 100vw;
+      background: rgba(0,102,255,0.97);
+      z-index: 2000;
+      border-bottom-left-radius: var(--radius-sm);
+      border-bottom-right-radius: var(--radius-sm);
+      box-shadow: 0 6px 24px #0002;
+      margin-right: 0;
+      transition: max-height 0.3s cubic-bezier(.47,1.64,.41,.8);
+    }
+    .toolbar-links a {
+      width: 100vw;
+      text-align: left;
+      font-size: 1.12em;
+      padding: 14px 25px 14px 25px;
+      border-radius: 0;
+      border-bottom: 1px solid #2563eb22;
+      color: #fff !important;
+      background: none;
+      box-shadow: none;
+    }
+    .toolbar-links.active {
+      max-height: 500px;
+      transition: max-height 0.3s cubic-bezier(.47,1.64,.41,.8);
+    }
+  }
+  @media (min-width: 901px) {
+    .toolbar-links { position: static; max-height: none !important; background: none; box-shadow: none;}
+    .hamburger { display: none !important; }
+  }
+  .signup-login-btn {
+    position: fixed; top:13px; right:32px;
+    padding: 10px 27px;
+    background: var(--brand-accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    z-index: 3100;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    font-size: 1em;
+    box-shadow: 0 3px 12px var(--brand-accent-soft);
+    transition: background var(--transition), box-shadow var(--transition);
+  }
+  .signup-login-btn:hover {
+    background: var(--brand-primary-dark);
+    color: #fff;
+    box-shadow: 0 6px 22px #28c9b455;
+  }
+  .modal-bg {
+    display: none;
+    position: fixed;
+    z-index: 4000;
+    left: 0; top: 0; width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.52);
+  }
+  .modal-content {
+    background: var(--brand-bg);
+    margin: 7% auto;
+    padding: 38px 28px 23px 28px;
+    border-radius: 22px;
+    width: 97vw; max-width: 410px;
+    box-shadow: 0 8px 40px rgba(20,80,180,0.18);
+    text-align: center;
+    border: 1.5px solid #e0e7ef;
+    animation: modalin .26s cubic-bezier(.41,2.04,.51,.82);
+  }
+  @keyframes modalin {
+    from { opacity:0; transform: scale(.95);}
+    to { opacity:1; transform: scale(1);}
+  }
+  .modal-content h2 {
+    margin-bottom: 11px;
+    font-size: 1.3em;
+    font-weight: 800;
+    color: var(--brand-primary-dark);
+  }
+  .modal-content input {
+    width: 92%;
+    padding: 13px;
+    margin: 12px 0 17px 0;
+    border-radius: 8px;
+    border: 1.5px solid #e5e7eb;
+    font-size: 1em;
+    background: #f6f8fa;
+    transition: border var(--transition), box-shadow var(--transition);
+  }
+  .modal-content input:focus { border-color: var(--brand-accent); box-shadow: 0 2px 8px #28c9b428; }
+  .modal-btn {
+    padding: 11px 21px;
+    margin: 10px 7px 0 7px;
+    border: none;
+    border-radius: 11px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1em;
+    background: #e8eafc;
+    color: var(--brand-primary-dark);
+    transition: background .18s;
+  }
+  .login-btn { background: var(--brand-primary); color: #fff; }
+  .login-btn:hover{background: var(--brand-accent);}
+  .signup-btn { background: #22c55e; color: #fff;}
+  .signup-btn:hover{background: #15803d;}
+  .close-btn { background: #e5e7eb; color: #333;}
+  .close-btn:hover{background: #b7b7b7;}
+
+  /* Layout */
+  .main-wrapper, .page-container {
+    display: flex;
+    width: 100%;
+    max-width: var(--max-content);
+    margin: 48px auto 0 auto;
+    gap: 32px;
+    position: relative;
+    z-index: 1;
+    align-items: flex-start;
+  }
+  .nav-column {
+    flex: 0 0 var(--nav-width);
+    background: var(--brand-bg-dark);
+    padding: 27px 19px 15px 19px;
+    border-radius: var(--radius);
+    min-height: 180px;
     height: fit-content;
+    position: sticky;
+    top: 72px;
+    font-size: 1.07em;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    animation: navfade .8s;
+  }
+  @keyframes navfade {
+    0%{ opacity:.3; transform:translateY(18px);}
+    100%{ opacity:1; transform:translateY(0);}
   }
   .nav-column h3 {
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-    color: #222;
+    margin-bottom: 12px;
+    color: var(--brand-primary-dark);
+    font-size: 1.17em;
+    letter-spacing: 0.01em;
+    font-weight: 800;
+    text-align: left;
   }
   .nav-column ul {
     list-style: none;
@@ -46,35 +258,47 @@
     margin: 0;
   }
   .nav-column li {
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
   .nav-column a {
+    display: block;
+    color: var(--brand-primary-dark);
     text-decoration: none;
-    color: #4a90e2;
-    font-weight: 600;
-    transition: color 0.2s;
+    font-weight: 700;
+    padding: 9px 11px;
+    border-radius: 8px;
+    transition: background .16s, color .16s;
+    font-size: 1em;
+    text-align: left;
   }
-  .nav-column a:hover {
-    color: #1e63b8;
+  .nav-column a:hover, .nav-column a.active {
+    background: var(--brand-accent);
+    color: #fff;
+    text-decoration: none;
   }
-
   .reader-container {
     position: relative;
     flex: 1;
     background: #fff;
-    border-radius: 15px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
     padding: 30px 50px;
     box-sizing: border-box;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    min-width: 0;
+    animation: fadein .6s;
+  }
+  @keyframes fadein {
+    from { opacity: .2; filter: blur(4px);}
+    to { opacity:1; filter:none;}
   }
   .hero-banner {
     width: 100%;
     height: 180px;
     background: url('https://i.imgur.com/rIeNOFe.png') center/cover no-repeat;
-    border-radius: 15px 15px 0 0;
+    border-radius: var(--radius) var(--radius) 0 0;
     margin-bottom: 20px;
   }
   .logo {
@@ -86,23 +310,38 @@
     display: none;
     height: 60vh;
     overflow-y: auto;
+    background: var(--brand-accent-soft);
+    border-radius: var(--radius-sm);
+    padding: 22px 17px;
+    margin-bottom: 10px;
+    box-shadow: 0 1.5px 8px #28c9b422;
+    animation: fadein .6s;
   }
   .chapter.active {
     display: block;
   }
   h1, h2, h3 {
-    color: #222;
-    margin-top: 0;
+    color: var(--brand-primary-dark);
+    font-weight: 900;
+    margin-top: 1.0em;
+    margin-bottom: 0.45em;
+    line-height: 1.18;
+    letter-spacing: 0.01em;
   }
-  p {
-    line-height: 1.7;
-    margin-bottom: 1em;
+  h1 { font-size: 1.6em; margin-top: 0.11em;}
+  h2 { font-size: 1.25em; }
+  h3 { font-size: 1.08em; }
+  p, ul, ol {
+    color: var(--text-secondary);
+    font-size: 1.09em;
+    line-height: 1.74;
+    margin: 0 0 1.1em 0;
   }
   .nav-button {
     position: fixed;
     top: 50%;
     transform: translateY(-50%);
-    background: #4a90e2;
+    background: var(--brand-accent);
     color: #fff;
     border: none;
     padding: 20px;
@@ -111,44 +350,93 @@
     cursor: pointer;
     opacity: 0.8;
     transition: 0.2s;
-    z-index: 1000;
+    z-index: 4001;
+    box-shadow: 0 4px 16px #28c9b433;
   }
-  .nav-button:hover { opacity: 1; }
+  .nav-button:hover { opacity: 1; background: var(--brand-primary-dark);}
   #prevBtn { left: 20px; }
   #nextBtn { right: 20px; }
 
-  /* Home logo button */
-  .home-logo {
-    position: fixed;
-    top: 15px;
-    left: 20px;
-    width: 120px;
-    height: 120px;
-    z-index: 1200;
-    cursor: pointer;
-    transition: transform 0.2s ease;
+  footer {
+    text-align: center;
+    margin: 54px 0 18px 0;
+    font-size: 1.08em;
+    color: var(--text-faded);
+    position: relative;
+    z-index: 1;
+    background: transparent;
+    padding-bottom: 24px;
   }
-  .home-logo:hover {
-    transform: scale(1.1);
+  footer a {
+    color: var(--brand-primary);
+    text-decoration: underline;
+    font-weight: 700;
+    transition: color .16s;
   }
-
+  footer a:hover { color: var(--brand-accent);}
+  @media(max-width:1100px){
+    .main-wrapper, .page-container{gap: 10px; max-width: 96vw;}
+    .nav-column{padding: 14px 6px;}
+    .reader-container{padding: 19px 6vw 13px 6vw;}
+    .chapter{padding: 12px 2vw;}
+  }
+  @media(max-width:900px){
+    .main-wrapper, .page-container{gap: 0;}
+    .nav-column{min-width: 90vw;}
+    .reader-container{padding: 15px 3vw 12px 3vw;}
+    .chapter{min-width: 0;}
+  }
   @media(max-width:768px){
-    .page-container { flex-direction: column; margin-top: 80px; }
-    .nav-column { flex: none; width: 100%; margin-bottom: 20px; }
-    .reader-container { width: 100%; padding: 20px; }
-    .nav-button { padding: 15px; font-size: 1rem; }
-    .hero-banner { height: 150px; }
+    .main-wrapper, .page-container{flex-direction: column; margin-top: 14px;}
+    .nav-column{flex:none; width: 100%; position:static; margin-bottom: 16px;}
+    .hero-banner { height: 120px;}
+    .reader-container {padding: 12px 3vw;}
+    .chapter {padding: 11px 1vw;}
+    .nav-button { padding: 15px; font-size: 1rem;}
     .logo { width: 80px; margin-top: -50px; }
-    .home-logo { width: 50px; height: 50px; }
   }
+  @media(max-width:540px){
+    .main-wrapper, .page-container{margin: 7px 0 0 0;}
+    .reader-container {padding: 7px 1vw;}
+    .nav-column{padding: 12px 4px;}
+    .top-toolbar{padding: 0 7px;}
+    .chapter {padding: 7px 1vw;}
+  }
+  ::-webkit-scrollbar {width: 8px; background: #e5e7eb;}
+  ::-webkit-scrollbar-thumb {background: #cbd5e1; border-radius: 8px;}
+  ::selection {background: #bae6fd;}
 </style>
 </head>
 <body>
 
-<!-- Home logo button -->
-<a href="index.html">
-  <img src="https://i.imgur.com/QDKQ6Fp.png" alt="Home" class="home-logo">
-</a>
+<!-- Toolbar -->
+<div class="top-toolbar">
+  <div class="hamburger" onclick="toggleMenu()"><div></div><div></div><div></div></div>
+  <div class="toolbar-links">
+    <a href="messages.html">Messages</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="resources.html">Resources</a>
+    <a href="notifications.html">Notifications</a>
+    <a href="profile.html">Profile / Settings</a>
+    <a href="faq.html">Help / FAQ</a>
+  </div>
+</div>
+
+<!-- Sign Up/Login -->
+<button class="signup-login-btn" onclick="openModal()">Sign Up / Login</button>
+
+<!-- Modal -->
+<div class="modal-bg" id="authModal">
+  <div class="modal-content">
+    <h2>Sign Up or Login</h2>
+    <p style="color:#425075; font-style:italic; margin-bottom:15px;">Coming Soon</p>
+    <input type="email" placeholder="Email" id="email"><br>
+    <input type="password" placeholder="Password" id="password"><br>
+    <button class="modal-btn login-btn" onclick="alert('Login functionality goes here')">Login</button>
+    <button class="modal-btn signup-btn" onclick="alert('Sign Up functionality goes here')">Sign Up</button>
+    <button class="modal-btn close-btn" onclick="closeModal()">Cancel</button>
+  </div>
+</div>
 
 <div class="page-container">
   <!-- Quick Links Column -->
@@ -161,6 +449,7 @@
       <li><a href="success-stories.html">Recent Success Stories</a></li>
       <li><a href="call-to-action.html">Call to Action</a></li>
       <li><a href="prevention-pulse-flipbook.html">Read "The Prevention Pulse"</a></li>
+      <li><a href="faq.html">FAQ / Help</a></li>
     </ul>
   </div>
 
@@ -170,7 +459,7 @@
 
     <!-- Chapters (1–6) remain exactly as before -->
     <!-- Chapter 1 -->
-    <div class="chapter active" id="chapter1">
+    <div class="chapter active" id="chapter1" tabindex="0">
       <h1>Chapter 1. Finding Your Words When You Need Them Most</h1>
       <p>Have you ever faced a moment when saying anything at all felt impossible? Perhaps you wanted to check in on a friend who seemed off, or reach out to a family member you were worried about, but the idea of starting the conversation froze you in place. That pause, that knot of hesitation in your chest, is exactly the moment Prevention Pulse was designed to address.</p>
       <p>This isn’t just an app or a website—it’s a living approach to connection. It recognizes that being unsure is normal, and that sometimes we all need a hand to find our footing. The mission is simple yet profound: prevent crises before they happen. And one of the most powerful ways to do that is by making it easier to reach out.</p>
@@ -180,7 +469,7 @@
     </div>
 
     <!-- Chapter 2 -->
-    <div class="chapter" id="chapter2">
+    <div class="chapter" id="chapter2" tabindex="0">
       <h1>Chapter 2. Your Dashboard: A Compass for Connection</h1>
       <p>When you step into Prevention Pulse, you are given more than a blank page—you are provided a dashboard, a personal command center for navigating relationships and communication. This isn’t cluttered software; it’s a calm, organized space designed to make thinking clearly under emotional pressure easier.</p>
       <p>From your dashboard, you can see all your current and past conversations at a glance. You can draft messages, review those already sent, or invite an Angel to guide you. It’s also a place to pause, reflect, and collect your thoughts before acting. This clarity reduces the anxiety that comes with emotional communication.</p>
@@ -190,7 +479,7 @@
     </div>
 
     <!-- Chapter 3 -->
-    <div class="chapter" id="chapter3">
+    <div class="chapter" id="chapter3" tabindex="0">
       <h1>Chapter 3. The Philosophy of Connection</h1>
       <p>At its essence, Prevention Pulse is built on a simple but radical idea: silence is often the real crisis. Not every urgent headline signals the deepest need—many of the fractures that later become emergencies start as small, everyday disconnections. Parents who stop asking about their teen’s day. Siblings who let months slide by. Friends who stop returning texts. Those quiet distances can calcify into loneliness, despair, or misunderstanding.</p>
       <p>Connection isn’t always dramatic. It’s a slow, patient practice. Prevention Pulse meets people where they are—when a single sentence might be the difference between reaching out and retreating back into silence. Anonymous messages create a gentle first step, a low-risk way to reopen a door. That knock—soft, nonconfrontational, and caring—often lands where a direct confrontation would have pushed someone away.</p>
@@ -201,7 +490,7 @@
     </div>
 
     <!-- Chapter 4 -->
-    <div class="chapter" id="chapter4">
+    <div class="chapter" id="chapter4" tabindex="0">
       <h1>Chapter 4. Small Steps, Big Ripples</h1>
       <p>Think of prevention as a series of small, intentional nudges rather than a single grand intervention. Each message, each check-in, each short resource viewed contributes to a culture that prizes connection. We call this micro-prevention: discrete, repeatable actions that together shift outcomes.</p>
       <p>Micro-prevention thrives on accessibility. A 30-second prompt to check in, a five-minute practice on active listening, or a one-paragraph anonymous message—all are low-effort actions with outsized effects. Prevention Pulse makes those acts easy to take: simple templates for sensitive messages, quick video lessons for immediate skill building, and an on-demand Angel to give calm feedback when the stakes feel high.</p>
@@ -211,7 +500,7 @@
     </div>
 
     <!-- Chapter 5 -->
-    <div class="chapter" id="chapter5">
+    <div class="chapter" id="chapter5" tabindex="0">
       <h1>Chapter 5. A Safe, Trusted Space</h1>
       <p>Privacy and safety are not afterthoughts; they are the foundation. Prevention Pulse uses technical and human safeguards so people can trust a message will remain confidential unless there is an imminent risk of harm. We never use identity as a bargaining chip—Angels do not see identities unless explicitly shared by a user, and our systems are designed around the principle of minimal data collection.</p>
       <p>At the same time, responsible care requires clear boundaries. Users are informed, in plain language, about what anonymity does and does not cover. If there are signs of imminent danger, our safety protocol prioritizes life—this means following legal obligations and reaching out to emergency services when necessary. Those rare interventions are handled by trained staff and law enforcement only when critical thresholds are met.</p>
@@ -221,7 +510,7 @@
     </div>
 
     <!-- Chapter 6 -->
-    <div class="chapter" id="chapter6">
+    <div class="chapter" id="chapter6" tabindex="0">
       <h1>/not the/ Final Chapter - The Pulse of Tomorrow</h1>
       <p>The work of Prevention Pulse is ongoing. Our aim is to scale thoughtfully: expanding reach while preserving intimacy. Tomorrow’s platform will include richer multilingual resources, partnerships with local support providers, and expanded training tracks for Angels so they can better support diverse communities and complex situations.</p>
       <p>We envision a world where checking in is routine, not extraordinary. Where small messages of care happen frequently and are met with skills and systems that can receive them well. The future we build is one where family members feel equipped to respond without escalating, where people in pain find a low-risk path to be heard, and where communities embrace micro-prevention as a cultural value.</p>
@@ -230,7 +519,10 @@
       <p>Every user who sends a message, every Angel who listens, and every family that chooses to stay connected contributes to this future. The platform is a tool; the movement is the people who use it. Together, we make the smaller acts of care more frequent—and those small acts will continue to ripple outward, changing the world one message at a time.</p>
       <p>We call this “/not the/ Final Chapter” because prevention is iterative: every success teaches us how to do better. As prevention evolves, so will the Pulse—sharpened by evidence, guided by compassion, and driven by the conviction that early connection saves lives and heals relationships.</p>
     </div>
-
+    <footer>
+      <p>If you or someone else is in immediate danger, please contact local emergency services. In the U.S., dial <strong>988</strong>.</p>
+      <p><a href="terms.html">Terms of Use & Privacy Policy</a></p>
+    </footer>
   </div>
 </div>
 
@@ -239,51 +531,60 @@
 <button class="nav-button" id="nextBtn" aria-label="Next chapter">&#8594;</button>
 
 <script>
-  const chapters = document.querySelectorAll('.chapter');
-  let current = 0;
+function openModal() { document.getElementById('authModal').style.display='block'; }
+function closeModal() { document.getElementById('authModal').style.display='none'; }
+window.onclick=function(event){if(event.target===document.getElementById('authModal')){closeModal();}}
 
-  function showChapter(index) {
-    chapters.forEach((ch, i) => {
-      ch.classList.toggle('active', i === index);
-    });
-    const active = chapters[index];
-    if (active) active.focus();
-  }
+function toggleMenu(){
+  document.querySelector('.top-toolbar .toolbar-links').classList.toggle('active');
+}
 
-  document.getElementById('nextBtn').addEventListener('click', () => {
+// Flipbook navigation
+const chapters = document.querySelectorAll('.chapter');
+let current = 0;
+
+function showChapter(index) {
+  chapters.forEach((ch, i) => {
+    ch.classList.toggle('active', i === index);
+  });
+  chapters[index].focus();
+  // Scroll to top of reader-container for new chapter
+  document.querySelector('.reader-container').scrollTop = 0;
+}
+
+// Button navigation
+document.getElementById('nextBtn').addEventListener('click', () => {
+  if(current < chapters.length - 1) current++;
+  showChapter(current);
+});
+document.getElementById('prevBtn').addEventListener('click', () => {
+  if(current > 0) current--;
+  showChapter(current);
+});
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight') {
     if(current < chapters.length - 1) current++;
     showChapter(current);
-  });
-
-  document.getElementById('prevBtn').addEventListener('click', () => {
+  } else if (e.key === 'ArrowLeft') {
     if(current > 0) current--;
     showChapter(current);
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') {
-      if(current < chapters.length - 1) current++;
-      showChapter(current);
-    } else if (e.key === 'ArrowLeft') {
-      if(current > 0) current--;
-      showChapter(current);
-    }
-  });
-
-  let touchstartX = 0;
-  let touchendX = 0;
-
-  function handleGesture() {
-    if (touchendX < touchstartX - 50 && current < chapters.length - 1) current++;
-    if (touchendX > touchstartX + 50 && current > 0) current--;
-    showChapter(current);
   }
+});
 
-  document.addEventListener('touchstart', e => touchstartX = e.changedTouches[0].screenX);
-  document.addEventListener('touchend', e => { touchendX = e.changedTouches[0].screenX; handleGesture(); });
-
+// Touch navigation for mobile
+let touchstartX = 0;
+let touchendX = 0;
+function handleGesture() {
+  if (touchendX < touchstartX - 50 && current < chapters.length - 1) current++;
+  if (touchendX > touchstartX + 50 && current > 0) current--;
   showChapter(current);
-</script>
+}
+document.addEventListener('touchstart', e => touchstartX = e.changedTouches[0].screenX);
+document.addEventListener('touchend', e => { touchendX = e.changedTouches[0].screenX; handleGesture(); });
 
+showChapter(current);
+</script>
 </body>
 </html>
