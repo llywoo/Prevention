@@ -1,117 +1,468 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Apply to be an Angel – Prevention Pulse</title>
-<link rel="stylesheet" href="style.css">
-<style>
-/* Enhanced card styles for Founder & Training sections */
-.founder-card, .training-card {
-  background: #f7f9fc;
-  border-left: 6px solid #4a90e2;
-  border-radius: 15px;
-  padding: 25px 30px;
-  margin: 30px 0;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-.founder-card:hover, .training-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-}
-.founder-card h2, .training-card h2 {
-  color: #222;
-  margin-bottom: 15px;
-}
-.founder-card p, .training-card p {
-  color: #555;
-  line-height: 1.7;
-}
-
-/* Button styling */
-.button {
-  display: inline-block;
-  padding: 15px 30px;
-  font-weight: bold;
-  color: #fff;
-  background-color: #4a90e2;
-  border-radius: 12px;
-  text-decoration: none;
-  transition: all 0.25s ease;
-}
-.button:hover {
-  transform: translateY(-2px);
-  opacity: 0.95;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply to be an Angel – Prevention Pulse</title>
+  <meta name="description" content="Join Prevention Pulse as an Angel to provide compassionate support and early intervention for those in need.">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Nunito:wght@400;700&display=swap');
+    :root {
+      --brand-primary: #0066FF;
+      --brand-primary-dark: #0438A3;
+      --brand-accent: #28C9B4;
+      --brand-accent-soft: #e8f7f4;
+      --brand-bg: #F8FAFD;
+      --brand-bg-dark: #e3eaf5;
+      --brand-bg-gradient: linear-gradient(135deg, #f8fafd 0%, #e3eaf5 100%);
+      --text-main: #132049;
+      --text-secondary: #425075;
+      --text-faded: #6b7498;
+      --radius: 16px;
+      --radius-sm: 8px;
+      --shadow: 0 6px 24px 0 rgba(0,40,120,0.08), 0 1.5px 4px 0 rgba(0,0,0,0.04);
+      --transition: .2s cubic-bezier(.47,1.64,.41,.8);
+      --header-height: 62px;
+      --nav-width: 270px;
+      --max-content: 1200px;
+    }
+    html, body {
+      font-family: 'Inter', 'Nunito', Arial, sans-serif;
+      background: var(--brand-bg-gradient);
+      color: var(--text-main);
+      margin: 0; padding: 0; min-height: 100vh;
+      scroll-behavior: smooth;
+    }
+    body { padding-top: var(--header-height); }
+    /* Top Toolbar */
+    .top-toolbar {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      background: rgba(0,102,255,0.92);
+      color: #fff;
+      width: 100vw;
+      position: fixed;
+      top: 0; left: 0;
+      z-index: 3000;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(6px);
+      padding: 0 28px;
+      height: var(--header-height);
+      font-family: 'Inter', Arial, sans-serif;
+      gap: 0;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 28px; height: 22px;
+      cursor: pointer;
+      margin-right: 12px;
+    }
+    .hamburger div {
+      width: 100%; height: 4px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all var(--transition);
+    }
+    .toolbar-links {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      margin-right: auto;
+      transition: max-height var(--transition) ease;
+    }
+    .toolbar-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 9px 18px 10px 18px;
+      border-radius: var(--radius-sm);
+      transition: background var(--transition), transform var(--transition), color var(--transition);
+      font-size: 1.04em;
+      opacity: 0.95;
+      letter-spacing: 0.01em;
+      position: relative;
+    }
+    .toolbar-links a.active, .toolbar-links a:hover {
+      background: var(--brand-accent);
+      color: #fff;
+      transform: translateY(-2px) scale(1.06);
+      text-shadow: 0 1px 10px #046c6a0d;
+      box-shadow: 0 3px 12px var(--brand-accent-soft);
+    }
+    /* Hamburger mobile open */
+    @media (max-width: 900px) {
+      .hamburger { display: flex; }
+      .toolbar-links {
+        flex-direction: column;
+        max-height: 0;
+        overflow: hidden;
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        width: 100vw;
+        background: rgba(0,102,255,0.97);
+        z-index: 2000;
+        border-bottom-left-radius: var(--radius-sm);
+        border-bottom-right-radius: var(--radius-sm);
+        box-shadow: 0 6px 24px #0002;
+        margin-right: 0;
+        transition: max-height 0.3s cubic-bezier(.47,1.64,.41,.8);
+      }
+      .toolbar-links a {
+        width: 100vw;
+        text-align: left;
+        font-size: 1.12em;
+        padding: 14px 25px 14px 25px;
+        border-radius: 0;
+        border-bottom: 1px solid #2563eb22;
+        color: #fff !important; /* white text */
+        background: none;
+        box-shadow: none;
+      }
+      .toolbar-links.active {
+        max-height: 500px;
+        transition: max-height 0.3s cubic-bezier(.47,1.64,.41,.8);
+      }
+    }
+    @media (min-width: 901px) {
+      .toolbar-links { position: static; max-height: none !important; background: none; box-shadow: none;}
+      .hamburger { display: none !important; }
+    }
+    /* Sign Up/Login Button */
+    .signup-login-btn {
+      position: fixed; top:13px; right:32px;
+      padding: 10px 27px;
+      background: var(--brand-accent);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      z-index: 3100;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      font-size: 1em;
+      box-shadow: 0 3px 12px var(--brand-accent-soft);
+      transition: background var(--transition), box-shadow var(--transition);
+    }
+    .signup-login-btn:hover {
+      background: var(--brand-primary-dark);
+      color: #fff;
+      box-shadow: 0 6px 22px #28c9b455;
+    }
+    /* Main layout */
+    .main-wrapper {
+      display: flex;
+      width: 100%;
+      max-width: var(--max-content);
+      margin: 48px auto 0 auto;
+      gap: 32px;
+      position: relative;
+      z-index: 1;
+      align-items: flex-start;
+    }
+    .nav-column {
+      flex: 0 0 var(--nav-width);
+      background: var(--brand-bg-dark);
+      padding: 27px 19px 15px 19px;
+      border-radius: var(--radius);
+      min-height: 180px;
+      height: fit-content;
+      position: sticky;
+      top: 72px;
+      font-size: 1.07em;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      animation: navfade .8s;
+    }
+    @keyframes navfade {
+      0%{ opacity:.3; transform:translateY(18px);}
+      100%{ opacity:1; transform:translateY(0);}
+    }
+    .nav-column h3 {
+      margin-bottom: 12px;
+      color: var(--brand-primary-dark);
+      font-size: 1.17em;
+      letter-spacing: 0.01em;
+      font-weight: 800;
+    }
+    .nav-column a {
+      display: block;
+      margin: 6px 0;
+      color: var(--brand-primary-dark);
+      text-decoration: none;
+      font-weight: 700;
+      padding: 9px 11px;
+      border-radius: 8px;
+      transition: background .16s, color .16s;
+      font-size: 1em;
+    }
+    .nav-column a:hover, .nav-column a.active {
+      background: var(--brand-accent);
+      color: #fff;
+      text-decoration: none;
+    }
+    /* Content Column */
+    .content-column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      min-width: 0;
+      animation: fadein .6s;
+    }
+    @keyframes fadein {
+      from { opacity: .2; filter: blur(4px);}
+      to { opacity:1; filter:none;}
+    }
+    /* Logo */
+    .logo {
+      display: block;
+      margin: 36px auto 0 auto;
+      max-width: 220px;
+      height: auto;
+      cursor: pointer;
+      transition: transform .16s;
+    }
+    .logo:hover { transform: scale(1.05);}
+    /* Hero Banner */
+    .hero {
+      display: block;
+      width: 100%;
+      max-width: 650px;
+      margin: 0 auto 22px auto;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 14px #0066ff14;
+    }
+    h1 {
+      color: var(--brand-primary-dark);
+      font-weight: 900;
+      text-align: center;
+      margin-top: 0.7em;
+      margin-bottom: 1.2em;
+      font-size: 2.3em;
+      line-height: 1.1;
+    }
+    /* Enhanced card styles for Founder & Training sections */
+    .founder-card, .training-card {
+      background: #f7f9fc;
+      border-left: 6px solid #4a90e2;
+      border-radius: 15px;
+      padding: 25px 30px;
+      margin: 30px 0;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .founder-card:hover, .training-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+    .founder-card h2, .training-card h2 {
+      color: #222;
+      margin-bottom: 15px;
+      font-size: 1.28em;
+    }
+    .founder-card p, .training-card p {
+      color: #555;
+      line-height: 1.7;
+      font-size: 1.14em;
+    }
+    /* Button styling */
+    .button {
+      display: inline-block;
+      padding: 15px 30px;
+      font-weight: bold;
+      color: #fff;
+      background-color: var(--brand-primary);
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 1.11em;
+      transition: all 0.25s ease;
+      box-shadow: 0 3px 14px #0066ff28;
+      margin: 12px 0 0 0;
+      text-align: center;
+    }
+    .button:hover {
+      transform: translateY(-2px) scale(1.03);
+      background: var(--brand-accent);
+      opacity: 0.97;
+    }
+    /* Resources */
+    .resources {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      margin: 36px 0 18px 0;
+      align-items: flex-start;
+    }
+    .resources h3 {
+      flex-basis: 100%;
+      color: var(--brand-primary-dark);
+      margin-bottom: 3px;
+      font-size: 1.08em;
+    }
+    .resource-card {
+      flex: 1 1 calc(33% - 12px);
+      min-width: 220px;
+      padding: 21px 17px;
+      background: var(--brand-accent-soft);
+      border-radius: var(--radius);
+      color: var(--brand-primary-dark);
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 2px 12px #28c9b41a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .18s, background .19s, color .18s, box-shadow .18s;
+      border: 1.3px solid #c6f6ef;
+      font-size: 1.07em;
+      letter-spacing: 0.01em;
+    }
+    .resource-card:hover {
+      background: var(--brand-accent);
+      color: #fff;
+      transform: translateY(-4px) scale(1.03);
+      border-color: var(--brand-primary);
+      text-shadow: 0 1px 8px #0066ff11;
+      box-shadow: 0 8px 30px #28c9b42c;
+    }
+    /* Footer */
+    footer {
+      text-align: center;
+      margin: 54px 0 18px 0;
+      font-size: 1.08em;
+      color: var(--text-faded);
+      position: relative;
+      z-index: 1;
+      background: transparent;
+      padding-bottom: 24px;
+    }
+    /* Responsive tweaks */
+    @media(max-width:1100px){
+      .main-wrapper{gap: 10px; max-width: 96vw;}
+      .nav-column{padding: 14px 6px;}
+      .content-column{gap: 16px;}
+    }
+    @media(max-width:900px){
+      .main-wrapper{gap: 0;}
+      .nav-column{min-width: 90vw;}
+    }
+    @media(max-width:768px){
+      .main-wrapper{flex-direction: column; margin-top: 14px;}
+      .nav-column{flex:none; width: 100%; position:static; margin-bottom: 16px;}
+      .resources {flex-direction: column;}
+      .resource-card {min-width: 0;}
+      .founder-card, .training-card {padding: 15px 12px;}
+      .hero {max-width: 98vw;}
+      .logo {max-width: 170px;}
+    }
+    @media(max-width:540px){
+      .main-wrapper{margin: 7px 0 0 0;}
+    }
+  </style>
 </head>
 <body>
-
-<!-- Logo -->
-<img class="logo" src="https://i.imgur.com/QDKQ6Fp.png" alt="Prevention Logo" onclick="window.location.href='index.html'">
-
-<!-- Navigation -->
-<div class="nav-column">
-  <h3>Quick Links</h3>
-  <a href="index.html">Home</a>
-  <a href="apply-to-be-an-angel.html">Apply to be an Angel</a>
-  <a href="self-help.html">Self-Help Videos</a>
-  <a href="success-stories.html">Recent Success Stories</a>
-  <a href="call-to-action.html">Call to Action</a>
-  <a href="prevention-pulse-flipbook.html">Read "The Prevention Pulse"</a>
-</div>
-
-<!-- Main container -->
-<div class="container">
-
-  <!-- Hero Banner -->
-  <img class="hero" src="https://i.imgur.com/rIeNOFe.png" alt="Prevention Banner">
-
-  <!-- Page Title -->
-  <h1>Apply to be an Angel</h1>
-
-  <!-- Founder Statement -->
-  <section class="section founder-card">
-    <h2>A Personal Message from Founder John-W. G.</h2>
-    <p>
-      “At Prevention Pulse, we believe that early intervention can save lives. As an Angel, your role is to provide guidance, empathy, and encouragement to those at risk. Every interaction you have, no matter how small, could make a life-changing difference.
-      <br><br>
-      This work requires dedication, patience, and a true desire to help. We welcome you to join us in building a world where individuals feel seen, supported, and safe. Together, we transform hope into action and create real impact every day.”
-    </p>
-  </section>
-
-  <!-- Training Materials Section -->
-  <section class="section training-card">
-    <h2>Training & Responsibilities</h2>
-    <p>
-      Upon approval as an Angel, comprehensive <strong>training materials</strong> will be provided to ensure you are fully prepared to support those in need. These materials will cover best practices in communication, privacy, crisis response, and guidance techniques. 
-      <br><br>
-      As an Angel, it is essential that you <strong>review all training materials thoroughly</strong> and adhere to the protocols outlined. Your duties include actively engaging with individuals in a safe, empathetic manner, maintaining confidentiality, and applying the guidance principles you learned. Consistent completion and understanding of training ensures that you are effective, responsible, and ready to make a meaningful impact in the lives of those reaching out for support.
-      <br><br>
-      This commitment guarantees that every Angel is equipped to provide compassionate, knowledgeable support while upholding the integrity and mission of Prevention Pulse.
-    </p>
-  </section>
-
-  <!-- Call-to-Action Button -->
-  <a class="button" href="#">Apply Now (Coming Soon)</a>
-
-  <!-- Resources -->
-  <div class="resources">
-    <h3>Helpful Resources</h3>
-    <a class="resource-card" href="https://www.nih.gov/health-information/mental-health" target="_blank">NIH: Benefits of Social Support</a>
-    <a class="resource-card" href="https://www.apa.org/topics/mental-health" target="_blank">APA: Talking About Mental Health</a>
-    <a class="resource-card" href="https://www.who.int/news-room/fact-sheets/detail/mental-health-strengthening-our-response" target="_blank">WHO: Mental Health & Wellbeing</a>
-    <a class="resource-card" href="https://www.nimh.nih.gov/health/topics/suicide-prevention" target="_blank">NIMH: Suicide Prevention</a>
+<!-- Toolbar -->
+<div class="top-toolbar">
+  <div class="hamburger" onclick="toggleMenu()"><div></div><div></div><div></div></div>
+  <div class="toolbar-links">
+    <a href="messages.html">Messages</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="resources.html">Resources</a>
+    <a href="notifications.html">Notifications</a>
+    <a href="profile.html">Profile / Settings</a>
+    <a href="faq.html">Help / FAQ</a>
   </div>
-
-  <!-- Footer -->
-  <footer>
-    If you are in immediate danger, please dial <strong>988</strong> (U.S.)
-  </footer>
-
 </div>
+<!-- Sign Up/Login -->
+<button class="signup-login-btn" onclick="openModal()">Sign Up / Login</button>
+
+<!-- Page content, properly spaced below toolbar -->
+<div class="main-wrapper">
+  <!-- Navigation -->
+  <div class="nav-column">
+    <h3>Quick Links</h3>
+    <a href="index.html">Home</a>
+    <a href="apply-to-be-an-angel.html" class="active">Apply to be an Angel</a>
+    <a href="self-help.html">Self-Help Videos</a>
+    <a href="success-stories.html">Recent Success Stories</a>
+    <a href="call-to-action.html">Call to Action</a>
+    <a href="prevention-pulse-flipbook.html">Read "The Prevention Pulse"</a>
+    <a href="faq.html">FAQ / Help</a>
+  </div>
+  <!-- Main content -->
+  <div class="content-column">
+    <!-- Logo -->
+    <img class="logo" src="https://i.imgur.com/QDKQ6Fp.png" alt="Prevention Logo" onclick="window.location.href='index.html'">
+    <!-- Hero Banner -->
+    <img class="hero" src="https://i.imgur.com/rIeNOFe.png" alt="Prevention Banner">
+    <!-- Page Title -->
+    <h1>Apply to be an Angel</h1>
+    <!-- Founder Statement -->
+    <section class="section founder-card">
+      <h2>A Personal Message from Founder John-W. G.</h2>
+      <p>
+        “At Prevention Pulse, we believe that early intervention can save lives. As an Angel, your role is to provide guidance, empathy, and encouragement to those at risk. Every interaction you have, no matter how small, could make a life-changing difference.
+        <br><br>
+        This work requires dedication, patience, and a true desire to help. We welcome you to join us in building a world where individuals feel seen, supported, and safe. Together, we transform hope into action and create real impact every day.”
+      </p>
+    </section>
+    <!-- Training Materials Section -->
+    <section class="section training-card">
+      <h2>Training & Responsibilities</h2>
+      <p>
+        Upon approval as an Angel, comprehensive <strong>training materials</strong> will be provided to ensure you are fully prepared to support those in need. These materials will cover best practices in communication, privacy, crisis response, and guidance techniques. 
+        <br><br>
+        As an Angel, it is essential that you <strong>review all training materials thoroughly</strong> and adhere to the protocols outlined. Your duties include actively engaging with individuals in a safe, empathetic manner, maintaining confidentiality, and applying the guidance principles you learned. Consistent completion and understanding of training ensures that you are effective, responsible, and ready to make a meaningful impact in the lives of those reaching out for support.
+        <br><br>
+        This commitment guarantees that every Angel is equipped to provide compassionate, knowledgeable support while upholding the integrity and mission of Prevention Pulse.
+      </p>
+    </section>
+    <!-- Call-to-Action Button -->
+    <a class="button" href="#">Apply Now (Coming Soon)</a>
+    <!-- Resources -->
+    <div class="resources">
+      <h3>Helpful Resources</h3>
+      <a class="resource-card" href="https://www.nih.gov/health-information/mental-health" target="_blank">NIH: Benefits of Social Support</a>
+      <a class="resource-card" href="https://www.apa.org/topics/mental-health" target="_blank">APA: Talking About Mental Health</a>
+      <a class="resource-card" href="https://www.who.int/news-room/fact-sheets/detail/mental-health-strengthening-our-response" target="_blank">WHO: Mental Health & Wellbeing</a>
+      <a class="resource-card" href="https://www.nimh.nih.gov/health/topics/suicide-prevention" target="_blank">NIMH: Suicide Prevention</a>
+    </div>
+    <!-- Footer -->
+    <footer>
+      If you are in immediate danger, please dial <strong>988</strong> (U.S.)
+    </footer>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal-bg" id="authModal">
+  <div class="modal-content">
+    <h2>Sign Up or Login</h2>
+    <p style="color:#425075; font-style:italic; margin-bottom:15px;">Coming Soon</p>
+    <input type="email" placeholder="Email" id="email"><br>
+    <input type="password" placeholder="Password" id="password"><br>
+    <button class="modal-btn login-btn" onclick="alert('Login functionality goes here')">Login</button>
+    <button class="modal-btn signup-btn" onclick="alert('Sign Up functionality goes here')">Sign Up</button>
+    <button class="modal-btn close-btn" onclick="closeModal()">Cancel</button>
+  </div>
+</div>
+<script>
+function openModal() { document.getElementById('authModal').style.display='block'; }
+function closeModal() { document.getElementById('authModal').style.display='none'; }
+window.onclick=function(event){if(event.target===document.getElementById('authModal')){closeModal();}}
+// Hamburger toggle
+function toggleMenu(){
+  document.querySelector('.top-toolbar .toolbar-links').classList.toggle('active');
+}
+</script>
 </body>
 </html>
-
-
