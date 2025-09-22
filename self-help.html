@@ -244,7 +244,6 @@
       object-fit: cover;
       transform: translate(-50%, -50%);
       border-radius: 15px;
-      background: #000;
     }
     #muteToggleBtn {
       position: absolute;
@@ -369,9 +368,10 @@
     <a href="notifications.html">Notifications</a>
     <a href="profile.html">Profile / Settings</a>
     <a href="faq.html">Help / FAQ</a>
-    <button class="signup-login-btn" onclick="openModal()">Sign Up / Login</button>
   </div>
 </div>
+<!-- Sign Up/Login -->
+<button class="signup-login-btn" onclick="openModal()">Sign Up / Login</button>
 
 <div class="main-wrapper">
   <!-- Navigation -->
@@ -389,7 +389,7 @@
   <div class="content-column">
     <!-- Hero Video -->
     <div class="hero-video-wrapper">
-      <video id="heroVideo" autoplay muted loop playsinline>
+      <video id="heroVideo" autoplay muted loop playsinline webkit-playsinline controls>
         <source src="https://www.dropbox.com/scl/fi/jnoprufvfatc7mx1le6wx/PREVENTION-PULSE-MOVIE.mp4?rlkey=oa1zwgwe9uz3f81bw79ae71wi&raw=1" type="video/mp4">
         Your browser does not support the video tag.
       </video>
@@ -473,6 +473,7 @@ const toggleBtn = document.getElementById("muteToggleBtn");
 toggleBtn.addEventListener("click", () => {
   video.muted = !video.muted;
   toggleBtn.textContent = video.muted ? "🔊 Unmute" : "🔇 Mute";
+  video.play();
 });
 </script>
 </body>
