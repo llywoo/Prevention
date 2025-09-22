@@ -71,14 +71,15 @@ body {
 .nav-column {
   flex: 0 0 200px;
   background:#e9f0f8;
-  padding:15px;
+  padding:20px;
   border-radius:8px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.1);
   height:fit-content;
   position:sticky;
   top:60px;
 }
 .nav-column h3 { margin-bottom:10px; }
-.nav-column a { display:block; margin:6px 0; color:#0077cc; text-decoration:none; font-weight:bold; }
+.nav-column a { display:block; margin:8px 0; color:#0077cc; text-decoration:none; font-weight:bold; }
 .nav-column a:hover { text-decoration:underline; }
 
 /* Content Column */
@@ -98,6 +99,7 @@ body {
   bottom:15px;
   right:15px;
   z-index:1001;
+  box-shadow:0 2px 6px rgba(0,0,0,0.3);
 }
 #muteBtn:hover { background:#005fa3; }
 
@@ -114,7 +116,7 @@ footer { text-align:center; margin:50px 0 20px 0; font-size:0.9em; color:#555; }
 /* Responsive */
 @media(max-width:768px){
   .main-wrapper{flex-direction:column;}
-  .nav-column{flex:none; width:100%; position:static;}
+  .nav-column{flex:none; width:100%; position:static; box-shadow:none; padding:15px;}
 }
 </style>
 </head>
@@ -220,8 +222,8 @@ footer { text-align:center; margin:50px 0 20px 0; font-size:0.9em; color:#555; }
 </div>
 
 <script>
-function openModal() { document.getElementById('authModal').style.display='block'; }
-function closeModal() { document.getElementById('authModal').style.display='none'; }
+function openModal(){document.getElementById('authModal').style.display='block';}
+function closeModal(){document.getElementById('authModal').style.display='none';}
 window.onclick=function(event){if(event.target===document.getElementById('authModal')){closeModal();}}
 
 // Mute toggle
