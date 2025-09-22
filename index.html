@@ -41,7 +41,7 @@
     /* Header/Nav */
     .top-toolbar {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
       background: rgba(0,102,255,0.92);
       color: #fff;
@@ -54,29 +54,13 @@
       padding: 0 28px;
       height: var(--header-height);
       font-family: 'Inter', Arial, sans-serif;
-    }
-    .logo-text {
-      font-family: 'Nunito', 'Inter', Arial, sans-serif;
-      font-weight: 900;
-      font-size: 1.45rem;
-      letter-spacing: 0.03em;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      gap: 0.38em;
-      text-shadow: 0 2px 16px rgba(0,0,0,.07);
-      user-select: none;
-    }
-    .logo-dot {
-      color: var(--brand-accent);
-      font-size: 2.1rem;
-      margin-top: -2px;
-      font-weight: 700;
+      gap: 0;
     }
     .top-toolbar .toolbar-links {
       display: flex; gap: 6px;
       align-items: center;
       transition: max-height var(--transition) ease;
+      margin-right: auto;
     }
     .top-toolbar a {
       color: #fff;
@@ -462,10 +446,6 @@
 
 <!-- Toolbar -->
 <div class="top-toolbar">
-  <div class="logo-text">
-    Prevention Pulse<span class="logo-dot">•</span>
-  </div>
-  <div class="hamburger" onclick="toggleMenu()"><div></div><div></div><div></div></div>
   <div class="toolbar-links">
     <a href="messages.html">Messages</a>
     <a href="dashboard.html">Dashboard</a>
@@ -474,6 +454,7 @@
     <a href="profile.html">Profile / Settings</a>
     <a href="faq.html">Help / FAQ</a>
   </div>
+  <div class="hamburger" onclick="toggleMenu()"><div></div><div></div><div></div></div>
 </div>
 
 <!-- Sign Up/Login -->
