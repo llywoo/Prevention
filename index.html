@@ -56,11 +56,24 @@
       font-family: 'Inter', Arial, sans-serif;
       gap: 0;
     }
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 28px; height: 22px;
+      cursor: pointer;
+      margin-right: 12px;
+    }
+    .hamburger div {
+      width: 100%; height: 4px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all var(--transition);
+    }
     .toolbar-links {
       display: flex;
       gap: 6px;
       align-items: center;
-      transition: max-height var(--transition) ease;
       margin-right: auto;
     }
     .toolbar-links a {
@@ -81,64 +94,6 @@
       transform: translateY(-2px) scale(1.06);
       text-shadow: 0 1px 10px #046c6a0d;
       box-shadow: 0 3px 12px var(--brand-accent-soft);
-    }
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      justify-content: space-around;
-      width: 32px; height: 26px;
-      cursor: pointer;
-      margin-left: 18px;
-      z-index: 3101;
-      background: none;
-      border: none;
-      padding: 0;
-    }
-    .hamburger:focus { outline: 2px solid #fff; }
-    .hamburger div {
-      width: 100%; height: 4px;
-      background: #fff;
-      border-radius: 2px;
-      transition: all var(--transition);
-    }
-    /* Hamburger mobile open */
-    @media (max-width: 768px) {
-      .toolbar-links {
-        flex-direction: column;
-        position: absolute;
-        top: var(--header-height);
-        left: 0;
-        width: 100vw;
-        background: var(--bg-toolbar);
-        z-index: 3000;
-        max-height: 0;
-        overflow: hidden;
-        box-shadow: 0 6px 24px #0002;
-        border-bottom-left-radius: var(--radius-sm);
-        border-bottom-right-radius: var(--radius-sm);
-        margin-right: 0;
-        transition: max-height 0.3s cubic-bezier(.47,1.64,.41,.8);
-      }
-      .toolbar-links.show {
-        max-height: 500px;
-        transition: max-height 0.3s cubic-bezier(.47,1.64,.41,.8);
-      }
-      .toolbar-links a {
-        width: 100vw;
-        text-align: left;
-        font-size: 1.12em;
-        padding: 14px 25px 14px 25px;
-        border-radius: 0;
-        border-bottom: 1px solid #2563eb33;
-      }
-      .hamburger {
-        display: flex;
-        margin-left: auto;
-      }
-    }
-    @media (min-width: 769px) {
-      .toolbar-links { position: static; max-height: none !important; background: none; box-shadow: none;}
-      .hamburger { display: none !important; }
     }
     /* Sign Up/Login Button */
     .signup-login-btn {
@@ -476,6 +431,7 @@
 
 <!-- Toolbar -->
 <div class="top-toolbar">
+  <div class="hamburger"><div></div><div></div><div></div></div>
   <div class="toolbar-links">
     <a href="messages.html">Messages</a>
     <a href="dashboard.html">Dashboard</a>
@@ -484,9 +440,6 @@
     <a href="profile.html">Profile / Settings</a>
     <a href="faq.html">Help / FAQ</a>
   </div>
-  <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mainMenu">
-    <div></div><div></div><div></div>
-  </button>
 </div>
 
 <!-- Sign Up/Login -->
@@ -622,20 +575,6 @@ window.onclick=function(event){if(event.target===document.getElementById('authMo
 const video=document.getElementById('heroVideo');
 const muteBtn=document.getElementById('muteBtn');
 muteBtn.addEventListener('click',()=>{if(video.muted){video.muted=false; muteBtn.textContent='Mute';}else{video.muted=true; muteBtn.textContent='Unmute';}});
-// Hamburger toggle
-const hamburger = document.getElementById('hamburgerBtn');
-const links = document.querySelector('.toolbar-links');
-hamburger.addEventListener('click', function() {
-  links.classList.toggle('show');
-  hamburger.setAttribute('aria-expanded', links.classList.contains('show'));
-});
-// Close hamburger menu when clicking outside (mobile)
-window.addEventListener('click', function(e) {
-  if(window.innerWidth <= 768 && !links.contains(e.target) && !hamburger.contains(e.target)){
-    links.classList.remove('show');
-    hamburger.setAttribute('aria-expanded', 'false');
-  }
-});
 // FAQ Accordion
 const faqQuestions=document.querySelectorAll('.faq-question');
 faqQuestions.forEach(q=>{
