@@ -137,7 +137,24 @@
     }
     /* Sign Up/Login Button */
     .signup-login-btn {
-      display: none; /* Removed the floating button completely */
+      position: fixed; top:13px; right:32px;
+      padding: 10px 27px;
+      background: var(--brand-accent);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      z-index: 3100;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      font-size: 1em;
+      box-shadow: 0 3px 12px var(--brand-accent-soft);
+      transition: background var(--transition), box-shadow var(--transition);
+    }
+    .signup-login-btn:hover {
+      background: var(--brand-primary-dark);
+      color: #fff;
+      box-shadow: 0 6px 22px #28c9b455;
     }
     /* Main layout */
     .main-wrapper {
@@ -353,10 +370,9 @@
     <a href="notifications.html">Notifications</a>
     <a href="profile.html">Profile / Settings</a>
     <a href="faq.html">Help / FAQ</a>
+    <button class="signup-login-btn" onclick="openModal()">Sign Up / Login</button>
   </div>
 </div>
-<!-- Sign Up/Login (floating/duplicate button removed by setting display: none above) -->
-<button class="signup-login-btn" onclick="openModal()">Sign Up / Login</button>
 
 <!-- Page content, properly spaced below toolbar -->
 <div class="main-wrapper">
