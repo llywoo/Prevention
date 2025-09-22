@@ -49,7 +49,24 @@ body {
   padding-top: 50px;
   margin:0;
   font-family:'Segoe UI', Arial, sans-serif;
+  /* Gradient + subtle diagonal lines pattern */
   background: linear-gradient(135deg, #f5f7fa 0%, #e0e7ff 100%);
+  position: relative;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255,255,255,0.05) 0,
+    rgba(255,255,255,0.05) 1px,
+    transparent 1px,
+    transparent 20px
+  );
+  pointer-events: none;
+  z-index:0;
 }
 
 /* Sign Up/Login */
@@ -66,7 +83,7 @@ body {
 .close-btn { background-color:#ccc; color:#333; } .close-btn:hover{background-color:#999;}
 
 /* Layout: Navigation + Content */
-.main-wrapper { display:flex; width:100%; max-width:1200px; margin:20px auto; gap:20px; }
+.main-wrapper { display:flex; width:100%; max-width:1200px; margin:20px auto; gap:20px; position:relative; z-index:1; }
 .nav-column {
   flex: 0 0 200px;
   background:#e9f0f8;
