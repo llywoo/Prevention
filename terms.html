@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prevention – Terms of Use & Privacy Policy</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body {
+  margin:0;
+  font-family:'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #dce8ff 100%);
+  padding-top:50px;
+}
+
+/* Toolbar */
+.top-toolbar {
+  display:flex; justify-content:space-between; align-items:center;
+  background: rgba(0,119,204,0.95); color:#fff;
+  position:fixed; top:0; left:0; width:100%; z-index:2000;
+  box-shadow:0 2px 6px rgba(0,0,0,0.2); padding:0 10px; height:50px;
+  backdrop-filter: blur(6px);
+}
+.top-toolbar .toolbar-links { display:flex; gap:10px; transition:max-height 0.3s; }
+.top-toolbar a { color:#fff; text-decoration:none; font-weight:bold; padding:8px 12px; border-radius:4px; }
+.top-toolbar a:hover { background:#005fa3; }
+
+/* Hamburger */
+.hamburger { display:none; flex-direction:column; justify-content:space-around; width:25px; height:20px; cursor:pointer; }
+.hamburger div { width:100%; height:3px; background:#fff; border-radius:2px; transition:all 0.3s; }
+
+/* Layout */
+.main-wrapper { display:flex; max-width:1200px; margin:20px auto; gap:20px; }
+.nav-column { flex:0 0 200px; background:rgba(233,240,248,0.8); padding:15px; border-radius:8px; position:sticky; top:60px; }
+.nav-column h3 { margin-bottom:10px; }
+.nav-column a { display:block; margin:6px 0; color:#0077cc; font-weight:bold; text-decoration:none; }
+.nav-column a:hover { text-decoration:underline; }
+.content-column { flex:1; display:flex; flex-direction:column; gap:20px; }
+
+/* Sections */
+.section { padding:20px; background:rgba(255,255,255,0.85); border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+.section h2 { margin-bottom:12px; }
+
+/* Footer */
+footer { text-align:center; margin:50px 0 20px 0; font-size:0.9em; color:#555; }
+.disclaimer { font-size:0.8em; color:#777; margin-top:15px; }
+
+/* Responsive */
+@media(max-width:768px){
+  .main-wrapper{flex-direction:column;}
+  .nav-column{width:100%; position:static;}
+  .hamburger{display:flex;}
+  .top-toolbar .toolbar-links{flex-direction:column; max-height:0; overflow:hidden; position:absolute; top:50px; left:0; width:100%; background: rgba(0,119,204,0.95);}
+  .top-toolbar .toolbar-links a{padding:12px 15px;}
+  .top-toolbar .toolbar-links.active{max-height:500px;}
+}
+</style>
+</head>
+<body>
+
+<!-- Toolbar -->
+<div class="top-toolbar">
+  <div class="hamburger" onclick="toggleMenu()"><div></div><div></div><div></div></div>
+  <div class="toolbar-links">
+    <a href="index.html">Home</a>
+    <a href="faq.html">FAQ</a>
+    <a href="dashboard.html">Dashboard</a>
+  </div>
+</div>
+
+<div class="main-wrapper">
+  <div class="nav-column">
+    <h3>Quick Links</h3>
+    <a href="index.html">Home</a>
+    <a href="faq.html">FAQ / Help</a>
+    <a href="contact.html">Contact Us</a>
+  </div>
+
+  <div class="content-column">
+    <div class="section">
+      <h1>Terms of Use & Privacy Policy</h1>
+      <p>Welcome to Prevention. By using this platform, you agree to comply with the following terms and conditions. Please read them carefully.</p>
+    </div>
+
+    <div class="section">
+      <h2>1. Acceptance of Terms</h2>
+      <p>By accessing or using this platform, you agree to be legally bound by these Terms of Use, Privacy Policy, and all applicable laws. If you do not agree, do not use the platform.</p>
+    </div>
+
+    <div class="section">
+      <h2>2. Eligibility</h2>
+      <p>Users must be at least 13 years old (or the minimum age in their country). If under 18, parental or guardian consent is required. By using the platform, you confirm your eligibility.</p>
+    </div>
+
+    <div class="section">
+      <h2>3. Privacy & Data Protection</h2>
+      <ul>
+        <li>All personal data is collected and processed in accordance with international privacy standards (including GDPR, CCPA).</li>
+        <li>Anonymous messaging is maintained, but in cases of imminent risk or legal obligations, identity may be disclosed to authorities.</li>
+        <li>Cookies and tracking technologies may be used to enhance experience. Users may disable cookies in browser settings.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>4. User Responsibilities</h2>
+      <ul>
+        <li>Do not post threats, illegal content, or misuse the platform.</li>
+        <li>Respect privacy and consent of other users and volunteers.</li>
+        <li>Seek professional help when needed; this platform is not a substitute for medical or emergency services.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>5. Volunteer (“Angel”) Conduct</h2>
+      <p>All volunteers undergo training and screening. Volunteers act as support guides only and are not liable for user decisions. Misconduct will be reported and removed immediately.</p>
+    </div>
+
+    <div class="section">
+      <h2>6. Limitation of Liability</h2>
+      <p>The organization, its officers, employees, and volunteers are not liable for any direct, indirect, incidental, or consequential damages arising from the use of the platform. Use at your own risk.</p>
+    </div>
+
+    <div class="section">
+      <h2>7. Indemnity</h2>
+      <p>You agree to indemnify and hold harmless the organization, its affiliates, and volunteers from any claims, damages, or expenses arising from your use of the platform, violation of terms, or infringement of rights.</p>
+    </div>
+
+    <div class="section">
+      <h2>8. International Users</h2>
+      <p>Use of this platform may be subject to local laws. By using the service internationally, you agree to comply with all applicable regulations. We do not guarantee compliance with every country’s laws.</p>
+    </div>
+
+    <div class="section">
+      <h2>9. Termination</h2>
+      <p>We reserve the right to suspend or terminate accounts violating these terms or engaging in harmful activity. Termination may occur without prior notice to protect users and the platform.</p>
+    </div>
+
+    <div class="section">
+      <h2>10. Intellectual Property</h2>
+      <p>All content, logos, videos, and materials are owned by the platform or licensed. Users may not copy, distribute, or modify content without explicit permission.</p>
+    </div>
+
+    <div class="section">
+      <h2>11. Modifications</h2>
+      <p>We may modify these Terms and Privacy Policy at any time. Continued use of the platform constitutes acceptance of changes. Updated terms are posted on this page.</p>
+    </div>
+
+    <div class="section">
+      <h2>12. Governing Law</h2>
+      <p>These terms are governed by the laws of the United States and applicable international regulations where relevant. Disputes will be resolved in competent courts of the organization’s primary location, except where prohibited by local law.</p>
+    </div>
+
+    <div class="section">
+      <h2>13. Contact Information</h2>
+      <p>Questions about these Terms or Privacy Policy can be directed to <a href="mailto:legal@prevention.org">legal@prevention.org</a>.</p>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 Prevention. All rights reserved.</p>
+      <div class="disclaimer">
+        By using this site, you acknowledge and accept these Terms of Use and Privacy Policy.
+      </div>
+    </footer>
+  </div>
+</div>
+
+<script>
+function toggleMenu(){
+  document.querySelector('.top-toolbar .toolbar-links').classList.toggle('active');
+}
+</script>
+
+</body>
+</html>
